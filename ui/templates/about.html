@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Cool App</title>
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    
+    <!-- scripts -->
+    <script data-main="../js/main" src="../js/require.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZALOy001opNrj_KlVRJzCfW9DMnCAzKU"></script>
+
+
+    <!-- styles -->
+    <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../style/main.css" type="text/css" />
+     
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+  </head>
+  <body class="page-about">
+
+
+<!--(bake includes/header.html bodyclass="page-about")-->
+<!--body page about-->
+    <header class="main--header"> 
+      <nav class="main--nav">
+        <div class="main--nav-wrapper">
+          <a href="#" class="main--nav-trigger">
+            <span></span><span></span><span></span>
+          </a>
+          <ul class="main--nav-target">
+            <li><a href="index.html">Blog Feed</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        
+          <div class="logo">
+            <span>The Berlin Blog</span>
+          </div>
+        </div>
+      </nav>
+      
+      <div class="main--header-slideshow">
+
+      </div>
+    </header>
+    <div class="main-wrapper">
+
+      <main class="main" role="main">
+        <section class="posts">
+          <article>
+            <h1>Hallo there!</h1>
+        
+            
+            
+            <p>My name is Charlotte Holmen, I'm a web developer from Stockholm that currently lives in Berlin.
+            I started out this blog to try out some new features in web development, and at the same time I'll share some tips about Berlin.</p>
+
+            <h4>So what features does this webpage contain so far?</h4>
+            <p>
+            Well, first of all I made a mobile first responsive design, with a left swipe sensitive menu. So it fits most modern devices and browsers. I'm testing on iOS devices, so I haven't checked if there's any funny looking Android features. I do the design as I go and just try to keep it clean, modular and scalable. One thing I thought was fun working on is the Google Map that changes depending on what location I'm writing about.
+            </p>
+            
+            
+            <h4>For developers</h4>
+            <p>
+            If you are a developer it could be interesting to know that I'm using Grunt, Require JS, SASS and Django CMS based on python. The next step now is to figure out a way to include Angular in this situation. 
+            </p>
+
+            <p>
+            So that's what I'm working on right now. Enjoy reading!
+            </p>
+
+            <h4>Webpage features so far:</h4>
+            
+
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>SASS</li>
+              <li>Responsive</li>
+              <li>Mobile First</li>
+              <li>Bootstrap partials</li>
+              <li>Swipe sensitive</li>
+              <li>Jquery 2.1.1</li>
+              <li>Jquery Mobile 1.4.2</li>
+              <li>Ajax</li>
+              <li>Require JS</li>
+              <li>Angular JS</li>
+              <li>Lazy loading</li>
+              <li>IE9 support</li>
+              <li>SEO optimized</li>
+              <li>Google Analytics</li>
+              <li>Google Maps</li>
+              <li>Google Fonts</li>
+              <li>Grunt tasks: Watch, Concat, Uglify, JSHint, Sass</li>
+              <li>Accessible according to: <a href="http://a11yproject.com/checklist.html">Web Accessibility Checklist</a></li>
+            </ul>
+
+          <div class="" style="display:none;">
+              <h4>Kvar att göra</h4>
+            <ul>
+              <li>Lite basic styling - Baseline-grid?</li>
+              <li>Enklare bildspel</li>
+              <li>Swipe på mobilen</li>
+              <li>Ladda in inlägg med ajax</li>
+              <li>En blogg som lazyloadar bilder</li>
+              <li>Karta för varje blogginlägg eller en karta som följer när man åker</li>
+              <li><strong>SIST:</strong></li>
+              <li>Kolla browsers</li>
+              <li>Varning för IE8</li>
+              <li>Kolla igenom tillgänglighetslistan</li>
+            </ul>
+
+            <h4>Fundera på Angular...</h4>
+          </div>
+      
+          </article>
+        </section>
+
+        <aside class="aside">
+          <div class="myportrait">
+            <img src="../img/charlie.jpg" />
+          </div>
+        </aside>
+      </main>
+    </div>
+
+<!--(bake includes/header.html)-->
+
+
+  </body>
+</html>
