@@ -43,8 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'apps.post',
-    #'gallery',
-    #'slideshow',
+    'apps.slideshow',
     #'djangocms_file',
     #'djangocms_flash',
     #'djangocms_googlemap',

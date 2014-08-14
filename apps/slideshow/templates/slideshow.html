@@ -1,0 +1,3 @@
+{% for image in slideshow.picture_set.all %}
+    <img src="{{ image.image.url }}" alt="{{ image.description }}" />
+{% endfor %}

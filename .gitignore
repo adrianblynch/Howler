@@ -8,3 +8,5 @@ ui/node_modules
 ui/img
 
 Howler/settings.py
+
+static/uploads
