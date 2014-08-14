@@ -1,6 +1,6 @@
 env
 *.pyc
-staticfiles
+
 #db.sqlite3
 
 ui/.sass-cache
@@ -10,3 +10,4 @@ ui/img
 Howler/settings.py
 
 static/uploads
+static/media

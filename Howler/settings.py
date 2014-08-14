@@ -44,7 +44,7 @@ INSTALLED_APPS = (
 
     'apps.post',
     'apps.slideshow',
-    #'djangocms_file',
+    'djangocms_file',
     #'djangocms_flash',
     #'djangocms_googlemap',
     'djangocms_inherit',
@@ -57,7 +57,7 @@ INSTALLED_APPS = (
 
     'sorl.thumbnail',
     'filer',
-    #'easy_thumbnails',
+    'easy_thumbnails',
     'cms',  # django CMS itself
     'mptt',  # utilities for implementing a modified pre-order traversal tree
     'menus',  # helper for model independent hierarchical website navigation
@@ -67,6 +67,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',  # to enable messages framework (see :ref:`Enable messages <enable-messages>`)
 
 )
+SOUTH_MIGRATION_MODULES = {
+    'easy_thumbnails': 'easy_thumbnails.south_migrations',
+}
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -151,7 +155,12 @@ ALLOWED_HOSTS = ['*']
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'static/media/')
+MEDIA_URL = '/static/media/'
 
 STATICFILES_DIRS = (
+    os.path.join(PROJECT_PATH, 'static'),
+)
+MEDIAFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'static'),
 )
