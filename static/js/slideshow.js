@@ -121,7 +121,8 @@ define('slideshow', ['jquery'],
     	resetImages : function (direction) {	
     		var holder = slideshow.s.find('.slideshow-holder'),
     			i,
-    			images;
+    			images,
+    			htmlString = '';
 
 			if (direction == 'forward') {
 				slideshow.imagesArray.push(slideshow.imagesArray[0]);
@@ -131,10 +132,12 @@ define('slideshow', ['jquery'],
 				slideshow.imagesArray.pop();
 			}
 			
-			holder.empty();
 			for (i = 0; i < slideshow.imagesArray.length; i++) {
-				holder.html(holder.html() + slideshow.imagesArray[i][0].outerHTML);
+				var htmlString = htmlString + slideshow.imagesArray[i][0].outerHTML;
 			}
+
+			holder.html(htmlString);
+
 			images = $('img', holder);
 			images.css('width', (100 / slideshow.imagesArray.length) + '%');
 			slideshow.s.scrollLeft(slideshow.imageWidth());
