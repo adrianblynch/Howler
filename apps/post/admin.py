@@ -15,6 +15,7 @@ class SmallImageInline(admin.TabularInline):
 
 class PostsAdmin(admin.ModelAdmin):
 	list_display = ('title',)
+	ordering = ('-pub_date',)
 	prepopulated_fields = {'slug': ('title',)}
 	inlines = [LargeImageInline,MediumImageInline,SmallImageInline]
 

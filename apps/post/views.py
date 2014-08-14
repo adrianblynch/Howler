@@ -6,7 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def home(request):
-	posts = Post.objects.all().order_by('pk').reverse()
+	posts = Post.objects.all().order_by('pub_date').reverse()
 	paginator = Paginator(posts, 5)
 	page = request.GET.get('page')
 
