@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     devPath: '',
-    distPath: '../static/static/',
+    distPath: '../static/',
 
     concat: {
       options: {

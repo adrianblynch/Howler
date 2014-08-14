@@ -120,7 +120,7 @@ define('mapify', ['jquery'],
     				long: $(this).data('long'),
     				lat: $(this).data('lat'),
     				hex: $(this).data('hex'),
-    				title: $(this).find('h2').html()
+    				title: $(this).find('h2 a').html()
     			});
     		});
 		},
