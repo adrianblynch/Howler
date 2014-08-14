@@ -130,7 +130,7 @@ USE_TZ = True
 
 # Templates
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_PATH, "templates"),
+    os.path.join(PROJECT_PATH, "Howler/templates"),
 )
 
 CMS_TEMPLATES = (
@@ -159,5 +159,5 @@ STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(PROJECT_PATH, 'static'),
 )

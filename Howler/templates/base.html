@@ -1,0 +1,95 @@
+{% load cms_tags sekizai_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+
+
+<!--[if gt IE 8]>
+  <html lang="en" class="">
+<![endif]-->
+
+<!--[if lte IE 8]>
+  <html lang="en" class="oldbrowser">
+<![endif]-->
+
+
+  <head>
+    <meta charset="utf-8" />
+      <title>{% page_attribute "page_title" %}</title>
+      <meta name="viewport" content="width=device-width initial-scale=1">
+
+      <!-- styles -->
+      {% render_block "css" %}
+      <link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css" type="text/css" />
+      <link rel="icon" type="image/png" href="{{ STATIC_URL }}img/favicon-32-32.png" />
+       
+      <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+
+      
+  </head>
+
+
+
+  <body class="{% block body_class %}{% endblock %}">
+      {% cms_toolbar %}
+      <header class="main--header" role="banner">
+        <nav class="main--nav">
+          <div class="main--nav-wrapper">
+            <a href="#" class="main--nav-trigger">Open main nav
+              <span></span><span></span><span></span>
+            </a>
+
+            {% load menu_tags %}
+
+            <ul class="main--nav-target">
+              {% show_menu 0 100 100 100 %}
+
+            </ul>
+          
+            <div class="logo">
+              <span>Howler</span>
+            </div>
+          </div>
+        </nav>
+
+        <div class="alert-message">
+          <div class="alert-message--inside oldbrowser-message">
+            <p>You are surfing from an old version of Internet Explorer. Please upgrade for a better user experience!</p>
+          </div>
+        </div>
+        <div class="slideshow-wrapper">
+          <div class="main--header-slideshow slideshow">
+            <div class="slideshow-holder">
+              {% placeholder slideshow %}
+            </div>
+          </div>
+        </div>
+        
+      </header>
+      <div class="main-wrapper">
+        <main class="main" role="main">
+          {% placeholder base_content %}
+          {% block base_content %}{% endblock %}
+        </main>
+      </div>
+
+      
+      {% render_block "js" %}
+        <!-- scripts -->
+
+
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZALOy001opNrj_KlVRJzCfW9DMnCAzKU"></script>
+      <script data-main="{{ STATIC_URL }}js/main" src="{{ STATIC_URL }}js/require.js"></script>
+      
+  </body>
+
+
+
+
+
+</html>

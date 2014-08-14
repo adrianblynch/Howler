@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% block body_class %}page-about{% endblock %}
+
+{% block base_content %}
+
+	<section class="posts">
+		<article>
+			{% placeholder text %}
+		</article>
+	</section>
+
+	<aside class="aside" role="complementary">
+		{% placeholder aside-image %}
+	</aside>
+
+
+{% endblock %}
