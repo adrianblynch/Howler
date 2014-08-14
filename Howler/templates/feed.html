@@ -10,9 +10,9 @@
 
 	{% for post in posts %}
 		
-		<article id="{{ post.title }}" class="post" data-long="{{ post.longitude }}" data-lat="{{ post.latitude }}" role="article">
+		<article id="{{ post.slug }}" class="post" data-long="{{ post.longitude }}" data-lat="{{ post.latitude }}" data-hex="{{ post.hexcode }}" role="article">
 			{% with "http://"|add:request.get_host as path %}
-			<h2><a  href="{{ path }}#{{ post.title }}">{{ post.title }}</a></h2>
+			<h2><a  href="{{ path }}#{{ post.slug }}">{{ post.title }}</a></h2>
 			{% endwith %}
 			{{ post.content|safe }}
 
