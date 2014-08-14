@@ -344,11 +344,14 @@ aside {
 .images {
 	padding:20px 0;
 	background:white;
-		overflow: hidden;
-		position: relative;
-		z-index: 10;
+	overflow: hidden;
+	position: relative;
+	z-index: 10;
+	width:100%;
 
 	&-row {
+
+
 
 		img {
 			float:left;
@@ -463,6 +466,9 @@ aside {
 	}
 	.slideshow {
 		height:300px;
+	}
+	.images {
+		width:68%;
 	}
 
 

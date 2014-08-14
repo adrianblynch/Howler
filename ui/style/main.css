@@ -538,6 +538,7 @@ aside.loading {
   overflow: hidden;
   position: relative;
   z-index: 10;
+  width: 100%;
 }
 .images-row img {
   float: left;
@@ -625,6 +626,10 @@ aside.loading {
 
   .slideshow {
     height: 300px;
+  }
+
+  .images {
+    width: 68%;
   }
 }
 /*  Large Desktop */
