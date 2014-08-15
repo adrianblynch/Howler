@@ -21,10 +21,6 @@ module.exports = function(grunt) {
         src: ['js/mapify.js'],
         dest: '<%= distPath %>js/mapify.js'
       },
-      mainmenu: {
-        src: ['js/main-menu.js'],
-        dest: '<%= distPath %>js/main-menu.js'
-      },
       ajaxloader: {
         src: ['js/ajaxloader.js'],
         dest: '<%= distPath %>js/ajaxloader.js'
@@ -32,6 +28,10 @@ module.exports = function(grunt) {
       lazyload: {
         src: ['js/lazyload.js'],
         dest: '<%= distPath %>js/lazyload.js'
+      },
+      activify: {
+        src: ['js/activify.js'],
+        dest: '<%= distPath %>js/activify.js'
       }
     },
 

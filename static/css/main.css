@@ -493,7 +493,7 @@ button:focus, button:active,
   opacity: 1;
 }
 
-aside {
+.aside {
   position: fixed;
   top: 140px;
   right: 4.1%;
@@ -505,9 +505,63 @@ aside {
   display: none;
   visibility: visible;
   transition: visibility 1s;
+  transition: width 1s;
 }
-aside.loading {
+.aside.loading {
   visibility: hidden;
+}
+.aside.active {
+  width: 92%;
+  z-index: 20;
+}
+.aside.active .aside--trigger:before, .aside.active .aside--trigger:after {
+  height: 11px;
+  width: 3px;
+  background: #ccc;
+  display: block;
+  content: '';
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 5px;
+  left: 8px;
+}
+.aside.active .aside--trigger:after {
+  -ms-transform: rotate(-45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-45deg);
+}
+.aside--trigger {
+  border: 1px solid #eee;
+  height: 21px;
+  width: 17px;
+  border-radius: 5px 0 0 5px;
+  position: absolute;
+  top: 45%;
+  left: -17px;
+  background: white;
+  border-right: 1px solid white;
+  display: block;
+}
+.aside--trigger:before, .aside--trigger:after {
+  height: 8px;
+  width: 8px;
+  background: #ccc;
+  display: block;
+  content: '';
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+.aside--trigger:after {
+  background: white;
+  left: 10px;
 }
 
 .mymap,
@@ -545,6 +599,10 @@ aside.loading {
   width: 100%;
   margin-right: 0;
   margin-bottom: 2%;
+  border: 1px solid #eee;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 .images-row.two img {
   width: 49%;
@@ -666,6 +724,9 @@ aside.loading {
   .aside {
     right: 12.1%;
     width: 20%;
+  }
+  .aside.active {
+    width: 76%;
   }
 
   .mymap {

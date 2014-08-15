@@ -1,6 +1,6 @@
-define(['jquery', 'slideshow', 'mapify', 'main-menu', 'ajaxloader', 'lazyload'],
+define(['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
 
-    function ($, Slideshow, Mapify, MainMenu, Ajaxloader, Lazyload) {
+    function ($, Slideshow, Mapify, Activify, Ajaxloader, Lazyload) {
     'use strict';
 
 	var main = {
@@ -12,7 +12,7 @@ define(['jquery', 'slideshow', 'mapify', 'main-menu', 'ajaxloader', 'lazyload'],
 
 		initApps : function () {
 			Slideshow.start();
-			MainMenu.start();
+			Activify.start();
 			Ajaxloader.start();
 			Lazyload.start();
 			Mapify.start();
