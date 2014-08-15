@@ -157,10 +157,17 @@ define('mapify', ['jquery'],
     		});
 		},
 
+		activify : function () {
+			
+			setTimeout(function(){mapify.initMap()}, 1200);
+			
+		},
+
 		start : function () {
 
 			if ($('.mymap').length) {
 				mapify.initMap();
+				mapify.activify();
 				
 			}
 		}

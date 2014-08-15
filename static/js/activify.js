@@ -9,6 +9,9 @@ define('activify', ['jquery', 'mapify'],
 			trigger.bind('click', function (e) {
 				e.preventDefault();
 				activify();
+				if (keyword === 'initmap') {
+					Mapify.activify();
+				}
 			});
 
 			function activify() {
@@ -16,10 +19,8 @@ define('activify', ['jquery', 'mapify'],
 					target.removeClass('active');
 				} else {
 					target.addClass('active');
-					if (keyword === 'map') {
-						Mapify.activify();
-					}
 				}
+				
 			}		
 		},
 
@@ -29,8 +30,7 @@ define('activify', ['jquery', 'mapify'],
 			}
 
 			if ($('.aside--trigger').length) {
-
-				this.setup($('.aside--trigger'), $('.aside--target'), 'map');
+				this.setup($('.aside--trigger'), $('.aside--target'), 'initmap');
 			}
 		}
 
