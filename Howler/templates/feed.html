@@ -9,25 +9,58 @@
 	{% load thumbnail %}
 
 	{% for post in posts %}
-		<h2><a  href="{{ path }}#{{ post.slug }}">{{ post.title }}</a></h2>
-		{% if post.largeimage_set.all %}
-				<!-- One in a row -->
-				<div class="images-row">
+		
+		<article id="{{ post.slug }}" class="post" data-long="{{ post.longitude }}" data-lat="{{ post.latitude }}" data-hex="{{ post.hexcode }}" role="article">
+			{% with "http://"|add:request.get_host as path %}
+			<h2><a  href="{{ path }}#{{ post.slug }}">{{ post.title }}</a></h2>
+			{% endwith %}
+			{{ post.content|safe }}
+
+			{% if post.largeimage_set.all or post.mediumimage_set.all or post.smallimage_set.all%}
+			<div class="images">
+
+				
 				{% if post.largeimage_set.all %}
 				<!-- One in a row -->
 				<div class="images-row">
 				{% for image in post.largeimage_set.all  %}
 				
 					{% with "http://"|add:request.get_host|add:image.image1.url as path %}
-					{% thumbnail path "750x350" crop="center" as im %}
-						<img class="lazy" src="img.jpg" alt="" data-src="{{ im.url }}" >
-					{% endthumbnail %}
+						<img class="lazy" src="{{ STATIC_URL }}img/dummy-750x350.jpg" alt="" data-src="{{ path }}" >
 					{% endwith %}
 
 				{% endfor %}
 				</div>
 				{% endif %}
+
+				{% if post.mediumimage_set.all %}
+				<!-- Two in a row -->
+				<div class="images-row two">
+				{% for image in post.mediumimage_set.all  %}
+					{% with "http://"|add:request.get_host|add:image.image2.url as path %}
+						<img class="lazy" src="{{ STATIC_URL }}img/dummy-350x250.jpg" alt="" data-src="{{ path }}">
+					{% endwith %}
+				{% endfor %}
+				</div>
+				{% endif %}
+
+
+				{% if post.smallimage_set.all %}
+				<!-- Three in a row -->
+				<div class="images-row three">
+				{% for image in post.smallimage_set.all  %}
+
+					{% with "http://"|add:request.get_host|add:image.image3.url as path %}
+						<img class="lazy" src="{{ STATIC_URL }}img/dummy-250x250.jpg" alt="" data-src="{{ path }}">
+					{% endwith %}
+				{% endfor %}
+				</div>
+				{% endif %}
+
+			</div><!--images-->
 			{% endif %}
+
+		</article>
 	{% endfor %}
 
 
