@@ -172,12 +172,12 @@ button,
 
 
 .slideshow-wrapper {
-	height:145px;
+	height:205px;
 	overflow: hidden;
 }
 
 .slideshow {
-	height:160px;
+	height:220px;
 	width:100%;
 	overflow-y: hidden;
 	overflow-x: scroll;
@@ -302,7 +302,7 @@ button,
 
 aside {
 	position: fixed;
-	top: 100px;
+	top: 140px;
 	right: 4.1%;
 	border:1px solid #eee;
 	border-radius: 10px;
@@ -321,7 +321,7 @@ aside {
 .mymap,
 .aside .plugin_picture {
 	display: block;
-	height: 300px;
+	height: 340px;
 	width: 100%;
 	border-radius: 10px;
 	border:5px solid white;
@@ -420,10 +420,10 @@ aside {
 /*  Phone Landscape */
 @media (min-width: 480px) {
 	.slideshow-wrapper {
-		height:185px;
+		height:245px;
 	}
 	.slideshow {
-		height:200px;
+		height:260px;
 	}
 
 	.posts {
@@ -448,10 +448,10 @@ aside {
 		left:-270px;
 	}
 	.slideshow-wrapper {
-		height:235px;
+		height:315px;
 	}
 	.slideshow {
-		height:250px;
+		height:330px;
 	}
 }
 
@@ -462,10 +462,10 @@ aside {
 
 	}
 	.slideshow-wrapper {
-		height:285px;
+		height:345px;
 	}
 	.slideshow {
-		height:300px;
+		height:360px;
 	}
 	.images {
 		width:68%;
@@ -489,14 +489,14 @@ aside {
 		}
 
 		position:relative;
-		top:-90px;
+		top:-120px;
 		border:1px solid #ccc;
 	}
 	.slideshow-wrapper {
-		height:385px;
+		height:465px;
 	}
 	.slideshow {
-		height:400px;
+		height:480px;
 	}
 	.alert-message--inside {
 		padding:2%;
@@ -505,6 +505,9 @@ aside {
 	.aside {
 		right: 12.1%;
 		width: 20%;
+	}
+	.mymap {
+		height:380px;
 	}
 }
 

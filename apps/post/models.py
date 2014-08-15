@@ -22,19 +22,19 @@ class Post(models.Model):
 
 class LargeImage(models.Model):
 	post = models.ForeignKey(Post)
-	image1 =  ImageField(upload_to='blogimages', verbose_name="Image 1 in a row (1000 x 360)")
+	image1 =  ImageField(upload_to='blogimages', verbose_name="Image 1 in a row (750 x 350)")
 	def __unicode__(self):
 		return self.image1
 
 class MediumImage(models.Model):
 	post = models.ForeignKey(Post)
-	image2 =  ImageField(upload_to='blogimages', verbose_name="Image 2 in a row (475 x 360)")
+	image2 =  ImageField(upload_to='blogimages', verbose_name="Image 2 in a row (350 x 250)")
 	def __unicode__(self):
 		return self.image2
 
 class SmallImage(models.Model):
 	post = models.ForeignKey(Post)
-	image3 =  ImageField(upload_to='blogimages', verbose_name="Image 3 in a row (310 x 310)")
+	image3 =  ImageField(upload_to='blogimages', verbose_name="Image 3 in a row (250 x 250)")
 	def __unicode__(self):
 		return self.image3
 
