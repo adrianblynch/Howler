@@ -490,6 +490,7 @@ button:focus, button:active,
 }
 .js .lazy.loaded {
   transition: opacity 1s;
+  -webkit-transition: opacity 1s;
   opacity: 1;
 }
 
@@ -506,6 +507,8 @@ button:focus, button:active,
   visibility: visible;
   transition: visibility 1s;
   transition: width 1s;
+  -webkit-transition: visibility 1s;
+  -webkit-transition: width 1s;
 }
 .aside.loading {
   visibility: hidden;

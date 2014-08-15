@@ -1,10 +1,10 @@
-define('activify', ['jquery'], 
-	function ($) {
+define('activify', ['jquery', 'mapify'], 
+	function ($, Mapify) {
 	'use strict';
 
     var activify = {
 
-    	setup : function (trigger, target) {
+    	setup : function (trigger, target, keyword) {
 				
 			trigger.bind('click', function (e) {
 				e.preventDefault();
@@ -16,6 +16,9 @@ define('activify', ['jquery'],
 					target.removeClass('active');
 				} else {
 					target.addClass('active');
+					if (keyword === 'map') {
+						Mapify.activify();
+					}
 				}
 			}		
 		},
@@ -26,7 +29,8 @@ define('activify', ['jquery'],
 			}
 
 			if ($('.aside--trigger').length) {
-				this.setup($('.aside--trigger'), $('.aside--target'));
+
+				this.setup($('.aside--trigger'), $('.aside--target'), 'map');
 			}
 		}
 

@@ -132,31 +132,22 @@ define('mapify', ['jquery'],
 				currentScrollY = $(window)[0].scrollY,
 				i;
 
-
-
 			$(window).bind('scroll.mapify', function () {
     			if (currentScrollY < $(window)[0].scrollY) {
     				for (i = 0; i < ths.postsArray.length; i ++) {
     					if ($(window)[0].scrollY > (ths.postsArray[i].top - 500) && !ths.postsArray[i].obj.hasClass('mapify')) {
 							ths.postsArray[i].obj.addClass('mapify');
-							if (ths.postsArray[i].long !== '') {
-								mapify.setNewPlace(ths.postsArray[i].long, ths.postsArray[i].lat, ths.postsArray[i].title);
-								if (ths.postsArray[i].hex !== '') {
-    								mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
-    							}
-							}
+							mapify.setNewPlace(ths.postsArray[i].long, ths.postsArray[i].lat, ths.postsArray[i].title);
+							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
     					}
     				}
     			} else if (currentScrollY > $(window)[0].scrollY) {
     				for (i = 0; i < ths.postsArray.length; i ++) {
     					if ($(window)[0].scrollY < (ths.postsArray[i].top - mapHolder.height()) && ths.postsArray[i].obj.hasClass('mapify')) {
     						ths.postsArray[i].obj.removeClass('mapify');	
-    						if (i > 0 && ths.postsArray[i-1].long !== ''){
+    						if (i > 0){
     							mapify.setNewPlace(ths.postsArray[i-1].long, ths.postsArray[i-1].lat, ths.postsArray[i-1].title);
-    							if (ths.postsArray[i-1].hex !== '') {
-    								mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i-1].hex)});
-    							}
-    							
+    							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
     						} 
     					}
     				}

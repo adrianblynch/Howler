@@ -295,6 +295,7 @@ button,
 		opacity: 0;
 		&.loaded {
 			transition: opacity 1s;
+			-webkit-transition: opacity 1s;
 			opacity: 1;
 		}
 	}
@@ -313,6 +314,8 @@ button,
 	visibility: visible;
 	transition: visibility 1s;
 	transition: width 1s;
+	-webkit-transition: visibility 1s;
+	-webkit-transition: width 1s;
 
 	&.loading {
 		visibility: hidden;
