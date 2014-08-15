@@ -19,7 +19,8 @@
 				<br>
 					{% with "http://"|add:request.get_host|add:image.image1.url as path %}
 					
-						{{ path }}<br>
+						<img src="{{ path }}">
+						<br>
 					{% endwith %}
 
 				{% endfor %}
