@@ -141,7 +141,9 @@ define('mapify', ['jquery'],
 							ths.postsArray[i].obj.addClass('mapify');
 							if (ths.postsArray[i].long !== '') {
 								mapify.setNewPlace(ths.postsArray[i].long, ths.postsArray[i].lat, ths.postsArray[i].title);
-								mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
+								if (ths.postsArray[i].hex !== '') {
+    								mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
+    							}
 							}
     					}
     				}
@@ -151,7 +153,10 @@ define('mapify', ['jquery'],
     						ths.postsArray[i].obj.removeClass('mapify');	
     						if (i > 0 && ths.postsArray[i-1].long !== ''){
     							mapify.setNewPlace(ths.postsArray[i-1].long, ths.postsArray[i-1].lat, ths.postsArray[i-1].title);
-    							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
+    							if (ths.postsArray[i-1].hex !== '') {
+    								mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i-1].hex)});
+    							}
+    							
     						} 
     					}
     				}
