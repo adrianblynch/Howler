@@ -13,17 +13,20 @@
 		{% if post.largeimage_set.all %}
 				<!-- One in a row -->
 				<div class="images-row">
+				{% if post.largeimage_set.all %}
+				<!-- One in a row -->
+				<div class="images-row">
 				{% for image in post.largeimage_set.all  %}
-
-				{{ image.image1.url }}
-				<br>
+				
 					{% with "http://"|add:request.get_host|add:image.image1.url as path %}
-					
-						<img src="{{ path }}">
-						<br>
+					{% thumbnail path "750x350" crop="center" as im %}
+						<img class="lazy" src="img.jpg" alt="" data-src="{{ im.url }}" >
+					{% endthumbnail %}
 					{% endwith %}
 
 				{% endfor %}
+				</div>
+				{% endif %}
 			{% endif %}
 	{% endfor %}
 
