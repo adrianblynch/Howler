@@ -8,6 +8,10 @@
 
 	{% load thumbnail %}
 
+		<article class="post">
+			{% placeholder text %}
+		</article>
+
 	{% for post in posts %}
 		
 		<article id="{{ post.slug }}" class="post" data-long="{{ post.longitude }}" data-lat="{{ post.latitude }}" data-hex="{{ post.hexcode }}" role="article">
