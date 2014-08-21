@@ -214,6 +214,7 @@ button,
 		
 	}
 	.arrow-back {
+		text-indent: -9999px;
 			&:before {
 				left:14px;
 			}
@@ -223,6 +224,7 @@ button,
 		}
 
 	.arrow-forward {
+		text-indent: -9999px;
 		right:100px;
 		left:auto;
 	}
@@ -322,6 +324,7 @@ button,
 			width: 100%;
 			
 			&--image {
+				text-indent: -9999px;
 				background: url("../img/ajax-loader.gif") no-repeat center;
 				height: 32px;
 				top: -15px;

@@ -420,6 +420,9 @@ button:focus, button:active,
   background: black;
   left: 6px;
 }
+.slideshow-wrapper .arrow-back {
+  text-indent: -9999px;
+}
 .slideshow-wrapper .arrow-back:before {
   left: 14px;
 }
@@ -427,6 +430,7 @@ button:focus, button:active,
   left: 19px;
 }
 .slideshow-wrapper .arrow-forward {
+  text-indent: -9999px;
   right: 100px;
   left: auto;
 }
@@ -508,6 +512,7 @@ button:focus, button:active,
   width: 100%;
 }
 .posts--pagination .ajax-loader--image {
+  text-indent: -9999px;
   background: url("../img/ajax-loader.gif") no-repeat center;
   height: 32px;
   top: -15px;

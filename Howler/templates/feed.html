@@ -73,7 +73,7 @@
 
 				{% if posts.has_next %}
 				<div class="ajax-loader" data-url="?page={{ posts.next_page_number }}" data-holder="#posts-holder" data-populateholder="#posts-holder">
-					<div class="ajax-loader--image"></div>
+					<a href="#" class="ajax-loader--image">load more posts</a>
 				</div>
 				{% endif %}
 

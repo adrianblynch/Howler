@@ -59,11 +59,21 @@ define('ajaxloader', ['jquery', 'init', 'lazyload', 'mapify', 'main'],
 			});
 		},
 
+		accessability : function () {
+			$('.ajax-loader--image').bind('click', function (e){
+				e.preventDefault();
+				window.scrollTo(0,document.body.scrollHeight);
+			});
+		},
+
 		start : function () {
 			if ($('.posts--pagination').length) {
 				this.setup();
 				this.scroll();
+				this.accessability();
 			}
+
+
 		}		
 	};
 
