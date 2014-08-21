@@ -32,6 +32,10 @@ module.exports = function(grunt) {
       activify: {
         src: ['js/activify.js'],
         dest: '<%= distPath %>js/activify.js'
+      },
+      init: {
+        src: ['js/init.js'],
+        dest: '<%= distPath %>js/init.js'
       }
     },
 

@@ -1,6 +1,6 @@
-define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
+define('ajaxloader', ['jquery', 'init', 'lazyload', 'mapify', 'main'],
 
-	function ($, Lazyload, Mapify) {
+	function ($, Init, Lazyload, Mapify, Main) {
 
 	'use strict';
 
@@ -36,6 +36,7 @@ define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
 		loadPosts : function () {
 			var loaderData = ajaxloader.loaderDiv.data(),
 				holder = loaderData.holder,
+				populateholder = loaderData.populateholder,
 				url = loaderData.url,
 				currentPagination = ajaxloader.loaderDiv.parents('.posts--pagination'),
 				posts;
@@ -46,13 +47,14 @@ define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
 				success: function(data){
 
 					posts = $(data).find(holder).html();
-					$(holder).append(posts);
+					$(populateholder).append(posts);
 					currentPagination.remove();
-					ajaxloader.start();
 
-					//Bind posts functions
-					Lazyload.start();
-					Mapify.setup();
+					if (window.location.search === "") {
+						ajaxloader.start();
+					}	
+
+					//Init.initApps();
 				}
 			});
 		},

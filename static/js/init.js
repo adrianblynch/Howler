@@ -1,9 +1,9 @@
-define(['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
+define('init', ['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
 
     function ($, Slideshow, Mapify, Activify, Ajaxloader, Lazyload) {
     'use strict';
 
-	var main = {
+	var init = {
 
 
 		documentSetup : function () {
@@ -13,8 +13,13 @@ define(['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
 		initApps : function () {
 			Slideshow.start();
 			Activify.start();
-			Ajaxloader.start();
 			Lazyload.start();
+
+			
+			if (window.location.search === "") {
+				Ajaxloader.start();
+			}
+			
 			//Mapify.start();
 		},
 
@@ -24,12 +29,6 @@ define(['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
 		}
 	};
 
-
-	$(document).ready(function () {
-		main.start();
-	});
-
-	
-
+	return init;
     
 });
