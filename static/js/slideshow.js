@@ -7,22 +7,25 @@ define('slideshow', ['jquery'],
 
     	imagesArray : [],
 
-		currentOffset : 0,
+		slideshowLeftOffset : 0,
+
+		auto : true,
 
 		slideshowWidth : function () {
-			return slideshow.s[0].scrollWidth;
+			return slideshow.element[0].scrollWidth;
 		},
 
 		imageWidth : function () {
-			return slideshow.s[0].scrollWidth / slideshow.imagesArray.length;
+			return slideshow.element[0].scrollWidth / slideshow.imagesArray.length;
 		},
 
 		setup : function () {
-			var holder = slideshow.s.find('.slideshow-holder'),
-				images = $('img', slideshow.s);
+			var holder = slideshow.element.find('.slideshow-holder'),
+				images = $('img', slideshow.element);
 
-			slideshow.reset();
-
+			slideshow.arrowBack = $('.arrow-back');
+			slideshow.arrowForward = $('.arrow-forward');
+			
 			//Save images in array
 			images.each(function() {
 				slideshow.imagesArray.push($(this));
@@ -31,99 +34,128 @@ define('slideshow', ['jquery'],
 			//Set holder width
 			holder.css('width', (slideshow.imagesArray.length * 100) + '%');
 
-			//Bind scroll event
-			slideshow.s.bind("scroll.slideshow", function(){
-				slideshow.scrollSetup();
-			});
-
-			//Set images
 			slideshow.resetImages();
+			
+			slideshow.enableSwipes(); 
 
 		},
 
-		reset : function () {
-    		slideshow.s.unbind("scroll.slideshow");
-			slideshow.breakScroll = false;
+		enableSwipes : function () {
+
+			slideshow.element.bind("scroll", function(){
+				if (!slideshow.element.hasClass('active')) {
+					slideshow.manuelSwipe();
+				}
+			});
+			
+			slideshow.arrowBack.bind('click', function (e) {
+				e.preventDefault();
+				if (!slideshow.element.hasClass('active')) {
+					slideshow.auto = false;
+					slideshow.backAnimation();
+				}
+			});
+
+			slideshow.arrowForward.bind('click', function (e) {
+				e.preventDefault();
+				if (!slideshow.element.hasClass('active')) {
+					slideshow.auto = false;
+					slideshow.forwardAnimation();
+				}
+			});
+
+			slideshow.disableAutoSwipe();
+
+			if (slideshow.auto === true) {
+				slideshow.autoSwipe();
+			}
+
+			slideshow.element.removeClass('active');
+		},
+
+		disableSwipes : function () {
+			slideshow.element.addClass('active');
     	}, 
 
-		scrollSetup : function () {
+    	autoSwipe : function () {
+    		var interval = setInterval(function(){
+    			slideshow.forwardAnimation();
+    		}, 5000);
+
+    		slideshow.interval = interval;
+    	},
+
+    	disableAutoSwipe : function () {
+    		clearInterval(slideshow.interval);
+    	},
+
+		manuelSwipe : function () {
+
+			if (slideshow.slideshowLeftOffset !== slideshow.element[0].scrollLeft) {
+				slideshow.auto = false;
+			}
 
 			slideshow.preventScrollTooFar();
 
-    		//When user stopped scrolling - do scroll
+	        //If swipe half the picture - Wait until swipe stopped, then do animation
 			clearTimeout($.data(slideshow, 'scrollTimer'));
 			$.data(slideshow, 'scrollTimer', setTimeout(function() {
-				if (slideshow.currentOffset < slideshow.s[0].scrollLeft) {
-					slideshow.reset();
-					slideshow.scroll('forward');
-				} else if (slideshow.currentOffset > slideshow.s[0].scrollLeft) {
-					slideshow.reset();
-					slideshow.scroll('back');
-				}			        
+
+				
+				if (slideshow.slideshowLeftOffset < slideshow.element[0].scrollLeft) {
+					slideshow.disableSwipes();
+					slideshow.forwardAnimation();
+				} else if (slideshow.slideshowLeftOffset > slideshow.element[0].scrollLeft) {
+					slideshow.disableSwipes();
+					slideshow.backAnimation();
+				}			
+
 			}, 250));
 		},
 
-    	preventScrollTooFar : function () {
+		preventScrollTooFar : function () {
 
-    		if (slideshow.currentOffset < slideshow.s[0].scrollLeft) {
-	        	if (slideshow.s[0].scrollLeft >= (slideshow.imageWidth() * 2)) {
-	        		slideshow.s[0].scrollLeft = slideshow.imageWidth() * 2;
+			//If swipe the whole picture - STOP
+			if (slideshow.slideshowLeftOffset < slideshow.element[0].scrollLeft) {
+	        	if (slideshow.element[0].scrollLeft >= (slideshow.imageWidth() * 2)) {
+	        		slideshow.element[0].scrollLeft = slideshow.imageWidth() * 2;
 	        		slideshow.resetImages('forward');
 	        	}
-	        } else if (slideshow.currentOffset > slideshow.s[0].scrollLeft) {
-	        	if (slideshow.s[0].scrollLeft === 0) {
-	        		slideshow.s[0].scrollLeft = 0;
+	        } else if (slideshow.slideshowLeftOffset > slideshow.element[0].scrollLeft) {
+	        	if (slideshow.element[0].scrollLeft === 0) {
+	        		slideshow.element[0].scrollLeft = 0;
 	        		slideshow.resetImages('back');
 	        	}
 	        }
+		},
+
+		forwardAnimation : function () {
+    		slideshow.disableSwipes();
+			slideshow.animation('forward', slideshow.imageWidth() * 2);
     	},
 
-    	scroll : function (direction) {
-
-    		var i,
-    			goToOffset;			
-
-			//Look for closest image
-			for (i = 0; i < slideshow.imagesArray.length; i++) {
-	        	if (slideshow.s[0].scrollLeft < (slideshow.imageWidth() * i) && slideshow.breakScroll === false) {
-
-	        		if (direction === 'forward') {
-						goToOffset = slideshow.imageWidth() * i;
-					} else if (direction === 'back'){
-						goToOffset = (slideshow.imageWidth() * i) - slideshow.imageWidth();
-					}
-
-					slideshow.animation(direction, goToOffset);
-	        		
-	        		slideshow.breakScroll = true;
-	        	}
-	        }
+    	backAnimation : function () {
+    		slideshow.disableSwipes();
+			slideshow.animation('back', 0);
     	},
 
     	animation : function (direction, goToOffset) {
-    		//Make animation an do resetup
-    		slideshow.s.animate({scrollLeft: goToOffset}, 400, function() {
+    		slideshow.element.animate({scrollLeft: goToOffset}, 400, function() {
 				clearTimeout($.data(slideshow, 'scrollTimer'));
     			$.data(slideshow, 'scrollTimer', setTimeout(function() {
-
-						//Bind scroll event
-					slideshow.s.bind("scroll.slideshow", function(){
-						slideshow.scrollSetup();
-					});
-
-					//Set images
 					slideshow.resetImages(direction);
-					
 				}, 10));
 			});
     	},
 
     	resetImages : function (direction) {	
-    		var holder = slideshow.s.find('.slideshow-holder'),
+    		var holder = slideshow.element.find('.slideshow-holder'),
     			i,
     			images,
     			htmlString = '';
 
+			// Always make to current image number 2 in imagesArray. 
+			// Replace html string with current array
 			if (direction == 'forward') {
 				slideshow.imagesArray.push(slideshow.imagesArray[0]);
 				slideshow.imagesArray.shift();
@@ -133,20 +165,25 @@ define('slideshow', ['jquery'],
 			}
 			
 			for (i = 0; i < slideshow.imagesArray.length; i++) {
-				var htmlString = htmlString + slideshow.imagesArray[i][0].outerHTML;
+				htmlString = htmlString + slideshow.imagesArray[i][0].outerHTML;
 			}
 
 			holder.html(htmlString);
 
 			images = $('img', holder);
 			images.css('width', (100 / slideshow.imagesArray.length) + '%');
-			slideshow.s.scrollLeft(slideshow.imageWidth());
-			slideshow.currentOffset = slideshow.s[0].scrollLeft;
+			slideshow.element.scrollLeft(slideshow.imageWidth());
+			slideshow.slideshowLeftOffset = slideshow.imageWidth();
+
+			slideshow.enableSwipes();
     	},
 
 		start : function () {
-			if ($('.slideshow').length && $('.slideshow img').length > 1) {
-				slideshow.s = $('.slideshow');
+
+			if ($('.slideshow img').length === 2) {
+				$('.slideshow img:last-child').remove();
+			} else if ($('.slideshow').length && $('.slideshow img').length > 2 && $('.slideshow .cms_placeholder').length !== 1) {
+				slideshow.element = $('.slideshow');
 				slideshow.setup();
 			}			
 		}

@@ -174,6 +174,58 @@ button,
 .slideshow-wrapper {
 	height:205px;
 	overflow: hidden;
+	position: relative;
+
+	.arrow-back,
+	.arrow-forward {
+		position: absolute;
+		top: 50%;
+		left: 100px;
+		height: 40px;
+		width: 40px;
+		background: black;
+		content: '';
+		display: block;
+		border-radius: 20px;
+
+		
+		&:before,
+		&:after  {
+			height: 14px;
+			width: 14px;
+			background: #ccc;
+			display: block;
+			content: '';
+			-ms-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			position: absolute;
+			top: 13px;
+			left: 11px;
+		}
+
+		&:after {
+			background:black;
+			left: 6px;
+		}
+
+
+
+		
+	}
+	.arrow-back {
+			&:before {
+				left:14px;
+			}
+			&:after {
+				left:19px;
+			}
+		}
+
+	.arrow-forward {
+		right:100px;
+		left:auto;
+	}
 }
 
 .slideshow {
@@ -181,6 +233,7 @@ button,
 	width:100%;
 	overflow-y: hidden;
 	overflow-x: scroll;
+
 	img {
 		width:25%;
 		float: left;
@@ -189,9 +242,12 @@ button,
 			margin-left:0;
 		}
 	}
+
+	
 }
 .slideshow-holder {
 	width:400%;
+
 
 	.cms_placeholder  {
 		width:25%;

@@ -386,6 +386,49 @@ button:focus, button:active,
 .slideshow-wrapper {
   height: 205px;
   overflow: hidden;
+  position: relative;
+}
+.slideshow-wrapper .arrow-back,
+.slideshow-wrapper .arrow-forward {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  height: 40px;
+  width: 40px;
+  background: black;
+  content: '';
+  display: block;
+  border-radius: 20px;
+}
+.slideshow-wrapper .arrow-back:before, .slideshow-wrapper .arrow-back:after,
+.slideshow-wrapper .arrow-forward:before,
+.slideshow-wrapper .arrow-forward:after {
+  height: 14px;
+  width: 14px;
+  background: #ccc;
+  display: block;
+  content: '';
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 13px;
+  left: 11px;
+}
+.slideshow-wrapper .arrow-back:after,
+.slideshow-wrapper .arrow-forward:after {
+  background: black;
+  left: 6px;
+}
+.slideshow-wrapper .arrow-back:before {
+  left: 14px;
+}
+.slideshow-wrapper .arrow-back:after {
+  left: 19px;
+}
+.slideshow-wrapper .arrow-forward {
+  right: 100px;
+  left: auto;
 }
 
 .slideshow {

@@ -15,7 +15,7 @@ define(['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
 			Activify.start();
 			Ajaxloader.start();
 			Lazyload.start();
-			Mapify.start();
+			//Mapify.start();
 		},
 
 		start : function () {
