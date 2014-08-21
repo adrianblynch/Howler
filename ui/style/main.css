@@ -400,6 +400,18 @@ button:focus, button:active,
   display: block;
   border-radius: 20px;
 }
+.slideshow-wrapper .arrow-back:hover,
+.slideshow-wrapper .arrow-forward:hover {
+  background: #222;
+}
+.slideshow-wrapper .arrow-back:hover:before,
+.slideshow-wrapper .arrow-forward:hover:before {
+  background: white;
+}
+.slideshow-wrapper .arrow-back:hover:after,
+.slideshow-wrapper .arrow-forward:hover:after {
+  background: #222;
+}
 .slideshow-wrapper .arrow-back:before, .slideshow-wrapper .arrow-back:after,
 .slideshow-wrapper .arrow-forward:before,
 .slideshow-wrapper .arrow-forward:after {

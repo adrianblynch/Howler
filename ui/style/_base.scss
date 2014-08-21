@@ -188,6 +188,16 @@ button,
 		display: block;
 		border-radius: 20px;
 
+		&:hover {
+			background: #222;
+			&:before {
+				background:white;
+			}
+			&:after {
+				background: #222;
+			}
+		}
+
 		
 		&:before,
 		&:after  {

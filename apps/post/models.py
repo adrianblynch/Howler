@@ -22,7 +22,7 @@ class Post(models.Model):
 
 class LargeImage(models.Model):
 	post = models.ForeignKey(Post)
-	image1 =  ImageField(upload_to='blogimages', verbose_name="Image 1 in a row (750 x 350)")
+	image1 =  ImageField(upload_to='blogimages', verbose_name="Image 1 in a row (750 x 400)")
 	def __unicode__(self):
 		return self.image1
 
