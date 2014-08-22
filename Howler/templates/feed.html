@@ -28,11 +28,7 @@
 					<!-- One in a row -->
 					<div class="images-row">
 					{% for image in post.largeimage_set.all  %}
-					
-						{% with "http://"|add:request.get_host|add:image.image1.url as path %}
-							<img class="lazy" src="{{ STATIC_URL }}img/dummy-750x400.jpg" alt="" data-src="{{ path }}" >
-						{% endwith %}
-
+						<img class="lazy" src="{{ STATIC_URL }}img/dummy-750x400.jpg" alt="" data-src="{{ image.image1.url }}" >
 					{% endfor %}
 					</div>
 					{% endif %}
@@ -41,9 +37,7 @@
 					<!-- Two in a row -->
 					<div class="images-row two">
 					{% for image in post.mediumimage_set.all  %}
-						{% with "http://"|add:request.get_host|add:image.image2.url as path %}
-							<img class="lazy" src="{{ STATIC_URL }}img/dummy-350x250.jpg" alt="" data-src="{{ path }}">
-						{% endwith %}
+						<img class="lazy" src="{{ STATIC_URL }}img/dummy-350x250.jpg" alt="" data-src="{{ image.image2.url }}">
 					{% endfor %}
 					</div>
 					{% endif %}
@@ -53,10 +47,7 @@
 					<!-- Three in a row -->
 					<div class="images-row three">
 					{% for image in post.smallimage_set.all  %}
-
-						{% with "http://"|add:request.get_host|add:image.image3.url as path %}
-							<img class="lazy" src="{{ STATIC_URL }}img/dummy-250x250.jpg" alt="" data-src="{{ path }}">
-						{% endwith %}
+						<img class="lazy" src="{{ STATIC_URL }}img/dummy-250x250.jpg" alt="" data-src="{{ image.image3.url }}">
 					{% endfor %}
 					</div>
 					{% endif %}
