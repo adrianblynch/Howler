@@ -53,6 +53,8 @@ define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
 					if (window.location.search === "") {
 						ajaxloader.start();
 					}
+
+					Lazyload.start();
 				}
 			});
 		},
