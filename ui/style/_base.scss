@@ -5,22 +5,8 @@ html {
 }
 
 
-h1, h2, h3 {
-	font-family: 'Stalemate', cursive;
-}
-
-h4, h5, p, li, a {
-	font-weight: 700;
-	font-size: 16px;
-	font-size: 1.6rem;
-	margin:0;
-}
-
-h4 {
-	margin-bottom:5px;
-}
-
 h1, h2 {
+	font-family: 'Stalemate', cursive;
 	font-size: 72px;
 	font-size: 7.2rem;
 	margin: 0;
@@ -37,6 +23,27 @@ h2 a {
 		text-decoration: underline;
 	}
 }
+
+h3 {
+	font-family: 'Open Sans', Arial, sans-serif;
+	font-size: 26px;
+	font-size: 2.6rem;
+	margin-bottom: 10px;
+	margin-top: 70px;
+}
+
+
+h4, h5, p, li, a {
+	font-weight: 700;
+	font-size: 16px;
+	font-size: 1.6rem;
+	margin:0;
+}
+
+h4 {
+	margin-bottom:5px;
+}
+
 
 p, li, a{
 	font-weight: 300;
