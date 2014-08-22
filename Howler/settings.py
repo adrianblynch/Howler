@@ -170,12 +170,11 @@ MEDIAFILES_DIRS = (
 
 AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
 AWS_SECRET_ACCESS_KEY = os.environ.get('5K9H6rvkS0g5V8mM7f5UcySIUSVQnTJYjy4I07zv')
-AWS_STORAGE_BUCKET_NAME = '<YOUR BUCKET NAME>'
+AWS_STORAGE_BUCKET_NAME = 'howlerweb'
 
 #if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = os.environ['howlerweb']
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    STATIC_URL = S3_URL
+    STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
