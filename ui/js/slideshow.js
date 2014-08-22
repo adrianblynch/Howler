@@ -25,7 +25,8 @@ define('slideshow', ['jquery'],
 
 			slideshow.arrowBack = $('.arrow-back');
 			slideshow.arrowForward = $('.arrow-forward');
-			
+			slideshow.arrowBack.show();
+			slideshow.arrowForward.show();
 			//Save images in array
 			images.each(function() {
 				slideshow.imagesArray.push($(this));

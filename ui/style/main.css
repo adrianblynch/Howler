@@ -390,6 +390,7 @@ button:focus, button:active,
 }
 .slideshow-wrapper .arrow-back,
 .slideshow-wrapper .arrow-forward {
+  display: none;
   position: absolute;
   top: 50%;
   left: 100px;
