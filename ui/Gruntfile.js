@@ -8,34 +8,6 @@ module.exports = function(grunt) {
     concat: {
       options: {
         separator: ''
-      },
-      main: {
-        src: ['js/main.js'],
-        dest: '<%= distPath %>js/main.js'
-      },
-      slideshow: {
-        src: ['js/slideshow.js'],
-        dest: '<%= distPath %>js/slideshow.js'
-      },
-      mapify: {
-        src: ['js/mapify.js'],
-        dest: '<%= distPath %>js/mapify.js'
-      },
-      ajaxloader: {
-        src: ['js/ajaxloader.js'],
-        dest: '<%= distPath %>js/ajaxloader.js'
-      },
-      lazyload: {
-        src: ['js/lazyload.js'],
-        dest: '<%= distPath %>js/lazyload.js'
-      },
-      activify: {
-        src: ['js/activify.js'],
-        dest: '<%= distPath %>js/activify.js'
-      },
-      init: {
-        src: ['js/init.js'],
-        dest: '<%= distPath %>js/init.js'
       }
     },
 
@@ -85,9 +57,20 @@ module.exports = function(grunt) {
       },
       js: {
           files: ['js/*.js'],
-          tasks: ['jshint', 'concat']
+          tasks: ['jshint', 'concat', 'requirejs']
+      }
+    },
+    requirejs: {
+      compile: {
+        options: {
+          baseUrl: "js",
+          out: "<%= distPath %>js/main.js",
+          name: "main",
+          mainConfigFile : "js/config.js"
+        }
       }
     }
+
     /*,
 
     reload: {
@@ -105,9 +88,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-bake');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   //grunt.loadNpmTasks('grunt-reload');
   
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'bake']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'bake', 'requirejs']);
   
 
 };

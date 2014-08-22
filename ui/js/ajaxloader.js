@@ -1,6 +1,6 @@
-define('ajaxloader', ['jquery', 'init', 'lazyload', 'mapify', 'main'],
+define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
 
-	function ($, Init, Lazyload, Mapify, Main) {
+	function ($, Lazyload, Mapify) {
 
 	'use strict';
 
@@ -52,9 +52,7 @@ define('ajaxloader', ['jquery', 'init', 'lazyload', 'mapify', 'main'],
 
 					if (window.location.search === "") {
 						ajaxloader.start();
-					}	
-
-					//Init.initApps();
+					}
 				}
 			});
 		},
