@@ -29,7 +29,7 @@ h3 {
 	font-size: 26px;
 	font-size: 2.6rem;
 	margin-bottom: 10px;
-	margin-top: 70px;
+	margin-top:0;
 }
 
 
@@ -81,12 +81,6 @@ button,
 	&:active {
 		background:#ddd;
 	}
-}
-
-
-
-.main-wrapper {
-
 }
 
 .main {
@@ -176,105 +170,6 @@ button,
 	}
 }
 
-
-
-.slideshow-wrapper {
-	height:205px;
-	overflow: hidden;
-	position: relative;
-
-	.arrow-back,
-	.arrow-forward {
-		display: none;
-		position: absolute;
-		top: 50%;
-		left: 100px;
-		height: 40px;
-		width: 40px;
-		background: black;
-		content: '';
-		display: block;
-		border-radius: 20px;
-
-		&:hover {
-			background: #222;
-			&:before {
-				background:white;
-			}
-			&:after {
-				background: #222;
-			}
-		}
-
-		
-		&:before,
-		&:after  {
-			height: 14px;
-			width: 14px;
-			background: #ccc;
-			display: block;
-			content: '';
-			-ms-transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-			position: absolute;
-			top: 13px;
-			left: 11px;
-		}
-
-		&:after {
-			background:black;
-			left: 6px;
-		}
-
-
-
-		
-	}
-	.arrow-back {
-		text-indent: -9999px;
-			&:before {
-				left:14px;
-			}
-			&:after {
-				left:19px;
-			}
-		}
-
-	.arrow-forward {
-		text-indent: -9999px;
-		right:100px;
-		left:auto;
-	}
-}
-
-.slideshow {
-	height:220px;
-	width:100%;
-	overflow-y: hidden;
-	overflow-x: scroll;
-
-	img {
-		width:25%;
-		float: left;
-
-		&:first-child {
-			margin-left:0;
-		}
-	}
-
-	
-}
-.slideshow-holder {
-	width:400%;
-
-
-	.cms_placeholder  {
-		width:25%;
-	}
-}
-
-
 .logo {
 	font-family: 'Stalemate', cursive;
 	color:white;
@@ -286,258 +181,8 @@ button,
 	span {
 		margin-top: 3px;
 		display: inline-block;
-	}
-	
+	}	
 }
-
-.posts {
-	
-	h1, h2, h3, h4, h5, h6, p {
-		max-width: 630px;
-	}
-
-	li {
-		max-width: 560px;
-	}
-
-	h2 {
-		padding-top: 30px;
-		margin-top: 30px;
-		border-top: 1px solid #ddd;
-
-
-	}
-	> article:first-child h2 {
-		padding-top:0;
-		margin-top:0;
-		border-top:none;
-	}
-
-	&--pagination {
-		background: white;
-		width:100%;
-		overflow: hidden;
-		z-index: 10;
-		position: relative;;
-
-		.step-links {
-			margin-top:70px;
-		}
-		.prev {
-			float:left;
-		}
-		.next {
-			float:right;
-		}
-
-		.current-page {
-			display: none;
-		}
-
-		.ajax-loader {	
-			display: none;
-			margin-top:70px;		
-			height: 32px;
-			border-top: 1px solid #ddd;
-			width: 100%;
-			
-			&--image {
-				text-indent: -9999px;
-				background: url("../img/ajax-loader.gif") no-repeat center;
-				height: 32px;
-				top: -15px;
-				position: relative;
-				margin: 0 auto;
-				width: 32px;
-				padding: 0 10px 0 10px;
-				background-color: white;
-				display: block;
-			}
-		}
-	}
-}
-
-.js  {
-	.posts--pagination {
-		z-index: 0;
-		.ajax-loader {
-			display: none;
-		}
-		.step-links {
-			display: block;
-		}
-	}
-
-	.lazy {
-		opacity: 0;
-		&.loaded {
-			transition: opacity 1s;
-			-webkit-transition: opacity 1s;
-			opacity: 1;
-		}
-	}
-}
-
-.aside {
-	position: fixed;
-	top: 140px;
-	right: 4.1%;
-	border:1px solid #eee;
-	border-radius: 10px;
-	width:27%;
-	background:white;
-	box-sizing: border-box;
-	display: none;
-	visibility: visible;
-	transition: visibility 1s;
-	transition: width 1s;
-	-webkit-transition: visibility 1s;
-	-webkit-transition: width 1s;
-
-	&.loading {
-		visibility: hidden;
-	}
-
-	&.active {
-		width:92%;
-		z-index: 20;
-
-		.aside--trigger {
-			&:before,
-			&:after  {
-				height: 11px;
-				width: 3px;
-				background: #ccc;
-				display: block;
-				content: '';
-				-ms-transform: rotate(45deg);
-				-webkit-transform: rotate(45deg);
-				transform: rotate(45deg);
-				position: absolute;
-				top: 5px;
-				left: 8px;
-				
-
-
-			}
-
-			&:after {
-				 -ms-transform: rotate(-45deg); /* IE 9 */
-				-webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
-	    		transform: rotate(-45deg);
-			}
-		}
-
-		
-	}
-
-
-	&--trigger {
-		border: 1px solid #eee;
-		height: 21px;
-		width: 17px;
-		border-radius: 5px 0 0 5px;
-		position: absolute;
-		top: 45%;
-		left: -17px;
-		background: white;
-		border-right: 1px solid white;
-		display: block;
-
-		&:before,
-		&:after  {
-			height: 8px;
-			width: 8px;
-			background: #ccc;
-			display: block;
-			content: '';
-			-ms-transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
-			transform: rotate(45deg);
-			position: absolute;
-			top: 6px;
-			left: 6px;
-		}
-
-		&:after {
-			background:white;
-			left: 10px;
-		}
-	}
-}
-
-.mymap,
-.aside .plugin_picture {
-	display: block;
-	height: 340px;
-	width: 100%;
-	border-radius: 10px;
-	border:5px solid white;
-	box-sizing: border-box;
-}
-
-.aside .plugin_picture {
-
-	height:auto;
-	img {
-		width:100%;
-		border-radius: 5px;
-	}
-}
-
-.gmnoscreen, .gmnoprint, .gm-style-cc { display:none; } 
-
-
-
-.images {
-	padding:20px 0;
-	background:white;
-	overflow: hidden;
-	position: relative;
-	z-index: 10;
-	width:100%;
-
-	&-row {
-
-
-
-		img {
-			float:left;
-			width:100%;
-			margin-right:0;
-			margin-bottom:2%;
-
-			border: 1px solid #eee;
-			padding: 5px;
-			box-sizing: border-box;
-			border-radius: 5px;
-		}
-
-		&.two {
-			img {
-				width:49%;
-				margin-right:2%;
-				&:nth-child(even) {
-					margin-right: 0;
-				}
-			}
-		}
-
-		&.three {
-
-			img {
-				width:32%;
-				margin-right:2%;
-				&:nth-child(3n + 3) {
-					margin-right: 0;
-				}
-			}
-		}
-	}
-}
-
-
-
 
 .alert-message {
 	background:#eab8b8;
@@ -572,25 +217,7 @@ button,
 }
 /*  Phone Landscape */
 @media (min-width: 480px) {
-	.slideshow-wrapper {
-		height:245px;
-	}
-	.slideshow {
-		height:260px;
-	}
 
-	.posts {
-		h1, h2, h3, h4, h5, h6, p {
-			max-width: 68%;
-		}
-
-		li {
-			max-width: 60%;
-		}
-	}
-	.aside {
-		display: block;
-	}
 }
 
 /*  Small tablets Portrait */
@@ -600,29 +227,11 @@ button,
 		width:270px;
 		left:-270px;
 	}
-	.slideshow-wrapper {
-		height:315px;
-	}
-	.slideshow {
-		height:330px;
-	}
+
 }
 
 /*  Small Desktop / tablets Landscape  */
 @media (min-width: 769px) {
-
-	.main  {
-
-	}
-	.slideshow-wrapper {
-		height:345px;
-	}
-	.slideshow {
-		height:360px;
-	}
-	.images {
-		width:68%;
-	}
 
 
 }
@@ -645,26 +254,12 @@ button,
 		top:-120px;
 		border:1px solid #ccc;
 	}
-	.slideshow-wrapper {
-		height:465px;
-	}
-	.slideshow {
-		height:480px;
-	}
+
 	.alert-message--inside {
 		padding:2%;
 		width:80%;
 	}
-	.aside {
-		right: 12.1%;
-		width: 20%;
-		&.active {
-			width:76%;
-		}
-	}
-	.mymap {
-		height:380px;
-	}
+
 }
 
 /*  XL Desktop  */

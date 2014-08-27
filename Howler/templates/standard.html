@@ -3,16 +3,33 @@
 {% block body_class %}page-about{% endblock %}
 
 {% block base_content %}
+	<div class="slideshow-wrapper">
+		<div class="main--header-slideshow slideshow">
+			<a href="#" class="arrow-back">Scroll images left</a>
+			<a href="#" class="arrow-forward">Scroll images right</a>
+			<div class="slideshow-holder">
 
-	<section class="posts">
-		<article>
-			{% placeholder text %}
-		</article>
-	</section>
+			{% placeholder slideshow %}
+			</div>
+		</div>
+	</div>
 
-	<aside class="aside" role="complementary">
-		{% placeholder aside-image %}
-	</aside>
+	</header>
+	<div class="main-wrapper">
+		<main class="main" role="main">
+
+
+			<section class="posts">
+				<article>
+					{% placeholder text %}
+				</article>
+			</section>
+
+			<aside class="aside" role="complementary">
+				{% placeholder aside-image %}
+			</aside>
+		</main>
+	</div>
 
 
 {% endblock %}

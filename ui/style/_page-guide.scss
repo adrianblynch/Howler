@@ -1,0 +1,199 @@
+.page-guide {
+
+}
+
+.posts {
+	
+	h1, h2, h3, h4, h5, h6, p {
+		max-width: 630px;
+	}
+
+	li {
+		max-width: 560px;
+	}
+
+	h2 {
+		padding-top: 30px;
+		margin-top: 30px;
+		border-top: 1px solid #ddd;
+
+
+	}
+	> article:first-child h2 {
+		padding-top:0;
+		margin-top:0;
+		border-top:none;
+	}
+
+	&--pagination {
+		background: white;
+		width:100%;
+		overflow: hidden;
+		z-index: 10;
+		position: relative;;
+
+		.step-links {
+			margin-top:70px;
+		}
+		.prev {
+			float:left;
+		}
+		.next {
+			float:right;
+		}
+
+		.current-page {
+			display: none;
+		}
+
+		.ajax-loader {	
+			display: none;
+			margin-top:70px;		
+			height: 32px;
+			border-top: 1px solid #ddd;
+			width: 100%;
+			
+			&--image {
+				text-indent: -9999px;
+				background: url("../img/ajax-loader.gif") no-repeat center;
+				height: 32px;
+				top: -15px;
+				position: relative;
+				margin: 0 auto;
+				width: 32px;
+				padding: 0 10px 0 10px;
+				background-color: white;
+				display: block;
+			}
+		}
+	}
+}
+
+.js  {
+	.posts--pagination {
+		z-index: 0;
+		.ajax-loader {
+			display: none;
+		}
+		.step-links {
+			display: block;
+		}
+	}
+
+	.lazy {
+		opacity: 0;
+		&.loaded {
+			transition: opacity 1s;
+			-webkit-transition: opacity 1s;
+			opacity: 1;
+		}
+	}
+}
+
+
+.images {
+	padding:20px 0;
+	background:white;
+	overflow: hidden;
+	position: relative;
+	z-index: 10;
+	width:100%;
+
+	&-row {
+
+
+
+		img {
+			float:left;
+			width:100%;
+			margin-right:0;
+			margin-bottom:2%;
+
+			border: 1px solid #eee;
+			padding: 5px;
+			box-sizing: border-box;
+			border-radius: 5px;
+		}
+
+		&.two {
+			img {
+				width:49%;
+				margin-right:2%;
+				&:nth-child(even) {
+					margin-right: 0;
+				}
+			}
+		}
+
+		&.three {
+
+			img {
+				width:32%;
+				margin-right:2%;
+				&:nth-child(3n + 3) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+/* Overrides for mobile portrait */
+@media (max-width: 479px) {
+
+}
+/*  Phone Landscape */
+@media (min-width: 480px) {
+
+
+	.posts {
+		h1, h2, h3, h4, h5, h6, p {
+			max-width: 68%;
+		}
+
+		li {
+			max-width: 60%;
+		}
+	}
+
+}
+
+/*  Small tablets Portrait */
+@media (min-width: 569px) {
+
+
+}
+
+/*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+	.images {
+		width:68%;
+	}
+
+}
+
+/*  Large Desktop */
+@media (min-width: 1025px) {
+
+}
+
+/*  XL Desktop  */
+@media (min-width: 1281px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,153 @@
+.aside {
+	position: fixed;
+	top: 140px;
+	right: 4.1%;
+	border-radius: 10px;
+	width:27%;
+	background:white;
+	box-sizing: border-box;
+	display: none;
+	visibility: visible;
+	transition: visibility 1s;
+	transition: width 1s;
+	-webkit-transition: visibility 1s;
+	-webkit-transition: width 1s;
+
+	&.loading {
+		visibility: hidden;
+	}
+
+	&.active {
+		width:92%;
+		z-index: 20;
+
+		.aside--trigger {
+			&:before,
+			&:after  {
+				height: 11px;
+				width: 3px;
+				background: #ccc;
+				display: block;
+				content: '';
+				-ms-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				transform: rotate(45deg);
+				position: absolute;
+				top: 5px;
+				left: 8px;
+				
+
+
+			}
+
+			&:after {
+				 -ms-transform: rotate(-45deg); /* IE 9 */
+				-webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */
+	    		transform: rotate(-45deg);
+			}
+		}
+
+		
+	}
+
+
+	&--trigger {
+		border: 1px solid #eee;
+		height: 21px;
+		width: 17px;
+		border-radius: 5px 0 0 5px;
+		position: absolute;
+		top: 45%;
+		left: -17px;
+		background: white;
+		border-right: 1px solid white;
+		display: block;
+
+		&:before,
+		&:after  {
+			height: 8px;
+			width: 8px;
+			background: #ccc;
+			display: block;
+			content: '';
+			-ms-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			position: absolute;
+			top: 6px;
+			left: 6px;
+		}
+
+		&:after {
+			background:white;
+			left: 10px;
+		}
+	}
+}
+
+.mymap,
+.aside .plugin_picture {
+	display: block;
+	height: 340px;
+	width: 100%;
+	border-radius: 10px;
+	border:5px solid white;
+	box-sizing: border-box;
+}
+
+.aside .plugin_picture {
+
+	height:auto;
+	img {
+		width:100%;
+		border-radius: 5px;
+	}
+}
+
+
+/* MAP */
+.gmnoscreen, .gmnoprint, .gm-style-cc { display:none; } 
+
+/* Overrides for mobile portrait */
+@media (max-width: 479px) {
+
+}
+/*  Phone Landscape */
+@media (min-width: 480px) {
+
+	.aside {
+		display: block;
+	}
+}
+
+/*  Small tablets Portrait */
+@media (min-width: 569px) {
+
+}
+
+/*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+
+}
+
+/*  Large Desktop */
+@media (min-width: 1025px) {
+
+
+	.aside {
+		right: 12.1%;
+		width: 20%;
+		&.active {
+			width:76%;
+		}
+	}
+	.mymap {
+		height:380px;
+	}
+}
+
+/*  XL Desktop  */
+@media (min-width: 1281px) {
+
+}
+

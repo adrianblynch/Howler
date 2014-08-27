@@ -1,0 +1,146 @@
+.slideshow-wrapper {
+	height:205px;
+	overflow: hidden;
+	position: relative;
+
+	.arrow-back,
+	.arrow-forward {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 100px;
+		height: 40px;
+		width: 40px;
+		background: black;
+		content: '';
+		border-radius: 20px;
+
+		&:hover {
+			background: #222;
+			&:before {
+				background:white;
+			}
+			&:after {
+				background: #222;
+			}
+		}
+
+		
+		&:before,
+		&:after  {
+			height: 14px;
+			width: 14px;
+			background: #ccc;
+			display: block;
+			content: '';
+			-ms-transform: rotate(45deg);
+			-webkit-transform: rotate(45deg);
+			transform: rotate(45deg);
+			position: absolute;
+			top: 13px;
+			left: 11px;
+		}
+
+		&:after {
+			background:black;
+			left: 6px;
+		}
+	}
+	.arrow-back {
+		text-indent: -9999px;
+			&:before {
+				left:14px;
+			}
+			&:after {
+				left:19px;
+			}
+		}
+
+	.arrow-forward {
+		text-indent: -9999px;
+		right:100px;
+		left:auto;
+	}
+}
+
+.slideshow {
+	height:220px;
+	width:100%;
+	overflow-y: hidden;
+	overflow-x: scroll;
+
+	img {
+		width:25%;
+		float: left;
+
+		&:first-child {
+			margin-left:0;
+		}
+	}
+
+	
+}
+.slideshow-holder {
+	width:400%;
+
+
+	.cms_placeholder  {
+		width:25%;
+	}
+}
+
+
+
+/* Overrides for mobile portrait */
+@media (max-width: 479px) {
+
+}
+/*  Phone Landscape */
+@media (min-width: 480px) {
+	.slideshow-wrapper {
+		height:245px;
+	}
+	.slideshow {
+		height:260px;
+	}
+
+}
+
+/*  Small tablets Portrait */
+@media (min-width: 569px) {
+
+	.slideshow-wrapper {
+		height:315px;
+	}
+	.slideshow {
+		height:330px;
+	}
+}
+
+/*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+
+	.slideshow-wrapper {
+		height:345px;
+	}
+	.slideshow {
+		height:360px;
+	}
+}
+
+/*  Large Desktop */
+@media (min-width: 1025px) {
+
+	.slideshow-wrapper {
+		height:465px;
+	}
+	.slideshow {
+		height:480px;
+	}
+
+}
+
+/*  XL Desktop  */
+@media (min-width: 1281px) {
+
+}

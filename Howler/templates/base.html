@@ -56,33 +56,18 @@
             </div>
           </div>
         </nav>
-
         <div class="alert-message">
           <div class="alert-message--inside oldbrowser-message">
             <p>You are surfing from an old version of Internet Explorer. Please upgrade for a better user experience!</p>
           </div>
         </div>
-        <div class="slideshow-wrapper">
-          <div class="main--header-slideshow slideshow">
-            <a href="#" class="arrow-back">Scroll images left</a>
-            <a href="#" class="arrow-forward">Scroll images right</a>
-            <div class="slideshow-holder">
-              
-              {% placeholder slideshow %}
-            </div>
-          </div>
-        </div>
         
-      </header>
-      <div class="main-wrapper">
-        <main class="main" role="main">
           {% placeholder base_content %}
           {% block base_content %}{% endblock %}
-        </main>
-      </div>
+        
 
       
-      {% render_block "js" %}
+       {% render_block "js" %}
         <!-- scripts -->
 
 

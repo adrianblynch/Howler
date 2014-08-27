@@ -1,0 +1,28 @@
+.page-myfavsites {
+	
+}
+
+.sites {
+
+}
+
+.site {
+
+	display: block;
+
+	border:1px solid #ccc;
+	width:33%;
+	border-radius: 5px;
+	box-sizing:border-box;
+	padding:5px;
+
+	h2 {
+		font-size: 26px;
+		font-size:2.6rem;
+		font-family: arial;
+	}
+
+	img {
+		max-width:100%;
+	}
+}
