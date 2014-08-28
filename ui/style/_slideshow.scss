@@ -8,12 +8,12 @@
 		display: none;
 		position: absolute;
 		top: 50%;
-		left: 100px;
 		height: 40px;
 		width: 40px;
 		background: black;
 		content: '';
 		border-radius: 20px;
+		text-indent: -9999px;
 
 		&:hover {
 			background: #222;
@@ -23,6 +23,11 @@
 			&:after {
 				background: #222;
 			}
+		}
+
+		&:focus,
+		&:active {
+			top:50.3%;
 		}
 
 		
@@ -38,29 +43,45 @@
 			transform: rotate(45deg);
 			position: absolute;
 			top: 13px;
-			left: 11px;
 		}
 
 		&:after {
 			background:black;
-			left: 6px;
 		}
 	}
+
 	.arrow-back {
-		text-indent: -9999px;
-			&:before {
-				left:14px;
-			}
-			&:after {
-				left:19px;
-			}
+		left:4%;
+		&:focus,
+		&:active {
+			left:4.1%;
 		}
 
-	.arrow-forward {
-		text-indent: -9999px;
-		right:100px;
-		left:auto;
+		&:before {
+			left:14px;
+		}
+		&:after {
+			left:19px;
+		}
 	}
+
+	.arrow-forward {
+		right:4%;
+		&:focus,
+		&:active {
+			right:3.9%;
+		}
+
+		&:before {
+			left:11px;
+		}
+		&:after {
+			left:6px;
+		}
+	}
+
+
+	
 }
 
 .slideshow {
@@ -111,6 +132,8 @@
 
 	.slideshow-wrapper {
 		height:315px;
+
+		
 	}
 	.slideshow {
 		height:330px;
@@ -122,6 +145,7 @@
 
 	.slideshow-wrapper {
 		height:345px;
+
 	}
 	.slideshow {
 		height:360px;
@@ -133,6 +157,37 @@
 
 	.slideshow-wrapper {
 		height:465px;
+		.arrow-back {
+			left:10%;
+			&:focus,
+			&:active {
+				top:50.3%;
+				left:10.1%;
+			}
+
+			&:before {
+				left:14px;
+			}
+			&:after {
+				left:19px;
+			}
+		}
+
+		.arrow-forward {
+			right:10%;
+			&:focus,
+			&:active {
+				top:50.3%;
+				right:9.9%;
+			}
+
+			&:before {
+				left:11px;
+			}
+			&:after {
+				left:6px;
+			}
+		}
 	}
 	.slideshow {
 		height:480px;

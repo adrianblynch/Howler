@@ -23,10 +23,13 @@ define('slideshow', ['jquery'],
 			var holder = slideshow.element.find('.slideshow-holder'),
 				images = $('img', slideshow.element);
 
-			slideshow.arrowBack = $('.arrow-back');
-			slideshow.arrowForward = $('.arrow-forward');
-			slideshow.arrowBack.show();
-			slideshow.arrowForward.show();
+			if (slideshow.enableArrows) {
+				slideshow.arrowBack = $('.arrow-back');
+				slideshow.arrowForward = $('.arrow-forward');
+				slideshow.arrowBack.show();
+				slideshow.arrowForward.show();	
+			}
+			
 			//Save images in array
 			images.each(function() {
 				slideshow.imagesArray.push($(this));
@@ -49,21 +52,23 @@ define('slideshow', ['jquery'],
 				}
 			});
 			
-			slideshow.arrowBack.bind('click', function (e) {
-				e.preventDefault();
-				if (!slideshow.element.hasClass('active')) {
-					slideshow.auto = false;
-					slideshow.backAnimation();
-				}
-			});
+			if (slideshow.enableArrows) {
+				slideshow.arrowBack.bind('click', function (e) {
+					e.preventDefault();
+					if (!slideshow.element.hasClass('active')) {
+						slideshow.auto = false;
+						slideshow.backAnimation();
+					}
+				});
 
-			slideshow.arrowForward.bind('click', function (e) {
-				e.preventDefault();
-				if (!slideshow.element.hasClass('active')) {
-					slideshow.auto = false;
-					slideshow.forwardAnimation();
-				}
-			});
+				slideshow.arrowForward.bind('click', function (e) {
+					e.preventDefault();
+					if (!slideshow.element.hasClass('active')) {
+						slideshow.auto = false;
+						slideshow.forwardAnimation();
+					}
+				});
+			}
 
 			slideshow.disableAutoSwipe();
 
@@ -111,7 +116,7 @@ define('slideshow', ['jquery'],
 					slideshow.backAnimation();
 				}			
 
-			}, 250));
+			}, 30));
 		},
 
 		preventScrollTooFar : function () {
@@ -180,6 +185,10 @@ define('slideshow', ['jquery'],
     	},
 
 		start : function () {
+
+			if ($(window).width() > 479) {
+				slideshow.enableArrows = true;
+			}
 
 			if ($('.slideshow img').length === 2) {
 				$('.slideshow img:last-child').remove();

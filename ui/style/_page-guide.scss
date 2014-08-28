@@ -82,9 +82,10 @@
 
 	.lazy {
 		opacity: 0;
-		&.loaded {
-			transition: opacity 1s;
-			-webkit-transition: opacity 1s;
+		transition: opacity 1s;
+		-webkit-transition: opacity 1s;
+
+		&.loaded {			
 			opacity: 1;
 		}
 	}

@@ -89,6 +89,7 @@ button,
 	box-sizing:border-box;
 	background: white;
 	border-radius: 10px;
+	overflow: hidden;
 
 	&--header {
 		padding-top: 50px;
@@ -211,13 +212,58 @@ button,
 	}
 }
 
+
+.large-input {
+	&--wrapper {
+		top: 120px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 100;
+		padding:0 4%;
+		box-sizing:border-box;
+	}
+
+	padding: 5px;
+	box-sizing: border-box;
+	background: #bbdcde;
+	border-radius: 5px;
+	overflow: hidden;
+	position: absolute;
+	top:100px;
+	width:100%;
+
+	input[type='text'] {
+		border-radius: 5px;
+		height: 28px;
+		border: 1px solid #ccc;
+		font-size: 25px;
+		padding: 10px;
+		color: #aaa;
+		font-style: italic;
+		float:left;
+		width:70%;
+	}
+
+	.btn {
+		background: white;
+		font-size: 16px;
+		height: 50px;
+		float: left;
+		width:25%;
+	}
+	
+}
+
+
 /* Overrides for mobile portrait */
 @media (max-width: 479px) {
 
 }
 /*  Phone Landscape */
 @media (min-width: 480px) {
-
+	.large-input {
+		max-width: 62%;
+	}
 }
 
 /*  Small tablets Portrait */
@@ -241,24 +287,36 @@ button,
 	body {
 		background:#eee;
 	}
+	
 	.main {
 		padding:2%;
 		width:80%;
+		position:relative;
+		top:-120px;
+		border:1px solid #ccc;
 	
 		&--nav-wrapper {
 			padding:0 2%;
 			width:80%;
 		}
 
-		position:relative;
-		top:-120px;
-		border:1px solid #ccc;
+		
 	}
 
 	.alert-message--inside {
 		padding:2%;
 		width:80%;
 	}
+
+	.large-input--wrapper {
+		padding:0 2%;
+		width:80%;
+	}
+
+	
+
+
+
 
 }
 
