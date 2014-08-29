@@ -114,14 +114,16 @@ define('mapify', ['jquery'],
     	setPosts : function () {
 
     		$('.post').each(function() {
-    			mapify.postsArray.push({
-    				obj: $(this), 
-    				top: $(this).offset().top,
-    				long: $(this).data('long'),
-    				lat: $(this).data('lat'),
-    				hex: $(this).data('hex'),
-    				title: $(this).find('h2 a').html()
-    			});
+    			if ($(this).data('long') !== "" || $(this).data('lat') !== "") {
+    				mapify.postsArray.push({
+	    				obj: $(this), 
+	    				top: $(this).offset().top,
+	    				long: $(this).data('long'),
+	    				lat: $(this).data('lat'),
+	    				hex: $(this).data('hex'),
+	    				title: $(this).find('h2 a').html()
+	    			});	
+    			}
     		});
 		},
 
@@ -138,7 +140,7 @@ define('mapify', ['jquery'],
     					if ($(window)[0].scrollY > (ths.postsArray[i].top - 500) && !ths.postsArray[i].obj.hasClass('mapify')) {
 							ths.postsArray[i].obj.addClass('mapify');
 							mapify.setNewPlace(ths.postsArray[i].long, ths.postsArray[i].lat, ths.postsArray[i].title);
-							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
+							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});												
     					}
     				}
     			} else if (currentScrollY > $(window)[0].scrollY) {
@@ -168,7 +170,6 @@ define('mapify', ['jquery'],
 			if ($('.mymap').length) {
 				mapify.initMap();
 				mapify.activify();
-				
 			}
 		}
     };

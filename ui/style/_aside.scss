@@ -12,6 +12,7 @@
 	transition: width 1s;
 	-webkit-transition: visibility 1s;
 	-webkit-transition: width 1s;
+	border:1px solid #eee;
 
 	&.loading {
 		visibility: hidden;

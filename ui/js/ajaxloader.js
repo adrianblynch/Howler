@@ -55,6 +55,7 @@ define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
 					}
 
 					Lazyload.start();
+					Mapify.start();
 				}
 			});
 		},

@@ -19,7 +19,7 @@ define('main', ['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazy
 				Ajaxloader.start();
 			}
 			
-			//Mapify.start();
+			Mapify.start();
 		},
 
 		start : function () {
