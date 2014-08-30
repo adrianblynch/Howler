@@ -103,10 +103,12 @@ define('mapify', ['jquery'],
 
 			var title = $('.map-title');
 
+			mapify.resetMarkers();
+
 			marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
 			marker.setAnimation(google.maps.Animation.BOUNCE)
 			window.setTimeout(function() {
-				mapify.resetMarkers(marker);
+				marker.setAnimation(null);
 			}, 3000);
 
 			title.html(marker.title);			
@@ -114,15 +116,11 @@ define('mapify', ['jquery'],
 
 		resetMarkers : function (marker) {
 
-			if (marker) {
-				marker.setAnimation(null)
-				marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');	
-			} else {
-				for (var i = 0; i < mapify.markers.length; i++) {
-					mapify.markers[i].setAnimation(null)
-					mapify.markers[i].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-				}
+			for (var i = 0; i < mapify.markers.length; i++) {
+				mapify.markers[i].setAnimation(null)
+				mapify.markers[i].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
 			}
+			
 			
 		},
 
@@ -170,7 +168,6 @@ define('mapify', ['jquery'],
     					if ($(window)[0].scrollY > (mapify.postsArray[i].top - 500) && !mapify.postsArray[i].obj.hasClass('mapify')) {
 							mapify.postsArray[i].obj.addClass('mapify');
 							mapify.panToMarker(mapify.postsArray[i].long, mapify.postsArray[i].lat);
-							mapify.resetMarkers();
 							mapify.markerAnimation(mapify.markers[i]);
 							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});												
     					}
@@ -181,7 +178,6 @@ define('mapify', ['jquery'],
     						mapify.postsArray[i].obj.removeClass('mapify');	
     						if (i > 0){
     							mapify.panToMarker(mapify.postsArray[i-1].long, mapify.postsArray[i-1].lat);
-    							mapify.resetMarkers();
     							mapify.markerAnimation(mapify.markers[i-1]);
     							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
     						} 
