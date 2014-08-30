@@ -3,18 +3,13 @@ define('mapify', ['jquery'],
 	function ($) {
 	'use strict';
 
-	//TODO:
-	/*
-
-	Save markers in array and populate map from beginning
-	When new posts load - repopulate map
-
-	*/
-
     var mapify = {
 
     	long : 52.5075419,
     	lat : 13.4261419,
+
+    	postsArray : [],
+    	markers : [],
 
     	mapOptions : function () {
     		var mapOptions;
@@ -28,34 +23,116 @@ define('mapify', ['jquery'],
 			return mapOptions;
     	},
 
-    	markers : [],
+    	initMap : function () {
 
-		marker : function (long, lat, title) {
-			var marker = new google.maps.Marker({
-				position: new google.maps.LatLng(long,lat),
-				map: mapify.map,
-				title:title,
-        		//animation: google.maps.Animation.DROP,
-			});
+			google.maps.event.addDomListener(window, 'load', run());
 
-			mapify.markerLabel(marker, title);
+			function run() {
+				var map = new google.maps.Map($('.mymap')[0], mapify.mapOptions());
+				mapify.map = map;
+				$('.mymap').parents('.loading').removeClass('loading');
+
+				mapify.reset();
+				mapify.createPostsArray();
+				mapify.createMarkers();
+				mapify.placeMarkersOnMap(map);
+				mapify.scroll();
+			}			
+		},
+
+		reset : function () {
+			$(window).unbind('scroll.mapify');
+			mapify.postsArray = [];
+			mapify.markers = [];
+			mapify.breakScroll = false;
+		},
+
+    	createPostsArray : function () {
+			$('.post').each(function() {
+    			if ($(this).data('long') !== "" && $(this).data('lat') !== "") {
+    				mapify.postsArray.push({
+	    				obj: $(this), 
+	    				top: $(this).offset().top,
+	    				long: $(this).data('long'),
+	    				lat: $(this).data('lat'),
+	    				hex: $(this).data('hex'),
+	    				title: $(this).find('h2 a').html()
+	    			});	
+    			}
+    		});
+		},
+
+		createMarkers : function () {
+	
+			var marker,
+				i,
+				pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
+
+			for (i = 0; i < mapify.postsArray.length; i++) {
+				
+				marker = new google.maps.Marker({
+					position: new google.maps.LatLng(mapify.postsArray[i].long, mapify.postsArray[i].lat),
+					map: mapify.map,
+					title: mapify.postsArray[i].title,
+					icon: pinImage
+				});
+
+	     		mapify.markers.push(marker);
+			}			
 
 		},
 
-		markerLabel : function (marker, title) {
-			var label = new google.maps.InfoWindow({
-       			content: title
- 			});
+		placeMarkersOnMap : function (map) {
 
- 			label.open(mapify.map, marker);
- 			window.setTimeout(function() {label.close(mapify.map, marker);}, 1500);
-     		google.maps.event.addListener(marker, "click", function () { label.open(mapify.map, this); });
+			var label,
+				title,
+				marker;
+
+			for (var i = 0; i < mapify.markers.length; i++) {
+
+				marker = mapify.markers[i];
+				marker.setMap(map);				
+
+				google.maps.event.addListener(marker, "click", function () {
+					mapify.markerAnimation(this);
+				});
+			}
 		},
 
-		setNewPlace : function (long, lat, title) {
-			var latlong = new google.maps.LatLng(long,lat);
-			mapify.marker(long, lat, title);
+		markerAnimation : function (marker) {
+
+			var title = $('.map-title');
+
+			marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+			marker.setAnimation(google.maps.Animation.BOUNCE)
+			window.setTimeout(function() {
+				mapify.resetMarkers(marker);
+			}, 3000);
+
+			title.html(marker.title);			
+		},
+
+		resetMarkers : function (marker) {
+
+			if (marker) {
+				marker.setAnimation(null)
+				marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');	
+			} else {
+				for (var i = 0; i < mapify.markers.length; i++) {
+					mapify.markers[i].setAnimation(null)
+					mapify.markers[i].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+				}
+			}
+			
+		},
+
+		panToMarker : function (long, lat) {
+			var latlong = new google.maps.LatLng(long,lat),
+				label;
+
 			mapify.map.panTo(latlong);
+
+			
 		},
 
 		mapStyle : function (hex) {
@@ -80,53 +157,6 @@ define('mapify', ['jquery'],
 		},
 
 
-    	initMap : function () {
-
-			google.maps.event.addDomListener(window, 'load', run());
-
-			function run() {
-				var map = new google.maps.Map($('.mymap')[0], mapify.mapOptions());
-				mapify.map = map;
-				var marker = new google.maps.Marker({
-					position: new google.maps.LatLng(mapify.long,mapify.lat),
-					map: mapify.map
-				});
-
-				mapify.markerLabel(marker, 'Berlin');
-				mapify.map.setOptions({styles: mapify.mapStyle("#bbbbbb")});
-				$('.mymap').parents('.loading').removeClass('loading');
-				mapify.setup();
-			}
-		},
-
-		setup : function () {
-			mapify.reset();
-			mapify.setPosts();
-			mapify.scroll();
-		},
-
-		reset : function () {
-			$(window).unbind('scroll.mapify');
-			mapify.postsArray = [];
-			mapify.breakScroll = false;
-		},
-
-    	setPosts : function () {
-
-    		$('.post').each(function() {
-    			if ($(this).data('long') !== "" || $(this).data('lat') !== "") {
-    				mapify.postsArray.push({
-	    				obj: $(this), 
-	    				top: $(this).offset().top,
-	    				long: $(this).data('long'),
-	    				lat: $(this).data('lat'),
-	    				hex: $(this).data('hex'),
-	    				title: $(this).find('h2 a').html()
-	    			});	
-    			}
-    		});
-		},
-
 		scroll : function () {
 
 			var ths = this,
@@ -136,19 +166,23 @@ define('mapify', ['jquery'],
 
 			$(window).bind('scroll.mapify', function () {
     			if (currentScrollY < $(window)[0].scrollY) {
-    				for (i = 0; i < ths.postsArray.length; i ++) {
-    					if ($(window)[0].scrollY > (ths.postsArray[i].top - 500) && !ths.postsArray[i].obj.hasClass('mapify')) {
-							ths.postsArray[i].obj.addClass('mapify');
-							mapify.setNewPlace(ths.postsArray[i].long, ths.postsArray[i].lat, ths.postsArray[i].title);
+    				for (i = 0; i < mapify.postsArray.length; i ++) {
+    					if ($(window)[0].scrollY > (mapify.postsArray[i].top - 500) && !mapify.postsArray[i].obj.hasClass('mapify')) {
+							mapify.postsArray[i].obj.addClass('mapify');
+							mapify.panToMarker(mapify.postsArray[i].long, mapify.postsArray[i].lat);
+							mapify.resetMarkers();
+							mapify.markerAnimation(mapify.markers[i]);
 							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});												
     					}
     				}
     			} else if (currentScrollY > $(window)[0].scrollY) {
-    				for (i = 0; i < ths.postsArray.length; i ++) {
-    					if ($(window)[0].scrollY < (ths.postsArray[i].top - mapHolder.height()) && ths.postsArray[i].obj.hasClass('mapify')) {
-    						ths.postsArray[i].obj.removeClass('mapify');	
+    				for (i = 0; i < mapify.postsArray.length; i ++) {
+    					if ($(window)[0].scrollY < (mapify.postsArray[i].top - mapHolder.height()) && mapify.postsArray[i].obj.hasClass('mapify')) {
+    						mapify.postsArray[i].obj.removeClass('mapify');	
     						if (i > 0){
-    							mapify.setNewPlace(ths.postsArray[i-1].long, ths.postsArray[i-1].lat, ths.postsArray[i-1].title);
+    							mapify.panToMarker(mapify.postsArray[i-1].long, mapify.postsArray[i-1].lat);
+    							mapify.resetMarkers();
+    							mapify.markerAnimation(mapify.markers[i-1]);
     							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
     						} 
     					}
@@ -159,9 +193,11 @@ define('mapify', ['jquery'],
     		});
 		},
 
-		activify : function () {
+		initOnResizeMap : function () {
 			
-			setTimeout(function(){mapify.initMap()}, 1200);
+			setTimeout(function(){
+				mapify.initMap()
+			}, 1200);
 			
 		},
 
@@ -169,7 +205,7 @@ define('mapify', ['jquery'],
 
 			if ($('.mymap').length) {
 				mapify.initMap();
-				mapify.activify();
+				mapify.initOnResizeMap();
 			}
 		}
     };

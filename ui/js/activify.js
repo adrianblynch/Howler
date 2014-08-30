@@ -10,7 +10,7 @@ define('activify', ['jquery', 'mapify'],
 				e.preventDefault();
 				activify();
 				if (keyword === 'initmap') {
-					Mapify.activify();
+					Mapify.initOnResizeMap();
 				}
 			});
 

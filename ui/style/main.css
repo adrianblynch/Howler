@@ -594,6 +594,11 @@ button:focus, button:active,
   border-radius: 5px;
 }
 
+.map-title {
+  padding: 7px;
+  color: #999;
+}
+
 /* MAP */
 .gmnoscreen, .gmnoprint, .gm-style-cc {
   display: none;
