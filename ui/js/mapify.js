@@ -7,7 +7,8 @@ define('mapify', ['jquery'],
 
     	long : 52.5075419,
     	lat : 13.4261419,
-
+    	greenIcon : "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+    	blueIcon : "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
     	postsArray : [],
     	markers : [],
 
@@ -102,26 +103,23 @@ define('mapify', ['jquery'],
 		markerAnimation : function (marker) {
 
 			var title = $('.map-title');
+			title.html(marker.title);	
 
 			mapify.resetMarkers();
-
-			marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+			marker.setIcon(mapify.greenIcon);
 			marker.setAnimation(google.maps.Animation.BOUNCE)
 			window.setTimeout(function() {
 				marker.setAnimation(null);
 			}, 3000);
 
-			title.html(marker.title);			
+					
 		},
 
-		resetMarkers : function (marker) {
-
+		resetMarkers : function () {
 			for (var i = 0; i < mapify.markers.length; i++) {
 				mapify.markers[i].setAnimation(null)
-				mapify.markers[i].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-			}
-			
-			
+				mapify.markers[i].setIcon(mapify.blueIcon);
+			}			
 		},
 
 		panToMarker : function (long, lat) {
