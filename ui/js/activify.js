@@ -1,5 +1,5 @@
-define('activify', ['jquery', 'mapify'], 
-	function ($, Mapify) {
+define('activify', ['jquery', 'movingmap'], 
+	function ($, MovingMap) {
 	'use strict';
 
     var activify = {
@@ -10,7 +10,7 @@ define('activify', ['jquery', 'mapify'],
 				e.preventDefault();
 				activify();
 				if (keyword === 'initmap') {
-					Mapify.initOnResizeMap();
+					MovingMap.initOnResizeMap();
 				}
 			});
 

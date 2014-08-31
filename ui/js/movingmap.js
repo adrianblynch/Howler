@@ -1,9 +1,9 @@
-define('mapify', ['jquery'], 
+define('movingmap', ['jquery'], 
 
 	function ($) {
 	'use strict';
 
-    var mapify = {
+    var movingmap = {
 
     	long : 52.5075419,
     	lat : 13.4261419,
@@ -16,7 +16,7 @@ define('mapify', ['jquery'],
     		var mapOptions;
 
     		mapOptions = {
-				center: new google.maps.LatLng(mapify.long,mapify.lat),
+				center: new google.maps.LatLng(movingmap.long,movingmap.lat),
 				zoom: 12,
 				disableDefaultUI: true
 			};
@@ -29,29 +29,29 @@ define('mapify', ['jquery'],
 			google.maps.event.addDomListener(window, 'load', run());
 
 			function run() {
-				var map = new google.maps.Map($('.mymap')[0], mapify.mapOptions());
-				mapify.map = map;
+				var map = new google.maps.Map($('.mymap')[0], movingmap.mapOptions());
+				movingmap.map = map;
 				$('.mymap').parents('.loading').removeClass('loading');
 
-				mapify.reset();
-				mapify.createPostsArray();
-				mapify.createMarkers();
-				mapify.placeMarkersOnMap(map);
-				mapify.scroll();
+				movingmap.reset();
+				movingmap.createPostsArray();
+				movingmap.createMarkers();
+				movingmap.placeMarkersOnMap(map);
+				movingmap.scroll();
 			}			
 		},
 
 		reset : function () {
-			$(window).unbind('scroll.mapify');
-			mapify.postsArray = [];
-			mapify.markers = [];
-			mapify.breakScroll = false;
+			$(window).unbind('scroll.movingmap');
+			movingmap.postsArray = [];
+			movingmap.markers = [];
+			movingmap.breakScroll = false;
 		},
 
     	createPostsArray : function () {
 			$('.post').each(function() {
     			if ($(this).data('long') !== "" && $(this).data('lat') !== "") {
-    				mapify.postsArray.push({
+    				movingmap.postsArray.push({
 	    				obj: $(this), 
 	    				top: $(this).offset().top,
 	    				long: $(this).data('long'),
@@ -69,16 +69,16 @@ define('mapify', ['jquery'],
 				i,
 				pinImage = new google.maps.MarkerImage("http://maps.google.com/mapfiles/ms/icons/blue-dot.png");
 
-			for (i = 0; i < mapify.postsArray.length; i++) {
+			for (i = 0; i < movingmap.postsArray.length; i++) {
 				
 				marker = new google.maps.Marker({
-					position: new google.maps.LatLng(mapify.postsArray[i].long, mapify.postsArray[i].lat),
-					map: mapify.map,
-					title: mapify.postsArray[i].title,
+					position: new google.maps.LatLng(movingmap.postsArray[i].long, movingmap.postsArray[i].lat),
+					map: movingmap.map,
+					title: movingmap.postsArray[i].title,
 					icon: pinImage
 				});
 
-	     		mapify.markers.push(marker);
+	     		movingmap.markers.push(marker);
 			}			
 
 		},
@@ -89,13 +89,13 @@ define('mapify', ['jquery'],
 				title,
 				marker;
 
-			for (var i = 0; i < mapify.markers.length; i++) {
+			for (var i = 0; i < movingmap.markers.length; i++) {
 
-				marker = mapify.markers[i];
+				marker = movingmap.markers[i];
 				marker.setMap(map);				
 
 				google.maps.event.addListener(marker, "click", function () {
-					mapify.markerAnimation(this);
+					movingmap.markerAnimation(this);
 				});
 			}
 		},
@@ -105,8 +105,8 @@ define('mapify', ['jquery'],
 			var title = $('.map-title');
 			title.html(marker.title);	
 
-			mapify.resetMarkers();
-			marker.setIcon(mapify.greenIcon);
+			movingmap.resetMarkers();
+			marker.setIcon(movingmap.greenIcon);
 			marker.setAnimation(google.maps.Animation.BOUNCE)
 			window.setTimeout(function() {
 				marker.setAnimation(null);
@@ -116,9 +116,9 @@ define('mapify', ['jquery'],
 		},
 
 		resetMarkers : function () {
-			for (var i = 0; i < mapify.markers.length; i++) {
-				mapify.markers[i].setAnimation(null)
-				mapify.markers[i].setIcon(mapify.blueIcon);
+			for (var i = 0; i < movingmap.markers.length; i++) {
+				movingmap.markers[i].setAnimation(null)
+				movingmap.markers[i].setIcon(movingmap.blueIcon);
 			}			
 		},
 
@@ -126,7 +126,7 @@ define('mapify', ['jquery'],
 			var latlong = new google.maps.LatLng(long,lat),
 				label;
 
-			mapify.map.panTo(latlong);
+			movingmap.map.panTo(latlong);
 
 			
 		},
@@ -162,37 +162,37 @@ define('mapify', ['jquery'],
 				post,
 				marker;
 
-			$(window).bind('scroll.mapify', function () {
+			$(window).bind('scroll.movingmap', function () {
 
 				topOfPage = $(window)[0].scrollY;
 
     			if (currentTopOfPage < topOfPage) {
-    				for (i = 0; i < mapify.postsArray.length; i ++) {
+    				for (i = 0; i < movingmap.postsArray.length; i ++) {
 
-    					post = mapify.postsArray[i];
-    					marker = mapify.markers[i];
+    					post = movingmap.postsArray[i];
+    					marker = movingmap.markers[i];
 
     					// If maps edge bottom goes below post top
-    					if (topOfPage > (post.top - 500) && !post.obj.hasClass('mapify')) {
-							post.obj.addClass('mapify');
-							mapify.panToMarker(post.long, post.lat);
-							mapify.markerAnimation(marker);
-							mapify.map.setOptions({styles: mapify.mapStyle(post.hex)});												
+    					if (topOfPage > (post.top - 500) && !post.obj.hasClass('movingmap')) {
+							post.obj.addClass('movingmap');
+							movingmap.panToMarker(post.long, post.lat);
+							movingmap.markerAnimation(marker);
+							movingmap.map.setOptions({styles: movingmap.mapStyle(post.hex)});												
     					}
     				}
     			} else if (currentTopOfPage > topOfPage) {
 
-    				for (i = 0; i < mapify.postsArray.length; i ++) {
+    				for (i = 0; i < movingmap.postsArray.length; i ++) {
 
-						post = mapify.postsArray[i];
-						marker = mapify.markers[i];
+						post = movingmap.postsArray[i];
+						marker = movingmap.markers[i];
 
 						// If map top goes above post bottom
-    					if (topOfPage < (post.top + post.obj.height() - 200) && post.obj.hasClass('mapify')) {
-    						post.obj.removeClass('mapify');	
-							mapify.panToMarker(post.long, post.lat);
-							mapify.markerAnimation(marker);
-							mapify.map.setOptions({styles: mapify.mapStyle(post.hex)});
+    					if (topOfPage < (post.top + post.obj.height() - 200) && post.obj.hasClass('movingmap')) {
+    						post.obj.removeClass('movingmap');	
+							movingmap.panToMarker(post.long, post.lat);
+							movingmap.markerAnimation(marker);
+							movingmap.map.setOptions({styles: movingmap.mapStyle(post.hex)});
     					}
        				}
     			}
@@ -204,7 +204,7 @@ define('mapify', ['jquery'],
 		initOnResizeMap : function () {
 			
 			setTimeout(function(){
-				mapify.initMap()
+				movingmap.initMap()
 			}, 1200);
 			
 		},
@@ -212,12 +212,12 @@ define('mapify', ['jquery'],
 		start : function () {
 
 			if ($('.mymap').length) {
-				mapify.initMap();
-				mapify.initOnResizeMap();
+				movingmap.initMap();
+				movingmap.initOnResizeMap();
 			}
 		}
     };
 
-    return mapify;
+    return movingmap;
 
 });
