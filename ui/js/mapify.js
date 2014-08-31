@@ -155,35 +155,54 @@ define('mapify', ['jquery'],
 
 		scroll : function () {
 
-			var ths = this,
-				mapHolder = $('.mymap'),
-				currentScrollY = $(window)[0].scrollY,
-				i;
+			var mapHolder = $('.mymap'),
+				currentTopOfPage = $(window)[0].scrollY,
+				i,
+				topOfPage,
+				post,
+				marker;
 
 			$(window).bind('scroll.mapify', function () {
-    			if (currentScrollY < $(window)[0].scrollY) {
+
+				topOfPage = $(window)[0].scrollY;
+
+    			if (currentTopOfPage < topOfPage) {
     				for (i = 0; i < mapify.postsArray.length; i ++) {
-    					if ($(window)[0].scrollY > (mapify.postsArray[i].top - 500) && !mapify.postsArray[i].obj.hasClass('mapify')) {
-							mapify.postsArray[i].obj.addClass('mapify');
-							mapify.panToMarker(mapify.postsArray[i].long, mapify.postsArray[i].lat);
-							mapify.markerAnimation(mapify.markers[i]);
-							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});												
+
+    					post = mapify.postsArray[i];
+    					marker = mapify.markers[i];
+
+    					// Om toppen av sidan plus mapHeight har åkt under posten 
+    					// Alltså när mapheights underkant nuddar posten
+
+    					if (topOfPage > (post.top - 500) && !post.obj.hasClass('mapify')) {
+							post.obj.addClass('mapify');
+							mapify.panToMarker(post.long, post.lat);
+							mapify.markerAnimation(marker);
+							mapify.map.setOptions({styles: mapify.mapStyle(post.hex)});												
     					}
     				}
-    			} else if (currentScrollY > $(window)[0].scrollY) {
+    			} else if (currentTopOfPage > topOfPage) {
+
     				for (i = 0; i < mapify.postsArray.length; i ++) {
-    					if ($(window)[0].scrollY < (mapify.postsArray[i].top - mapHolder.height()) && mapify.postsArray[i].obj.hasClass('mapify')) {
-    						mapify.postsArray[i].obj.removeClass('mapify');	
-    						if (i > 0){
-    							mapify.panToMarker(mapify.postsArray[i-1].long, mapify.postsArray[i-1].lat);
-    							mapify.markerAnimation(mapify.markers[i-1]);
-    							mapify.map.setOptions({styles: mapify.mapStyle(ths.postsArray[i].hex)});
-    						} 
-    					}
+
+    						post = mapify.postsArray[i];
+    						marker = mapify.markers[i];
+
+    						// Om toppen av sidan nuddar botten av posten
+
+	    					if (topOfPage < (post.top + post.obj.height() - 200) && post.obj.hasClass('mapify')) {
+	    						post.obj.removeClass('mapify');	
+    							mapify.panToMarker(post.long, post.lat);
+    							mapify.markerAnimation(marker);
+    							mapify.map.setOptions({styles: mapify.mapStyle(post.hex)});
+	    					}
+    					
+    					
     				}
     			}
 
-    			currentScrollY = $(window)[0].scrollY;
+    			currentTopOfPage = topOfPage;
     		});
 		},
 
