@@ -16,12 +16,11 @@ define('slideshow', ['jquery'],
 		},
 
 		imageWidth : function () {
-			return slideshow.element[0].scrollWidth / slideshow.imagesArray.length;
+			return Math.floor(slideshow.element[0].scrollWidth / slideshow.imagesArray.length);
 		},
 
 		setup : function () {
-			var holder = slideshow.element.find('.slideshow-holder'),
-				images = $('img', slideshow.element);
+			var images = $('img', slideshow.element);
 
 			if (slideshow.enableArrows) {
 				slideshow.arrowBack = $('.arrow-back');
@@ -36,13 +35,40 @@ define('slideshow', ['jquery'],
 			});
 
 			//Set holder width
-			holder.css('width', (slideshow.imagesArray.length * 100) + '%');
+			slideshow.holder.css('width', (slideshow.imagesArray.length * 100) + '%');
 
 			slideshow.resetImages();
 			
-			slideshow.enableSwipes(); 
-
 		},
+
+		resetImages : function (direction) {	
+    		var i,
+    			images,
+    			htmlString = '';
+
+			// Current image is always number 2 in imagesArray. 
+			// Replace html string with current array
+			if (direction === 'forward') {
+				slideshow.imagesArray.push(slideshow.imagesArray[0]);
+				slideshow.imagesArray.shift();
+			} else {
+				slideshow.imagesArray.unshift(slideshow.imagesArray[slideshow.imagesArray.length - 1]);
+				slideshow.imagesArray.pop();
+			}
+			
+			for (i = 0; i < slideshow.imagesArray.length; i++) {
+				htmlString = htmlString + slideshow.imagesArray[i][0].outerHTML;
+			}
+
+			slideshow.holder.html(htmlString);
+
+			images = $('img', slideshow.holder);
+			images.css('width', (100 / slideshow.imagesArray.length) + '%');
+			slideshow.element.scrollLeft(slideshow.imageWidth());
+			slideshow.slideshowLeftOffset = slideshow.imageWidth();
+
+			slideshow.enableSwipes();
+    	},
 
 		enableSwipes : function () {
 
@@ -104,6 +130,8 @@ define('slideshow', ['jquery'],
 			slideshow.preventScrollTooFar();
 
 	        //If swipe half the picture - Wait until swipe stopped, then do animation
+
+	        
 			clearTimeout($.data(slideshow, 'scrollTimer'));
 			$.data(slideshow, 'scrollTimer', setTimeout(function() {
 
@@ -154,47 +182,22 @@ define('slideshow', ['jquery'],
 			});
     	},
 
-    	resetImages : function (direction) {	
-    		var holder = slideshow.element.find('.slideshow-holder'),
-    			i,
-    			images,
-    			htmlString = '';
-
-			// Always make to current image number 2 in imagesArray. 
-			// Replace html string with current array
-			if (direction == 'forward') {
-				slideshow.imagesArray.push(slideshow.imagesArray[0]);
-				slideshow.imagesArray.shift();
-			} else {
-				slideshow.imagesArray.unshift(slideshow.imagesArray[slideshow.imagesArray.length - 1]);
-				slideshow.imagesArray.pop();
-			}
-			
-			for (i = 0; i < slideshow.imagesArray.length; i++) {
-				htmlString = htmlString + slideshow.imagesArray[i][0].outerHTML;
-			}
-
-			holder.html(htmlString);
-
-			images = $('img', holder);
-			images.css('width', (100 / slideshow.imagesArray.length) + '%');
-			slideshow.element.scrollLeft(slideshow.imageWidth());
-			slideshow.slideshowLeftOffset = slideshow.imageWidth();
-
-			slideshow.enableSwipes();
-    	},
+    	
 
 		start : function () {
 
-			if ($(window).width() > 479) {
-				slideshow.enableArrows = true;
-			}
+			
 
 			if ($('.slideshow img').length === 2) {
 				$('.slideshow img:last-child').remove();
 			} else if ($('.slideshow').length && $('.slideshow img').length > 2 && $('.slideshow .cms_placeholder').length !== 1) {
 				slideshow.element = $('.slideshow');
+				slideshow.holder = slideshow.element.find('.slideshow-holder');
+				if ($(window).width() > 479) {
+					slideshow.enableArrows = true;
+				}
 				slideshow.setup();
+
 			}			
 		}
 
