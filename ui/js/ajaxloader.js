@@ -1,6 +1,6 @@
-define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
+define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 
-	function ($, Lazyload, Mapify) {
+	function ($, Lazyload, MovingMap) {
 
 	'use strict';
 
@@ -55,7 +55,7 @@ define('ajaxloader', ['jquery', 'lazyload', 'mapify'],
 					}
 
 					Lazyload.start();
-					Mapify.start();
+					MovingMap.start();
 				}
 			});
 		},

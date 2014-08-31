@@ -172,9 +172,7 @@ define('mapify', ['jquery'],
     					post = mapify.postsArray[i];
     					marker = mapify.markers[i];
 
-    					// Om toppen av sidan plus mapHeight har åkt under posten 
-    					// Alltså när mapheights underkant nuddar posten
-
+    					// If maps edge bottom goes below post top
     					if (topOfPage > (post.top - 500) && !post.obj.hasClass('mapify')) {
 							post.obj.addClass('mapify');
 							mapify.panToMarker(post.long, post.lat);
@@ -186,20 +184,17 @@ define('mapify', ['jquery'],
 
     				for (i = 0; i < mapify.postsArray.length; i ++) {
 
-    						post = mapify.postsArray[i];
-    						marker = mapify.markers[i];
+						post = mapify.postsArray[i];
+						marker = mapify.markers[i];
 
-    						// Om toppen av sidan nuddar botten av posten
-
-	    					if (topOfPage < (post.top + post.obj.height() - 200) && post.obj.hasClass('mapify')) {
-	    						post.obj.removeClass('mapify');	
-    							mapify.panToMarker(post.long, post.lat);
-    							mapify.markerAnimation(marker);
-    							mapify.map.setOptions({styles: mapify.mapStyle(post.hex)});
-	    					}
-    					
-    					
-    				}
+						// If map top goes above post bottom
+    					if (topOfPage < (post.top + post.obj.height() - 200) && post.obj.hasClass('mapify')) {
+    						post.obj.removeClass('mapify');	
+							mapify.panToMarker(post.long, post.lat);
+							mapify.markerAnimation(marker);
+							mapify.map.setOptions({styles: mapify.mapStyle(post.hex)});
+    					}
+       				}
     			}
 
     			currentTopOfPage = topOfPage;

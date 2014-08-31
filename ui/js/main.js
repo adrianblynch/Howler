@@ -1,6 +1,6 @@
-define('main', ['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazyload'],
+define('main', ['jquery', 'slideshow', 'movingmap', 'activify', 'ajaxloader', 'lazyload'],
 
-    function ($, Slideshow, Mapify, Activify, Ajaxloader, Lazyload) {
+    function ($, Slideshow, MovingMap, Activify, Ajaxloader, Lazyload) {
     'use strict';
 
 	var main = {
@@ -19,7 +19,7 @@ define('main', ['jquery', 'slideshow', 'mapify', 'activify', 'ajaxloader', 'lazy
 				Ajaxloader.start();
 			}
 			
-			Mapify.start();
+			MovingMap.start();
 		},
 
 		start : function () {
