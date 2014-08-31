@@ -130,8 +130,6 @@ define('slideshow', ['jquery'],
 			slideshow.preventScrollTooFar();
 
 	        //If swipe half the picture - Wait until swipe stopped, then do animation
-
-	        
 			clearTimeout($.data(slideshow, 'scrollTimer'));
 			$.data(slideshow, 'scrollTimer', setTimeout(function() {
 
@@ -182,11 +180,7 @@ define('slideshow', ['jquery'],
 			});
     	},
 
-    	
-
 		start : function () {
-
-			
 
 			if ($('.slideshow img').length === 2) {
 				$('.slideshow img:last-child').remove();

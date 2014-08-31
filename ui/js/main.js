@@ -1,6 +1,6 @@
-define('main', ['jquery', 'slideshow', 'movingmap', 'activify', 'ajaxloader', 'lazyload'],
+define('main', ['jquery', 'swipeshow', 'movingmap', 'activify', 'ajaxloader', 'lazyload'],
 
-    function ($, Slideshow, MovingMap, Activify, Ajaxloader, Lazyload) {
+    function ($, Swipeshow, MovingMap, Activify, Ajaxloader, Lazyload) {
     'use strict';
 
 	var main = {
@@ -10,7 +10,7 @@ define('main', ['jquery', 'slideshow', 'movingmap', 'activify', 'ajaxloader', 'l
 		},
 
 		initApps : function () {
-			Slideshow.start();
+			Swipeshow.start();
 			Activify.start();
 			Lazyload.start();
 
