@@ -459,6 +459,45 @@ button:focus, button:active,
   width: 25%;
 }
 
+.mail-holder {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.mail-holder img {
+  float: left;
+  width: 70px;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin-right: 10px;
+}
+.mail-holder div {
+  padding-top: 40px;
+}
+
+.page-bottom {
+  margin-top: 70px;
+  height: 32px;
+  border-top: 1px solid #ddd;
+  width: 100%;
+}
+.page-bottom--image {
+  text-indent: -9999px;
+  background: url("../img/howler-logo-small.png") no-repeat center;
+  height: 50px;
+  top: -25px;
+  position: relative;
+  margin: 0 auto;
+  width: 50px;
+  padding: 0 10px 0 10px;
+  background-color: white;
+  display: block;
+}
+
 /* Overrides for mobile portrait */
 /*  Phone Landscape */
 @media (min-width: 480px) {
@@ -795,7 +834,10 @@ button:focus, button:active,
 }
 /*  XL Desktop  */
 .page-standard h3 {
-  margin-top: 70px;
+  letter-spacing: -1px;
+}
+.page-standard article {
+  margin-bottom: 70px;
 }
 
 .sites h2 {

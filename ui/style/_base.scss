@@ -254,6 +254,47 @@ button,
 	
 }
 
+.mail-holder {
+	clear: both;
+	display: block;
+	overflow: hidden;
+	margin-bottom:10px;
+
+	img {
+		float:left;
+		width:70px;
+		border:1px solid #eee;
+		padding:5px;
+		border-radius: 5px;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		margin-right:10px;
+	}
+	div {
+		padding-top:40px;
+	}
+}
+
+.page-bottom {
+	margin-top:70px;		
+	height: 32px;
+	border-top: 1px solid #ddd;
+	width: 100%;
+	
+	&--image {
+		text-indent: -9999px;
+		background: url("../img/howler-logo-small.png") no-repeat center;
+		height: 50px;
+		top: -25px;
+		position: relative;
+		margin: 0 auto;
+		width: 50px;
+		padding: 0 10px 0 10px;
+		background-color: white;
+		display: block;
+	}
+}
+
 
 /* Overrides for mobile portrait */
 @media (max-width: 479px) {
