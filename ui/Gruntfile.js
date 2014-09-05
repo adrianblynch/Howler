@@ -5,20 +5,6 @@ module.exports = function(grunt) {
     devPath: '',
     distPath: '../static/',
 
-    concat: {
-      options: {
-        separator: ''
-      }
-    },
-
-    uglify: {
-      dist: {
-        files: {
-          'js/main.min.js': ['<%= concat.lazyload.dest %>']
-        }
-      }
-    },
-
     jshint: {
       files: ['Gruntfile.js', 'js/main.js'],
       options: {
@@ -40,24 +26,14 @@ module.exports = function(grunt) {
         }
       }
     },
-    bake: {
-      files: {
-        "templates/dev/index.html": "templates/prod/index.html",
-        "templates/dev/about.html": "templates/prod/about.html"
-      }
-    },
     watch: {
       css: {
           files: ['style/*.scss'],
           tasks: ['sass']
       },
-      html: {
-          files: ['templates/dev/index.html'],
-          tasks: ['bake']
-      },
       js: {
           files: ['js/*.js'],
-          tasks: ['jshint', 'concat', 'requirejs']
+          tasks: ['jshint', 'requirejs']
       }
     },
     requirejs: {
@@ -70,28 +46,14 @@ module.exports = function(grunt) {
         }
       }
     }
-
-    /*,
-
-    reload: {
-        port: 8888,
-        proxy: {
-            host: 'localhost',
-        }
-    }*/
-
   });
 
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-bake');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  //grunt.loadNpmTasks('grunt-reload');
   
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'sass', 'bake', 'requirejs']);
+  grunt.registerTask('default', ['jshint', 'sass', 'requirejs']);
   
 
 };
