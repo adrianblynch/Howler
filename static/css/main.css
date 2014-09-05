@@ -357,6 +357,7 @@ button:focus, button:active,
   margin-top: 15px;
   text-indent: -9999;
   font-size: 0;
+  position: absolute;
 }
 .main--nav-trigger span {
   background: white;
@@ -479,6 +480,8 @@ button:focus, button:active,
 }
 .mail-holder div {
   padding-top: 40px;
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 .page-bottom {
@@ -510,6 +513,7 @@ button:focus, button:active,
 /*  Small tablets Portrait */
 @media (min-width: 569px) {
   h1, h2 {
+    margin-top: 20px;
     font-size: 72px;
     font-size: 7.2rem;
   }
@@ -522,6 +526,11 @@ button:focus, button:active,
   .main--header--nav-target {
     width: 270px;
     left: -270px;
+  }
+
+  .mail-holder div {
+    font-size: 16px;
+    font-size: 1.6rem;
   }
 }
 /*  Small Desktop / tablets Landscape  */
@@ -846,12 +855,14 @@ button:focus, button:active,
 }
 /*  XL Desktop  */
 .page-standard h3 {
-  letter-spacing: -1px;
+  font-size: 18px;
+  font-size: 1.8rem;
 }
 .page-standard article {
   margin-bottom: 70px;
 }
 
+/*  Small Desktop / tablets Landscape  */
 .sites h2 {
   clear: both;
 }

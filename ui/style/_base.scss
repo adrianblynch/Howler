@@ -105,6 +105,7 @@ button,
 	width:100%;
 	top:0;
 
+
 	ul {
 		margin:0;
 		padding:0;
@@ -131,6 +132,7 @@ button,
 		margin-top: 15px;
 		text-indent: -9999;
 		font-size: 0;
+		position: absolute;
 
 		span {
 			background: white;
@@ -274,6 +276,8 @@ button,
 	}
 	div {
 		padding-top:40px;
+		font-size: 14px;
+		font-size: 1.4rem;
 	}
 }
 
@@ -312,6 +316,7 @@ button,
 /*  Small tablets Portrait */
 @media (min-width: 569px) {
 	h1, h2 {
+		margin-top:20px;
 		font-size: 72px;
 		font-size: 7.2rem;
 	}
@@ -324,6 +329,11 @@ button,
 	.main--header--nav-target {
 		width:270px;
 		left:-270px;
+	}
+
+	.mail-holder div {
+		font-size: 16px;
+		font-size: 1.6rem;
 	}
 
 }
