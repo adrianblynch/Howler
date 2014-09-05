@@ -7,14 +7,16 @@ html {
 
 h1, h2 {
 	font-family: 'Stalemate', cursive;
-	font-size: 72px;
-	font-size: 7.2rem;
+	font-size: 44px;
+	font-size: 4.4rem;
+	line-height: 1;
 	margin: 0;
 }
 
 h2 a {
-	font-size: 72px;
-	font-size: 7.2rem;
+	font-size: 44px;
+	font-size: 4.4rem;
+	line-height: 1;
 	font-weight: bold;
 	color:#666;
 	text-decoration: none;
@@ -309,6 +311,15 @@ button,
 
 /*  Small tablets Portrait */
 @media (min-width: 569px) {
+	h1, h2 {
+		font-size: 72px;
+		font-size: 7.2rem;
+	}
+
+	h2 a {
+		font-size: 72px;
+		font-size: 7.2rem;
+	}
 
 	.main--header--nav-target {
 		width:270px;
