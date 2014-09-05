@@ -8,7 +8,7 @@ define('lazyload', ['jquery'],
 
         ie9 : function () {
             if (navigator.appVersion.indexOf("MSIE 9") !== -1){
-                console.log('yeah');
+
             }
         },
 
