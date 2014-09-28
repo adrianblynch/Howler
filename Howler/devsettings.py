@@ -171,5 +171,3 @@ STATICFILES_DIRS = (
 MEDIAFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'static'),
 )
-
-# Amazon s3

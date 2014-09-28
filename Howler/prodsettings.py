@@ -36,6 +36,7 @@ CACHES = {
     }
 }
 
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -47,20 +48,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
-
     'apps.post',
     'apps.slideshow',
     'djangocms_file',
-    #'djangocms_flash',
-    #'djangocms_googlemap',
     'djangocms_inherit',
     'djangocms_picture',
     'djangocms_teaser',
-    #'djangocms_video',
+    'django_verbatim',
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
-    'django_verbatim',
     'sorl.thumbnail',
     'filer',
     'easy_thumbnails',
@@ -149,7 +146,7 @@ DATABASES = {
 }
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -172,11 +169,8 @@ MEDIAFILES_DIRS = (
     os.path.join(PROJECT_PATH, 'static'),
 )
 
-# Amazon s3
-'''
-AWS_ACCESS_KEY_ID = os.environ.get('AKIAJDEZ7KM7WN73BODQ')
-AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-AWS_STORAGE_BUCKET_NAME = 'howlerweb'
+
+
 
 #if not DEBUG:
 STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
@@ -184,4 +178,3 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
-'''
