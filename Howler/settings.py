@@ -30,6 +30,12 @@ ALLOWED_HOSTS = []
 
 SITE_ID = 1
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 
 # Application definition
 
@@ -42,20 +48,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
-
     'apps.post',
     'apps.slideshow',
     'djangocms_file',
-    #'djangocms_flash',
-    #'djangocms_googlemap',
     'djangocms_inherit',
     'djangocms_picture',
     'djangocms_teaser',
-    #'djangocms_video',
+    'django_verbatim',
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
-
     'sorl.thumbnail',
     'filer',
     'easy_thumbnails',
@@ -132,6 +134,7 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('standard.html', 'standard'),
     ('feed.html', 'feed'),
+    ('invoicify.html', 'invoicify'),
 )
 
 

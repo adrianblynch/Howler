@@ -233,6 +233,12 @@ html {
   font-family: 'Open Sans', Arial, sans-serif;
 }
 
+body {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 h1, h2 {
   font-weight: 300;
   font-size: 40px;
@@ -277,7 +283,7 @@ h4 {
 
 p, li, a {
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 p {
@@ -306,6 +312,7 @@ button,
   -webkit-transition: background .2s;
   /* For Safari 3.1 to 6.0 */
   transition: background .2s;
+  background: white;
 }
 button:hover,
 .btn:hover {
@@ -315,6 +322,25 @@ button:focus, button:active,
 .btn:focus,
 .btn:active {
   background: #ddd;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
 .main {
@@ -961,5 +987,85 @@ button:focus, button:active,
 }
 /*  Large Desktop */
 /*  XL Desktop  */
+.invoicify {
+  min-height: 1200px;
+  overflow: hidden;
+}
+.invoicify h2 {
+  margin-bottom: 40px;
+}
+.invoicify p,
+.invoicify h3,
+.invoicify input[type="text"],
+.invoicify button,
+.invoicify input[type="submit"] {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+.invoicify p {
+  margin-bottom: 0;
+}
+.invoicify button,
+.invoicify input[type="submit"] {
+  padding: 5px;
+}
+.invoicify-leftform {
+  float: left;
+  width: 20%;
+  margin-bottom: 50px;
+}
+.invoicify-rightform {
+  float: right;
+  width: 20%;
+  margin-bottom: 50px;
+}
+.invoicify-post-holder {
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+.invoicify-post-holder .description,
+.invoicify-post-holder .hours,
+.invoicify-post-holder .price,
+.invoicify-post-holder .buttons, .invoicify-addpost .description,
+.invoicify-addpost .hours,
+.invoicify-addpost .price,
+.invoicify-addpost .buttons {
+  padding: 10px 0;
+  box-sizing: border-box;
+  margin-right: 2%;
+  float: left;
+}
+.invoicify-addpost {
+  margin-top: 10px;
+}
+.invoicify input[type="text"] {
+  box-sizing: border-box;
+}
+.invoicify .description {
+  width: 48%;
+}
+.invoicify .hours {
+  width: 13%;
+}
+.invoicify .price {
+  width: 13%;
+}
+.invoicify .buttons {
+  width: 20%;
+  margin-right: 0;
+}
+.invoicify-header {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+.invoicify-header h3 {
+  font-weight: bold;
+  letter-spacing: 0;
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin-right: 2%;
+  float: left;
+}
 
 /*# sourceMappingURL=main.css.map */

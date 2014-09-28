@@ -1,0 +1,97 @@
+.invoicify {
+
+	min-height:1200px;
+	overflow: hidden;
+
+	h2 {
+		margin-bottom:40px;
+	}
+
+	p,
+	h3,
+	input[type="text"],
+	button,
+	input[type="submit"] {
+		font-size: 16px;
+		font-size: 1.6rem;
+	}
+
+	p {
+		margin-bottom:0;
+	}
+
+	button,
+	input[type="submit"] {
+		padding: 5px;
+	}
+
+	&-leftform {
+		float:left;
+		width:20%;
+		margin-bottom:50px;
+	}
+
+	&-rightform {
+		float:right;
+		width:20%;
+		margin-bottom:50px;
+	}
+
+	&-post-holder {
+		overflow:hidden;
+		border-bottom: 1px solid #eee;
+	}
+
+	&-post-holder,
+	&-addpost {
+		.description,
+		.hours,
+		.price,
+		.buttons {
+			padding:10px 0;	
+			box-sizing:border-box;
+			margin-right:2%;
+			float:left;
+		}
+	}
+
+	&-addpost {
+		margin-top:10px;
+	}
+
+	input[type="text"] {
+		box-sizing: border-box;
+	}	
+
+	.description {
+		width: 48%;		
+	}
+
+	.hours {
+		width: 13%;
+	}
+
+	.price {
+		width: 13%;
+	}
+
+	.buttons {
+		width:20%;
+		margin-right:0;
+	}
+
+	&-header {
+		width:100%;
+		overflow:hidden;
+		border-bottom: 1px solid black;
+
+		h3 {
+			font-weight: bold;
+			letter-spacing: 0;
+			font-size: 16px;
+			font-size: 1.6rem;
+			margin-right:2%;
+			float:left;
+		}
+	}
+}

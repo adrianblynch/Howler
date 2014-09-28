@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block ng_app %}ng-app="invoicify"{% endblock %}
+{% load cms_tags %}
+{% block body_class %}page-invoicify{% endblock %}
+
+
+{% block base_content %}
+
+	{% load verbatim %}
+	{% verbatim %}
+
+	<div class="main-wrapper" ng-controller="InvoicifyController as invoice">
+		<main class="main" role="main">
+			<section class="invoicify">
+				<article>
+					<h2>Invoicify</h2>
+
+					<form class="invoicify-leftform">
+						<input type="text" ng-model="invoice.newPost.description" ="Date:" />
+						<input type="text" ng-model="invoice.newPost.description" value="Invoice number:" />
+						<input type="text" ng-model="invoice.newPost.description" value="Reference:" />
+					</form>
+
+					<form class="invoicify-rightform">
+						<input type="text" ng-model="invoice.newPost.description" value="Date:" />
+						<input type="text" ng-model="invoice.newPost.description" value="Invoice number:" />
+						<input type="text" ng-model="invoice.newPost.description" value="Reference:" />
+					</form>
+
+
+					<div class="invoice-table">
+						<header class="invoicify-header">
+							<h3 class="description">Description</h3>
+							<h3 class="hours">Hours</h3>
+							<h3 class="price">Price</h2>
+						</header>
+
+						<div class="invoicify-post-holder" ng-repeat="post in invoice.posts">
+							<div class="invoicify-post" ng-hide="invoice.isEditFormVisible($index)" ng-click="invoice.editPost($index)">
+								<div class="description"><p>{{ post.description }}</p></div>
+								<div class="hours"><p>{{ post.hours }}</p></div>
+								<div class="price"><p>{{ post.price }}</p></div>
+								<div class="buttons">
+									<button ng-click="invoice.editPost($index)">Edit</button>
+									<button ng-click="invoice.deletePost($index)">Delete</button>
+								</div>
+							</div>
+							<form class="invoicify-edit" ng-submit="invoice.savePost(invoice.newPost, $index)" ng-show="invoice.isEditFormVisible($index)">
+								<div class="description">
+									<input type="text" ng-model="invoice.newPost.description" />
+								</div>
+								<div class="hours">
+									<input type="text" ng-model="invoice.newPost.hours" />
+								</div>
+								<div class="price">
+									<input type="text" ng-model="invoice.newPost.price" />
+								</div>							
+								<div class="buttons">
+									<input class="btn" type="submit" value="Save" />
+								</div>
+							</form>
+						</div>
+
+						<div class="invoicify-addpost">
+							<button ng-click="invoice.addPost()" ng-hide="invoice.isAddTaskFormVisible()">Add task</button>
+							<form  ng-submit="invoice.savePost(invoice.newPost, $index)" ng-show="invoice.isAddTaskFormVisible()">
+								<div class="description">
+									<input type="text" ng-model="invoice.newPost.description" />
+								</div>
+								<div class="hours">
+									<input type="text" ng-model="invoice.newPost.hours" />
+								</div>
+								<div class="price">
+									<input type="text" ng-model="invoice.newPost.price" />
+								</div>							
+								<div class="buttons">
+									<input class="btn" type="submit" value="Save" />
+								</div>
+							</form>
+						</div>
+
+					</div>
+					
+
+				</article>
+			</section>
+		</main>
+	</div>
+
+	{% endverbatim %}
+
+
+{% endblock %}
