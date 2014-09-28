@@ -1,26 +1,23 @@
 [
     {
-        "description" :  "Lorem ipsum dolar...",
-        "hours" : "3",
-        "price" : "120",
-        "active" : "false"
+        "description" :  "Green T-shirt",
+        "amount" : 2,
+        "price" : 240,
+        "active" : "false",
+        "total" : 0
     },
     {
-        "description" :  "2Lorem ipsum dolar...",
-        "hours" : "3",
-        "price" : "120",
-        "active" : "false"
+        "description" :  "Blue pants",
+        "amount" : 1,
+        "price" : 80,
+        "active" : "false",
+        "total" : 0
     },
     {
-        "description" :  "3Lorem ipsum dolar...",
-        "hours" : "3",
-        "price" : "120",
-        "active" : "false"
-    },
-    {
-        "description" :  "4Lorem ipsum dolar...",
-        "hours" : "3",
-        "price" : "120",
-        "active" : "false"
+        "description" :  "Yellow cap",
+        "amount" : 1,
+        "price" : 120,
+        "active" : "false",
+        "total" : 0
     }
 ]

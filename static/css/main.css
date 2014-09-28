@@ -998,9 +998,27 @@ input[type="text"] {
 .invoicify h3,
 .invoicify input[type="text"],
 .invoicify button,
-.invoicify input[type="submit"] {
-  font-size: 16px;
-  font-size: 1.6rem;
+.invoicify input[type="submit"],
+.invoicify label,
+.invoicify span,
+.invoicify dt,
+.invoicify dd {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.invoicify dl {
+  line-height: 1.8;
+}
+.invoicify dt {
+  margin-right: 5px;
+  float: left;
+}
+.invoicify dd {
+  -webkit-margin-start: 0;
+}
+.invoicify dt,
+.invoicify label {
+  font-weight: 700;
 }
 .invoicify p {
   margin-bottom: 0;
@@ -1011,12 +1029,12 @@ input[type="text"] {
 }
 .invoicify-leftform {
   float: left;
-  width: 20%;
+  width: 25%;
   margin-bottom: 50px;
 }
 .invoicify-rightform {
   float: right;
-  width: 20%;
+  width: 25%;
   margin-bottom: 50px;
 }
 .invoicify-post-holder {
@@ -1024,13 +1042,15 @@ input[type="text"] {
   border-bottom: 1px solid #eee;
 }
 .invoicify-post-holder .description,
-.invoicify-post-holder .hours,
+.invoicify-post-holder .amount,
 .invoicify-post-holder .price,
-.invoicify-post-holder .buttons, .invoicify-addpost .description,
-.invoicify-addpost .hours,
+.invoicify-post-holder .buttons,
+.invoicify-post-holder .total, .invoicify-addpost .description,
+.invoicify-addpost .amount,
 .invoicify-addpost .price,
-.invoicify-addpost .buttons {
-  padding: 10px 0;
+.invoicify-addpost .buttons,
+.invoicify-addpost .total {
+  padding: 15px 0;
   box-sizing: border-box;
   margin-right: 2%;
   float: left;
@@ -1042,17 +1062,23 @@ input[type="text"] {
   box-sizing: border-box;
 }
 .invoicify .description {
-  width: 48%;
+  width: 52%;
 }
-.invoicify .hours {
-  width: 13%;
+.invoicify .amount,
+.invoicify .price,
+.invoicify .total {
+  width: 8%;
+  text-align: center;
 }
-.invoicify .price {
-  width: 13%;
+.invoicify .amount input,
+.invoicify .price input,
+.invoicify .total input {
+  text-align: center;
 }
 .invoicify .buttons {
-  width: 20%;
+  width: 100px;
   margin-right: 0;
+  float: right;
 }
 .invoicify-header {
   width: 100%;
@@ -1062,8 +1088,6 @@ input[type="text"] {
 .invoicify-header h3 {
   font-weight: bold;
   letter-spacing: 0;
-  font-size: 16px;
-  font-size: 1.6rem;
   margin-right: 2%;
   float: left;
 }
