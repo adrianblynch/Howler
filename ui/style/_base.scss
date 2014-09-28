@@ -1,22 +1,25 @@
 html {
 	font-size: 65.2%;
-	color:#666;
+	color:#777;
 	font-family: 'Open Sans', Arial, sans-serif;
 }
 
 
 h1, h2 {
-	font-family: 'Stalemate', cursive;
-	font-size: 72px;
-	font-size: 7.2rem;
-	margin: 0;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 1.5;
+	margin: 10px 0;
+	letter-spacing: -1px;
 }
 
 h2 a {
-	font-size: 72px;
-	font-size: 7.2rem;
-	font-weight: bold;
-	color:#666;
+	font-weight: 300;
+	letter-spacing: -1px;
+	font-size: 40px;
+	line-height: 1.5;
+	margin: 10px 0;
+	color:#777;
 	text-decoration: none;
 
 	&:hover {
@@ -26,17 +29,19 @@ h2 a {
 
 h3 {
 	font-family: 'Open Sans', Arial, sans-serif;
+	font-weight: 300;
 	font-size: 26px;
 	font-size: 2.6rem;
 	margin-bottom: 10px;
 	margin-top:0;
+	letter-spacing: -1px;
 }
 
 
 h4, h5, p, li, a {
 	font-weight: 700;
-	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 20px;
+	font-size: 2rem;
 	margin:0;
 }
 
@@ -284,16 +289,11 @@ button,
 
 /*  Large Desktop */
 @media (min-width: 1025px) {
-	body {
-		background:#eee;
-	}
-	
+
 	.main {
-		padding:2%;
+		padding:6% 2% 2% 2%;
 		width:80%;
 		position:relative;
-		top:-120px;
-		border:1px solid #ccc;
 	
 		&--nav-wrapper {
 			padding:0 2%;
