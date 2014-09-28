@@ -166,6 +166,8 @@ button,
 			border-bottom: 1px solid #222;
 			display: block;
 			color:white;
+			font-size: 16px;
+			font-size: 1.6rem;
 
 			&:hover {
 				background:#222;
@@ -187,6 +189,11 @@ button,
 	span {
 		margin-top: 3px;
 		display: inline-block;
+
+		a {
+			text-decoration: none;
+			font-size: 40px;
+		}
 	}	
 }
 

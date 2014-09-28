@@ -389,6 +389,8 @@ button:focus, button:active,
   border-bottom: 1px solid #222;
   display: block;
   color: white;
+  font-size: 16px;
+  font-size: 1.6rem;
 }
 .main--nav-target a:hover {
   background: #222;
@@ -405,6 +407,10 @@ button:focus, button:active,
 .logo span {
   margin-top: 3px;
   display: inline-block;
+}
+.logo span a {
+  text-decoration: none;
+  font-size: 40px;
 }
 
 .alert-message {
