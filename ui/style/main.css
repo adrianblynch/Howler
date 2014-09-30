@@ -229,11 +229,18 @@ th {
 
 html {
   font-size: 65.2%;
-  color: #666;
+  color: #777;
   font-family: 'Open Sans', Arial, sans-serif;
 }
 
+body {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 h1, h2 {
+<<<<<<< HEAD
   font-family: 'Stalemate', cursive;
   font-size: 44px;
   font-size: 4.4rem;
@@ -247,6 +254,22 @@ h2 a {
   line-height: 1;
   font-weight: bold;
   color: #666;
+=======
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.5;
+  margin: 10px 0;
+  letter-spacing: -1px;
+}
+
+h2 a {
+  font-weight: 300;
+  letter-spacing: -1px;
+  font-size: 40px;
+  line-height: 1.5;
+  margin: 10px 0;
+  color: #777;
+>>>>>>> FETCH_HEAD
   text-decoration: none;
 }
 h2 a:hover {
@@ -255,16 +278,18 @@ h2 a:hover {
 
 h3 {
   font-family: 'Open Sans', Arial, sans-serif;
+  font-weight: 300;
   font-size: 26px;
   font-size: 2.6rem;
   margin-bottom: 10px;
   margin-top: 0;
+  letter-spacing: -1px;
 }
 
 h4, h5, p, li, a {
   font-weight: 700;
-  font-size: 16px;
-  font-size: 1.6rem;
+  font-size: 20px;
+  font-size: 2rem;
   margin: 0;
 }
 
@@ -274,7 +299,7 @@ h4 {
 
 p, li, a {
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 p {
@@ -303,6 +328,7 @@ button,
   -webkit-transition: background .2s;
   /* For Safari 3.1 to 6.0 */
   transition: background .2s;
+  background: white;
 }
 button:hover,
 .btn:hover {
@@ -312,6 +338,25 @@ button:focus, button:active,
 .btn:focus,
 .btn:active {
   background: #ddd;
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
 .main {
@@ -387,6 +432,8 @@ button:focus, button:active,
   border-bottom: 1px solid #222;
   display: block;
   color: white;
+  font-size: 16px;
+  font-size: 1.6rem;
 }
 .main--nav-target a:hover {
   background: #222;
@@ -403,6 +450,10 @@ button:focus, button:active,
 .logo span {
   margin-top: 3px;
   display: inline-block;
+}
+.logo span a {
+  text-decoration: none;
+  font-size: 40px;
 }
 
 .alert-message {
@@ -536,16 +587,10 @@ button:focus, button:active,
 /*  Small Desktop / tablets Landscape  */
 /*  Large Desktop */
 @media (min-width: 1025px) {
-  body {
-    background: #eee;
-  }
-
   .main {
-    padding: 2%;
+    padding: 6% 2% 2% 2%;
     width: 80%;
     position: relative;
-    top: -120px;
-    border: 1px solid #ccc;
   }
   .main--nav-wrapper {
     padding: 0 2%;
@@ -1021,3 +1066,109 @@ button:focus, button:active,
 }
 /*  Large Desktop */
 /*  XL Desktop  */
+.invoicify {
+  min-height: 1200px;
+  overflow: hidden;
+}
+.invoicify h2 {
+  margin-bottom: 40px;
+}
+.invoicify p,
+.invoicify h3,
+.invoicify input[type="text"],
+.invoicify button,
+.invoicify input[type="submit"],
+.invoicify label,
+.invoicify span,
+.invoicify dt,
+.invoicify dd {
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+.invoicify dl {
+  line-height: 1.8;
+}
+.invoicify dt {
+  margin-right: 5px;
+  float: left;
+}
+.invoicify dd {
+  -webkit-margin-start: 0;
+}
+.invoicify dt,
+.invoicify label {
+  font-weight: 700;
+}
+.invoicify p {
+  margin-bottom: 0;
+}
+.invoicify button,
+.invoicify input[type="submit"] {
+  padding: 5px;
+}
+.invoicify-leftform {
+  float: left;
+  width: 25%;
+  margin-bottom: 50px;
+}
+.invoicify-rightform {
+  float: right;
+  width: 25%;
+  margin-bottom: 50px;
+}
+.invoicify-post-holder {
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+.invoicify-post-holder .description,
+.invoicify-post-holder .amount,
+.invoicify-post-holder .price,
+.invoicify-post-holder .buttons,
+.invoicify-post-holder .total, .invoicify-addpost .description,
+.invoicify-addpost .amount,
+.invoicify-addpost .price,
+.invoicify-addpost .buttons,
+.invoicify-addpost .total {
+  padding: 15px 0;
+  box-sizing: border-box;
+  margin-right: 2%;
+  float: left;
+}
+.invoicify-addpost {
+  margin-top: 10px;
+}
+.invoicify input[type="text"] {
+  box-sizing: border-box;
+}
+.invoicify .description {
+  width: 52%;
+}
+.invoicify .amount,
+.invoicify .price,
+.invoicify .total {
+  width: 8%;
+  text-align: center;
+}
+.invoicify .amount input,
+.invoicify .price input,
+.invoicify .total input {
+  text-align: center;
+}
+.invoicify .buttons {
+  width: 100px;
+  margin-right: 0;
+  float: right;
+}
+.invoicify-header {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+.invoicify-header h3 {
+  font-weight: bold;
+  letter-spacing: 0;
+  margin-right: 2%;
+  float: left;
+}
+
+/*# sourceMappingURL=main.css.map */

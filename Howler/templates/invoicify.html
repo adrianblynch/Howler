@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% block ng_app %}ng-app="invoicify"{% endblock %}
+{% load cms_tags %}
+{% block body_class %}page-invoicify{% endblock %}
+
+
+{% block base_content %}
+
+	{% load verbatim %}
+	{% verbatim %}
+
+	<div class="main-wrapper" ng-controller="InvoicifyController as invoice">
+		<main class="main" role="main">
+			<section class="invoicify">
+				<article>
+					<h2>Invoice no: 1</h2>
+
+					<form class="invoicify-leftform">
+						<dl>
+							<span>
+								<dt>Date:</dt>
+								<dd>2014-09-23</dd>
+							</span>
+							<span>
+								<dt>Expiration:</dt>
+								<dd>2014-09-23</dd>
+							</span>
+							<span>
+								<dt>Reference:</dt>
+								<dd>Charlotte Holmen</dd>
+							</span>
+						</dl>
+					</form>
+
+					<form class="invoicify-rightform">
+						<dl>
+							<span>
+								<dt>Client:</dt>
+								<dd>Aftonbladet Resa</dd>
+							</span>
+							<span>
+								<dt></dt>
+								<dd>Bondegatan 45</dd>
+							</span>
+							<span>
+								<dt></dt>
+								<dd>11163, Stockholm</dd>
+							</span>
+						</dl>
+					</form>
+
+
+					<div class="invoice-table">
+						<header class="invoicify-header">
+							<h3 class="description">Description</h3>
+							<h3 class="amount">Amount</h3>
+							<h3 class="price">Price</h2>
+							<h3 class="total">Total</h3>
+						</header>
+
+						<div class="invoicify-post-holder" ng-repeat="post in invoice.posts">
+							<div class="invoicify-post" ng-hide="invoice.isEditFormVisible($index)" ng-click="invoice.editPost($index)">
+								<div class="description"><p>{{ post.description }}</p></div>
+								<div class="amount"><p>{{ post.amount }}</p></div>
+								<div class="price"><p>{{ post.price }}</p></div>
+								<div class="total"><p>{{ post.total }}</p></div>
+								<div class="buttons">
+									<button ng-click="invoice.editPost($index)">Edit</button>
+									<button ng-click="invoice.deletePost($index)">Delete</button>
+								</div>
+							</div>
+							<form class="invoicify-edit" ng-submit="invoice.savePost(invoice.newPost, $index)" ng-show="invoice.isEditFormVisible($index)">
+								<div class="description">
+									<input type="text" ng-model="invoice.newPost.description" />
+								</div>
+								<div class="amount">
+									<input type="text" ng-model="invoice.newPost.amount" />
+								</div>
+								<div class="price">
+									<input type="text" ng-model="invoice.newPost.price" />
+								</div>	
+								<div class="total">
+									<p>{{ post.total }}</p>
+								</div>							
+								<div class="buttons">
+									<input class="btn" type="submit" value="Save" />
+								</div>
+							</form>
+						</div>
+
+						<div class="invoicify-addpost">
+							<button ng-click="invoice.addPost()" ng-hide="invoice.isAddTaskFormVisible()">Add task</button>
+							<form  ng-submit="invoice.savePost(invoice.newPost, $index)" ng-show="invoice.isAddTaskFormVisible()">
+								<div class="description">
+									<input type="text" ng-model="invoice.newPost.description" />
+								</div>
+								<div class="amount">
+									<input type="text" ng-model="invoice.newPost.amount" />
+								</div>
+								<div class="price">
+									<input type="text" ng-model="invoice.newPost.price" />
+								</div>		
+								<div class="total">
+									
+								</div>						
+								<div class="buttons">
+									<input class="btn" type="submit" value="Save" />
+								</div>
+							</form>
+						</div>
+
+					</div>
+					
+
+				</article>
+			</section>
+		</main>
+	</div>
+
+	{% endverbatim %}
+
+
+{% endblock %}

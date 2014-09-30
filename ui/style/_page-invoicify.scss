@@ -1,0 +1,117 @@
+.invoicify {
+
+	min-height:1200px;
+	overflow: hidden;
+
+	h2 {
+		margin-bottom:40px;
+	}
+
+	p,
+	h3,
+	input[type="text"],
+	button,
+	input[type="submit"],
+	label,
+	span,
+	dt,
+	dd {
+		font-size: 14px;
+		font-size: 1.4rem;
+	}
+	dl {
+		line-height: 1.8;
+	}
+	dt {
+		margin-right:5px;
+		float:left;
+	}
+	dd {
+		-webkit-margin-start: 0;
+	}
+	dt,
+	label {
+		font-weight: 700;
+	}
+	p {
+		margin-bottom:0;
+	}
+
+	button,
+	input[type="submit"] {
+		padding: 5px;
+	}
+
+	&-leftform {
+		float:left;
+		width:25%;
+		margin-bottom:50px;
+	}
+
+	&-rightform {
+		float:right;
+		width:25%;
+		margin-bottom:50px;
+	}
+
+	&-post-holder {
+		overflow:hidden;
+		border-bottom: 1px solid #eee;
+	}
+
+	&-post-holder,
+	&-addpost {
+		.description,
+		.amount,
+		.price,
+		.buttons,
+		.total {
+			padding:15px 0;	
+			box-sizing:border-box;
+			margin-right:2%;
+			float:left;
+		}
+	}
+
+	&-addpost {
+		margin-top:10px;
+	}
+
+	input[type="text"] {
+		box-sizing: border-box;
+	}	
+
+	.description {
+		width: 52%;		
+	}
+
+	.amount,
+	.price,
+	.total {
+		width: 8%;
+		text-align: center;
+
+		input {
+			text-align: center;
+		}
+	}
+
+	.buttons {
+		width: 100px;
+		margin-right: 0;
+		float: right;
+	}
+
+	&-header {
+		width:100%;
+		overflow:hidden;
+		border-bottom: 1px solid black;
+
+		h3 {
+			font-weight: bold;
+			letter-spacing: 0;
+			margin-right:2%;
+			float:left;
+		}
+	}
+}

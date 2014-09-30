@@ -46,7 +46,7 @@
 
 
 
-  <body class="{% block body_class %}{% endblock %}">
+  <body class="{% block body_class %}{% endblock %}" {% block ng_app %}{% endblock %}>
       {% cms_toolbar %}
       <header class="main--header" role="banner">
         <nav class="main--nav">
@@ -63,7 +63,7 @@
             </ul>
           
             <div class="logo">
-              <span>Howler</span>
+              <span><a href="/">Howler</a></span>
             </div>
           </div>
         </nav>
@@ -85,11 +85,13 @@
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZALOy001opNrj_KlVRJzCfW9DMnCAzKU"></script>
       <script data-main="{{ STATIC_URL }}js/main" src="{{ STATIC_URL }}js/require.js"></script>
 
+<<<<<<< HEAD
+=======
+      <!-- Angular -->
+      <script src="{{ STATIC_URL }}js/angular/angular.js"></script>
+      <script src="{{ STATIC_URL }}js/angular/app.js"></script>
+      <script src="{{ STATIC_URL }}js/angular/controllers/invoicifyController.js"></script>
+>>>>>>> FETCH_HEAD
       
   </body>
-
-
-
-
-
 </html>
