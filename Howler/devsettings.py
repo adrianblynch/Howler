@@ -47,16 +47,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'storages',
-
     'apps.post',
     'apps.slideshow',
     'djangocms_file',
-    #'djangocms_flash',
-    #'djangocms_googlemap',
     'djangocms_inherit',
     'djangocms_picture',
     'djangocms_teaser',
-    #'djangocms_video',
     'djangocms_link',
     'djangocms_snippet',
     'djangocms_text_ckeditor',  # note this needs to be above the 'cms' entry
