@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load cms_tags %}
-{% block body_class %}page-about{% endblock %}
+{% block body_class %}page-standard{% endblock %}
 
 {% block base_content %}
 	<div class="slideshow-wrapper">
@@ -24,10 +24,15 @@
 					{% placeholder text %}
 				</article>
 			</section>
-
+<!--
 			<aside class="aside" role="complementary">
 				{% placeholder aside-image %}
-			</aside>
+			</aside>-->
+
+
+			<div class="page-bottom">
+				<div href="#" class="page-bottom--image"></div>
+			</div>
 		</main>
 	</div>
 

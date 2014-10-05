@@ -16,7 +16,7 @@
   <head>
     <meta charset="utf-8" />
       <title>{% page_attribute "page_title" %}</title>
-      <meta name="viewport" content="width=device-width initial-scale=1">
+      <meta name="viewport" content="width=device-width initial-scale=1 minimal-ui">
 
       <!-- styles -->
       {% render_block "css" %}
@@ -28,6 +28,17 @@
       <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-54516864-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
 
 
       
@@ -74,10 +85,13 @@
       <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZALOy001opNrj_KlVRJzCfW9DMnCAzKU"></script>
       <script data-main="{{ STATIC_URL }}js/main" src="{{ STATIC_URL }}js/require.js"></script>
 
+<<<<<<< HEAD
+=======
       <!-- Angular -->
       <script src="{{ STATIC_URL }}js/angular/angular.js"></script>
       <script src="{{ STATIC_URL }}js/angular/app.js"></script>
       <script src="{{ STATIC_URL }}js/angular/controllers/invoicifyController.js"></script>
+>>>>>>> FETCH_HEAD
       
   </body>
 </html>

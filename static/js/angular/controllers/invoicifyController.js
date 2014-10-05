@@ -57,8 +57,8 @@ angular.module('invoicify')
 
 		if (scope.activity === "edit") {
 			scope.saveTask(scope.newPost, scope.activePostId);
-			scope.newPost = {};
 		}
+		scope.newPost = {};
 		
 		scope.setAddFormActive();
 	}

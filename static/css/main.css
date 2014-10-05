@@ -240,6 +240,21 @@ body {
 }
 
 h1, h2 {
+<<<<<<< HEAD
+  font-family: 'Stalemate', cursive;
+  font-size: 44px;
+  font-size: 4.4rem;
+  line-height: 1;
+  margin: 0;
+}
+
+h2 a {
+  font-size: 44px;
+  font-size: 4.4rem;
+  line-height: 1;
+  font-weight: bold;
+  color: #666;
+=======
   font-weight: 300;
   font-size: 40px;
   line-height: 1.5;
@@ -254,6 +269,7 @@ h2 a {
   line-height: 1.5;
   margin: 10px 0;
   color: #777;
+>>>>>>> FETCH_HEAD
   text-decoration: none;
 }
 h2 a:hover {
@@ -386,6 +402,7 @@ input[type="text"] {
   margin-top: 15px;
   text-indent: -9999;
   font-size: 0;
+  position: absolute;
 }
 .main--nav-trigger span {
   background: white;
@@ -496,6 +513,47 @@ input[type="text"] {
   width: 25%;
 }
 
+.mail-holder {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.mail-holder img {
+  float: left;
+  width: 70px;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  margin-right: 10px;
+}
+.mail-holder div {
+  padding-top: 40px;
+  font-size: 14px;
+  font-size: 1.4rem;
+}
+
+.page-bottom {
+  margin-top: 70px;
+  height: 32px;
+  border-top: 1px solid #ddd;
+  width: 100%;
+}
+.page-bottom--image {
+  text-indent: -9999px;
+  background: url("../img/howler-logo-small.png") no-repeat center;
+  height: 50px;
+  top: -25px;
+  position: relative;
+  margin: 0 auto;
+  width: 50px;
+  padding: 0 10px 0 10px;
+  background-color: white;
+  display: block;
+}
+
 /* Overrides for mobile portrait */
 /*  Phone Landscape */
 @media (min-width: 480px) {
@@ -505,9 +563,25 @@ input[type="text"] {
 }
 /*  Small tablets Portrait */
 @media (min-width: 569px) {
+  h1, h2 {
+    margin-top: 20px;
+    font-size: 72px;
+    font-size: 7.2rem;
+  }
+
+  h2 a {
+    font-size: 72px;
+    font-size: 7.2rem;
+  }
+
   .main--header--nav-target {
     width: 270px;
     left: -270px;
+  }
+
+  .mail-holder div {
+    font-size: 16px;
+    font-size: 1.6rem;
   }
 }
 /*  Small Desktop / tablets Landscape  */
@@ -826,9 +900,14 @@ input[type="text"] {
 }
 /*  XL Desktop  */
 .page-standard h3 {
-  margin-top: 70px;
+  font-size: 18px;
+  font-size: 1.8rem;
+}
+.page-standard article {
+  margin-bottom: 70px;
 }
 
+/*  Small Desktop / tablets Landscape  */
 .sites h2 {
   clear: both;
 }

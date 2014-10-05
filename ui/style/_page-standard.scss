@@ -1,5 +1,22 @@
 .page-standard {
 	h3 {
-		margin-top: 70px;
+		font-size: 18px;
+			font-size: 1.8rem;
+	}
+
+	article {
+		margin-bottom: 70px;
 	}
 }
+
+
+/*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+	.page-standard {
+		h3 {
+		}
+	}
+
+}
+
+
