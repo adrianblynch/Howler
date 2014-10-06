@@ -13,7 +13,10 @@ define('ajaxloader', ['jquery', 'lazyload', 'movingmap'],
 			if ($('.ajax-loader').length) {
 				$('.ajax-loader').show();
 				ajaxloader.loaderDiv = $('.ajax-loader');
-				ajaxloader.loading = false;		
+				ajaxloader.loading = false;
+				$('.page-bottom').hide();	
+			} else {
+				$('.page-bottom').show();
 			}
 
 			$('.step-links').hide();
