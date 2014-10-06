@@ -1010,7 +1010,6 @@ input[type="text"] {
   position: relative;
   z-index: 10;
   width: 100%;
-  display: none;
 }
 .images-row img {
   float: left;
