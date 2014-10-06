@@ -124,7 +124,6 @@ input[type="text"] {
 	box-sizing:border-box;
 	background: white;
 	border-radius: 10px;
-	overflow: hidden;
 
 	&--header {
 		padding-top: 50px;
@@ -322,7 +321,7 @@ input[type="text"] {
 }
 
 .page-bottom {
-	margin-top:70px;		
+	margin:100px 0 50px;		
 	height: 32px;
 	border-top: 1px solid #ddd;
 	width: 100%;

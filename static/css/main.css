@@ -351,7 +351,6 @@ input[type="text"] {
   box-sizing: border-box;
   background: white;
   border-radius: 10px;
-  overflow: hidden;
 }
 .main--header {
   padding-top: 50px;
@@ -522,7 +521,7 @@ input[type="text"] {
 }
 
 .page-bottom {
-  margin-top: 70px;
+  margin: 100px 0 50px;
   height: 32px;
   border-top: 1px solid #ddd;
   width: 100%;
@@ -928,6 +927,9 @@ input[type="text"] {
     max-width: 68%;
   }
 }
+.posts {
+  overflow: hidden;
+}
 .posts h1, .posts h2, .posts h3, .posts h4, .posts h5, .posts h6, .posts p {
   max-width: 630px;
 }
@@ -1008,6 +1010,7 @@ input[type="text"] {
   position: relative;
   z-index: 10;
   width: 100%;
+  display: none;
 }
 .images-row img {
   float: left;
