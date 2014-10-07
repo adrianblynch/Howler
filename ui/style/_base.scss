@@ -91,11 +91,33 @@ button,
     background: white;
 
 	&:hover {
-		background:#eee;
+		background-color:#eee;
 	}
 	&:focus,
 	&:active {
-		background:#ddd;
+		background-color:#ddd;
+	}
+}
+
+.icon-btn {
+	text-indent: -999px;
+	font-size: 0 !important;
+	-moz-border-radius: 18px;
+	-webkit-border-radius: 18px;
+	border-radius: 18px;
+	height: 30px;
+	width: 30px;
+	background-color: #ddd;
+	border: none;
+	padding: 0 !important;
+	background-position: center center;
+
+	&:hover {
+		
+	}
+	&:focus,
+	&:active {
+		
 	}
 }
 

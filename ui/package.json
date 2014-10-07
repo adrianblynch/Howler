@@ -6,7 +6,8 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-sass": "^0.7.3",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-grunticon": "^1.2.13"
   },
   "author": "Charlotte Holmen"
 }

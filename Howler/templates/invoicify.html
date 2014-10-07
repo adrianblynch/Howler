@@ -20,17 +20,26 @@
 							<div ng-hide="post.active"
 								ng-click="editRow($index, leftFormPosts, leftFormSettings)">
 								<span>{{ post.description }}</span>
-								<button ng-click="editRow($index, leftFormPosts, leftFormSettings)">Edit</button>
-								<button ng-click="deleteRow($index, leftFormPosts)">Delete</button>
+								<button 
+									class="icon-edit icon-btn" 
+									ng-click="editRow($index, leftFormPosts, leftFormSettings)">
+									Edit
+								</button>
+								<button 
+									class="icon-delete icon-btn" 
+									ng-click="deleteRow($index, leftFormPosts)">
+									Delete
+								</button>
 							</div>
 
 							<form ng-show="post.active" ng-submit="updateRow($index, leftFormPosts, leftFormSettings)">
 								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="btn" value="Update">
+								<input type="submit" class="icon-btn icon-check" value="Update">
 							</form>
 						</li>
 						<li>
 							<button 
+								class="icon-plus icon-btn"
 								ng-click="addRow(leftFormPosts, leftFormSettings)"
 								ng-hide="leftFormSettings.isAddingRow">
 								Add row
@@ -39,7 +48,7 @@
 								ng-show="leftFormSettings.isAddingRow"
 								ng-submit="saveRow($index, leftFormPosts, leftFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="btn" value="Save">
+								<input type="submit" class="icon-btn icon-check" value="Save">
 							</form>
 						</li>
 					</ul>
@@ -49,17 +58,26 @@
 							<div ng-hide="post.active"
 								ng-click="editRow($index, rightFormPosts, rightFormSettings)">
 								<span>{{ post.description }}</span>
-								<button ng-click="editRow($index, rightFormPosts, rightFormSettings)">Edit</button>
-								<button ng-click="deleteRow($index, rightFormPosts)">Delete</button>
+								<button 
+									class="icon-edit icon-btn" 
+									ng-click="editRow($index, rightFormPosts, rightFormSettings)">
+									Edit
+								</button>
+								<button 
+									class="icon-delete icon-btn" 
+									ng-click="deleteRow($index, rightFormPosts)">
+									Delete
+								</button>
 							</div>
 
 							<form ng-show="post.active" ng-submit="updateRow($index, rightFormPosts, rightFormSettings)">
 								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="btn" value="Update">
+								<input type="submit" class="icon-btn icon-check" value="Update">
 							</form>
 						</li>
 						<li>
 							<button 
+								class="icon-plus icon-btn"
 								ng-click="addRow(rightFormPosts, rightFormSettings)"
 								ng-hide="rightFormSettings.isAddingRow">
 								Add row
@@ -68,7 +86,7 @@
 								ng-show="rightFormSettings.isAddingRow"
 								ng-submit="saveRow($index, rightFormPosts, rightFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="btn" value="Save">
+								<input type="submit" class="icon-btn icon-check" value="Save">
 							</form>
 						</li>
 					</ul>
@@ -91,8 +109,16 @@
 								<div class="price"><p>{{ post.price }}</p></div>
 								<div class="total"><p>{{ post.total }}</p></div>
 								<div class="buttons">
-									<button ng-click="editRow($index, mainPosts, mainSettings)">Edit</button>
-									<button ng-click="deleteRow($index, mainPosts)">Delete</button>
+									<button 
+										class="icon-edit icon-btn" 
+										ng-click="editRow($index, mainPosts, mainSettings)">
+										Edit
+									</button>
+									<button 
+										class="icon-delete icon-btn" 
+										ng-click="deleteRow($index, mainPosts)">
+										Delete
+									</button>
 								</div>
 							</div>
 
@@ -113,7 +139,7 @@
 									<p>{{ post.total }}</p>
 								</div>							
 								<div class="buttons">
-									<input class="btn" type="submit" value="Update" />
+									<input class="icon-btn icon-check" type="submit" value="Update" />
 								</div>
 
 							</form>
@@ -123,6 +149,7 @@
 						<div class="invoicify-addpost">
 
 							<button 
+								class="icon-plus icon-btn"
 								ng-click="addRow(mainPosts, mainSettings)" 
 								ng-hide="mainSettings.isAddingRow">
 								Add task
@@ -145,7 +172,7 @@
 									
 								</div>						
 								<div class="buttons">
-									<input class="btn" type="submit" value="Save" />
+									<input class="icon-btn icon-check" type="submit" value="Save" />
 								</div>
 
 							</form>
@@ -159,17 +186,26 @@
 								ng-click="editRow($index, belowFormPosts, belowFormSettings)">
 
 								<span>{{ post.description }}</span>
-								<button ng-click="editRow($index, belowFormPosts, belowFormSettings)">Edit</button>
-								<button ng-click="deleteRow($index, belowFormPosts)">Delete</button>
+								<button 
+									class="icon-edit icon-btn" 
+									ng-click="editRow($index, belowFormPosts, belowFormSettings)">
+									Edit
+								</button>
+								<button 
+									class="icon-delete icon-btn" 
+									ng-click="deleteRow($index, belowFormPosts)">
+									Delete
+								</button>
 							</div>
 
 							<form ng-show="post.active" ng-submit="updateRow($index, belowFormPosts, belowFormSettings)">
 								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="btn" value="Update">
+								<input type="submit" class="icon-btn icon-check" value="Update">
 							</form>
 						</li>
 						<li>
 							<button 
+								class="icon-plus icon-btn"
 								ng-click="addRow(belowFormPosts, belowFormSettings)"
 								ng-hide="belowFormSettings.isAddingRow">
 								Add row
@@ -178,7 +214,7 @@
 								ng-show="belowFormSettings.isAddingRow"
 								ng-submit="saveRow($index, belowFormPosts, belowFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="btn" value="Save">
+								<input type="submit" class="icon-btn icon-check" value="Save">
 							</form>
 						</li>
 					</ul>

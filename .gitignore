@@ -11,3 +11,7 @@ Howler/settings.py
 
 static/uploads
 static/media
+
+Howler/devsettings.py
+
+Howler/prodsettings.py

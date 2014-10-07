@@ -318,12 +318,26 @@ button,
 }
 button:hover,
 .btn:hover {
-  background: #eee;
+  background-color: #eee;
 }
 button:focus, button:active,
 .btn:focus,
 .btn:active {
-  background: #ddd;
+  background-color: #ddd;
+}
+
+.icon-btn {
+  text-indent: -999px;
+  font-size: 0 !important;
+  -moz-border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  height: 30px;
+  width: 30px;
+  background-color: #ddd;
+  border: none;
+  padding: 0 !important;
+  background-position: center center;
 }
 
 input[type="text"] {
@@ -1166,3 +1180,5 @@ input[type="text"] {
   margin-right: 2%;
   float: left;
 }
+
+/*# sourceMappingURL=main.css.map */
