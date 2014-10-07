@@ -1,16 +1,13 @@
 angular.module('invoicify')
-    .controller('InvoicifyController', ['$http', function($http){
+    .controller('InvoicifyController', ['$scope', '$http', function($http){
 
     var scope = this;
     scope.posts = [];
-    scope.dummyRow = {};
-    scope.activity = "";
-    scope.activePostId = "";
-    scope.showAddForm = false;
-    
+    scope.settings = [];    
 
-    $http.get('/static/js/angular/data/posts.json').success(function (data) {
-		scope.posts = data;
+    $http.get('/static/js/angular/data/mainform.json').success(function (data) {
+		scope.posts = data.posts;
+		scope.postsettings = data.settings;
 		scope.setTotals();
 	});
 
@@ -26,50 +23,57 @@ angular.module('invoicify')
 
 
 
-	
-	scope.isAddRowActive = function () {
-		if (scope.showAddRow === true) {
-			return true;
-		}
-	}
 
 	scope.editRow = function (i, posts, form) {
-		scope.stopEditingAllRows(posts);
-		scope.forceUpdate(posts);
+		scope.interuptEditing(posts);
 		posts[i].active = "true";
 		scope.activePostId = i;
 
 		if (form == "main-form") {
-			scope.dummyRow.description = scope.posts[i].description;
-			scope.dummyRow.amount = scope.posts[i].amount;
-			scope.dummyRow.price = scope.posts[i].price;
+			scope.newPost.description = scope.posts[i].description;
+			scope.newPost.amount = scope.posts[i].amount;
+			scope.newPost.price = scope.posts[i].price;
 		} else if (form = "lefttop-form") {
-			scope.dummyRow.description = scope.posts[i].description;
+			scope.newPost.description = scope.posts[i].description;
 		}
 	}
 
-	scope.updateRow = function (dummyRow, i, posts) {
-		posts[i] = dummyRow;
-		scope.setTotals();
-		scope.dummyRow = {};
-		scope.stopEditingAllRows(posts);
+	scope.interuptEditing = function (posts) {
+		for (var i = 0; i < posts.length; i++ ) {
+			if (posts[i] === "true") {
+				posts[i] = "false";
+				scope.forceUpdate(posts);
+				scope.newPost = {};
+			}
+		}
 	}
 
 	scope.forceUpdate = function (posts) {
-		scope.updateRow(scope.dummyRow, scope.activePostId, posts);
+		scope.updateRow(scope.newPost, scope.activePostId, posts);
 	}
+
+	scope.updateRow = function (newPost, i, posts) {
+		posts[i] = newPost;
+		posts[i].active = "false";
+		scope.newPost = {};
+
+		//If main form
+		scope.setTotals();
+	}
+
+	
 
 	scope.addRow = function (posts) {
+		//What form?
 		scope.showAddRow = true;
-		scope.stopEditingAllRows(posts);
-		scope.forceUpdate(posts);
-		scope.dummyRow = {};
+		scope.interuptEditing(posts);
+		
 	}
 
-	scope.saveRow = function (dummyRow, i, posts) {
-		posts.push(dummyRow);
+	scope.saveRow = function (newPost, i, posts) {
+		posts.push(newPost);
 		scope.setTotals();
-		scope.dummyRow = {};
+		scope.newPost = {};
 	}
 
 	scope.deleteRow = function (i, posts) {
@@ -82,16 +86,12 @@ angular.module('invoicify')
 		}
 	}
 
-	scope.stopEditingAllRows = function (posts) {
-		console.log('sdd');
-		for (var i = 0; i < posts.length; i++ ) {
-			posts[i].active = "false";
-		}	
+	scope.isAddRowActive = function () {
+		if (scope.showAddRow === true) {
+			return true;
+		}
 	}
 
-	
-
-	
 
 
 
