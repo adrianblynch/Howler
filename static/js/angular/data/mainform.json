@@ -1,7 +1,7 @@
 {
     "settings" : {
         "form" : "main",
-        "isAdding" : false,
+        "isAddingRow" : false,
         "newPost" : {}
     },
 
