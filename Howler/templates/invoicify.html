@@ -15,15 +15,15 @@
 				<article>
 					<h2>Invoice no: 1</h2>
 
-					<form class="invoicify-leftform" ng-submit="invoice.updateRow($index, invoice.leftrows, 'lefttop-form')">
+					<!--<form class="invoicify-leftform" ng-submit="updateRow($index, leftrows, 'lefttop-form')">
 						<ul>
-							<li ng-repeat="row in invoice.leftrows" ng-click="invoice.editRow($index, invoice.leftrows, 'lefttop-form')">
-								<span ng-hide="invoice.isRowActive($index, invoice.leftrows)">
+							<li ng-repeat="row in leftrows" ng-click="editRow($index, leftrows, 'lefttop-form')">
+								<span ng-hide="isRowActive($index, leftrows)">
 									<span>{{ row.description }}</span>
-									<button ng-click="invoice.editRow($index, invoice.leftrows)">Edit</button>
-									<button ng-click="invoice.deleteRow($index, invoice.leftrows)">Delete</button>
+									<button ng-click="editRow($index, leftrows)">Edit</button>
+									<button ng-click="deleteRow($index, leftrows)">Delete</button>
 								</span>
-								<span ng-show="invoice.isRowActive($index, invoice.leftrows)">
+								<span ng-show="isRowActive($index, leftrows)">
 									<input type="text"  />
 									<input class="btn" type="submit" value="Update">
 								</span>
@@ -32,7 +32,7 @@
 					</form>
 
 					<form>
-						<button ng-click="invoice.addRow(invoice.leftrows)">Add row</button>
+						<button ng-click="addRow(leftrows)">Add row</button>
 						<input type="text" >
 					</form>
 
@@ -53,6 +53,7 @@
 						</dl>
 					</form>
 
+-->
 
 					<div class="invoice-table">
 						<header class="invoicify-header">
@@ -62,26 +63,33 @@
 							<h3 class="total">Total</h3>
 						</header>
 
-						<div class="invoicify-post-holder" ng-repeat="post in invoice.posts">
-							<div class="invoicify-post" ng-hide="invoice.isRowActive($index, invoice.posts)" ng-click="invoice.editRow($index, invoice.posts, 'main-form')">
+						<div class="invoicify-post-holder" ng-repeat="post in mainPosts">
+							<div class="invoicify-post" 
+								ng-hide="isRowActive($index, mainPosts)" 
+								ng-click="editRow($index, mainPosts, mainSettings)">
+
 								<div class="description"><p>{{ post.description }}</p></div>
 								<div class="amount"><p>{{ post.amount }}</p></div>
 								<div class="price"><p>{{ post.price }}</p></div>
 								<div class="total"><p>{{ post.total }}</p></div>
 								<div class="buttons">
-									<button ng-click="invoice.editRow($index, invoice.posts, 'main-form')">Edit</button>
-									<button ng-click="invoice.deleteRow($index, invoice.posts)">Delete</button>
+									<button ng-click="editRow($index, mainPosts, mainSettings)">Edit</button>
+									<button ng-click="deleteRow($index, mainPosts)">Delete</button>
 								</div>
 							</div>
-							<form class="invoicify-edit" ng-submit="invoice.updateRow(invoice.newPost, $index, invoice.posts)" ng-show="invoice.isRowActive($index, invoice.posts)">
+
+							<form class="invoicify-edit" 
+								ng-submit="updateRow($index, mainPosts, mainSettings, newPost)" 
+								ng-show="isRowActive($index, mainPosts)">
+
 								<div class="description">
-									<input type="text" ng-model="invoice.newPost.description" />
+									<input type="text" ng-model="newPost.description" />
 								</div>
 								<div class="amount">
-									<input type="text" ng-model="invoice.newPost.amount" />
+									<input type="text" ng-model="newPost.amount" />
 								</div>
 								<div class="price">
-									<input type="text" ng-model="invoice.newPost.price" />
+									<input type="text" ng-model="newPost.price" />
 								</div>	
 								<div class="total">
 									<p>{{ post.total }}</p>
@@ -89,20 +97,31 @@
 								<div class="buttons">
 									<input class="btn" type="submit" value="Update" />
 								</div>
+
 							</form>
+
 						</div>
 
 						<div class="invoicify-addpost">
-							<button ng-click="invoice.addRow(invoice.posts)" ng-hide="invoice.isAddTaskFormVisible()">Add task</button>
-							<form  ng-submit="invoice.save(invoice.newPost, $index, invoice.posts)" ng-show="invoice.isAddTaskFormVisible()">
+
+							<button 
+								ng-click="addRow(mainPosts, mainSettings)" 
+								ng-hide="isAddRowActive(mainSettings)">
+								Add task
+							</button>
+
+							<form 
+								ng-submit="saveRow($index, mainPosts, mainSettings, newPost)" 
+								ng-show="isAddRowActive(mainSettings)">
+
 								<div class="description">
-									<input type="text" ng-model="invoice.newPost.description" />
+									<input type="text" ng-model="newPost.description" />
 								</div>
 								<div class="amount">
-									<input type="text" ng-model="invoice.newPost.amount" />
+									<input type="text" ng-model="newPost.amount" />
 								</div>
 								<div class="price">
-									<input type="text" ng-model="invoice.newPost.price" />
+									<input type="text" ng-model="newPost.price" />
 								</div>		
 								<div class="total">
 									
@@ -110,12 +129,11 @@
 								<div class="buttons">
 									<input class="btn" type="submit" value="Save" />
 								</div>
+
 							</form>
 						</div>
 
 					</div>
-					
-
 				</article>
 			</section>
 		</main>

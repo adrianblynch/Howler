@@ -1,8 +1,7 @@
 {
     "settings" : {
         "form" : "main",
-        "isEditing" : "false",
-        "isAdding" : "false",
+        "isAdding" : false,
         "activePostId" : 0,
         "newPost" : {}
     },
@@ -12,21 +11,21 @@
             "description" :  "Green T-shirt",
             "amount" : 2,
             "price" : 240,
-            "active" : "false",
+            "active" : false,
             "total" : 0
         },
         {
             "description" :  "Blue pants",
             "amount" : 1,
             "price" : 80,
-            "active" : "false",
+            "active" : false,
             "total" : 0
         },
         {
             "description" :  "Yellow cap",
             "amount" : 1,
             "price" : 120,
-            "active" : "false",
+            "active" : false,
             "total" : 0
         }
     ]
