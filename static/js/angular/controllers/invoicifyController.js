@@ -5,6 +5,10 @@ angular.module('invoicify')
     $scope.mainSettings = [];
     $scope.leftFormPosts = [];
     $scope.leftFormSettings = [];
+    $scope.rightFormPosts = [];
+    $scope.rightFormSettings = [];
+    $scope.belowFormPosts = [];
+    $scope.belowFormSettings = [];
     $scope.newPost = {};
 
     $http.get('/static/js/angular/data/mainform.json').success(function (data) {
@@ -18,12 +22,22 @@ angular.module('invoicify')
 		$scope.leftFormSettings = data.settings;
 	});
 
+	$http.get('/static/js/angular/data/rightform.json').success(function (data) {
+		$scope.rightFormPosts = data.posts;
+		$scope.rightFormSettings = data.settings;
+	});
+
+	$http.get('/static/js/angular/data/belowform.json').success(function (data) {
+		$scope.belowFormPosts = data.posts;
+		$scope.belowFormSettings = data.settings;
+	});
+
 
 	/* ALL FORM FUNCTIONALITY */
 
 	$scope.editRow = function (i, posts, settings) {
-		settings.isAddingRow = false;
 		$scope.interuptEditing(posts, settings);
+		$scope.interuptAdding();
 		posts[i].active = true;
 		$scope.newPost = posts[i];		
 	}
@@ -39,9 +53,10 @@ angular.module('invoicify')
 	}
 
 	$scope.addRow = function (posts, settings) {
+		$scope.interuptEditing(posts, settings);
+		$scope.interuptAdding();
 		settings.isAddingRow = true;
 		$scope.newPost = {};
-		$scope.interuptEditing(posts, settings);
 	}
 
 	$scope.saveRow = function (i, posts, settings) {
@@ -57,15 +72,30 @@ angular.module('invoicify')
 	}
 
 	$scope.interuptEditing = function (posts, settings) {
-		for (var i = 0; i < posts.length; i++ ) {
-			if (posts[i].active === true) {
-				posts[i].active = false;
-				$scope.newPost = {};
-				if (settings.form === "main") {
-					$scope.setTotals(posts);
-				}
-			}
+		for (var i = 0; i < $scope.mainPosts.length; i++ ) {
+			$scope.mainPosts[i].active = false;
 		}
+		for (var i = 0; i < $scope.leftFormPosts.length; i++ ) {
+			$scope.leftFormPosts[i].active = false;
+		}
+		for (var i = 0; i < $scope.rightFormPosts.length; i++ ) {
+			$scope.rightFormPosts[i].active = false;
+		}
+		for (var i = 0; i < $scope.belowFormPosts.length; i++ ) {
+			$scope.belowFormPosts[i].active = false;
+		}
+
+		$scope.newPost = {};
+		if (settings.form === "main") {
+			$scope.setTotals(posts);
+		}
+	}
+
+	$scope.interuptAdding = function () {
+		$scope.mainSettings.isAddingRow = false;
+		$scope.leftFormSettings.isAddingRow = false;
+		$scope.rightFormSettings.isAddingRow = false;
+		$scope.belowFormSettings.isAddingRow = false;
 	}
 
 

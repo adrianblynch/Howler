@@ -1,0 +1,22 @@
+{
+    "settings" : {
+        "form" : "rightform",
+        "isAddingRow" : false,
+        "newPost" : {}
+    },
+
+    "posts" : [
+        {
+            "description" :  "En rad i höger 1",
+            "active" : false
+        },
+        {
+            "description" :  "En rad i höger  2",
+            "active" : false
+        },
+        {
+            "description" :  "En rad i höger  3",
+            "active" : false
+        }
+    ]
+}

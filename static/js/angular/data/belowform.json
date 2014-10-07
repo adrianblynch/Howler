@@ -1,0 +1,22 @@
+{
+    "settings" : {
+        "form" : "belowform",
+        "isAddingRow" : false,
+        "newPost" : {}
+    },
+
+    "posts" : [
+        {
+            "description" :  "En rad under 1",
+            "active" : false
+        },
+        {
+            "description" :  "En rad under 2",
+            "active" : false
+        },
+        {
+            "description" :  "En rad under 3",
+            "active" : false
+        }
+    ]
+}

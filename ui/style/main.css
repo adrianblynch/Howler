@@ -1070,9 +1070,16 @@ input[type="text"] {
 .invoicify label,
 .invoicify span,
 .invoicify dt,
-.invoicify dd {
+.invoicify dd,
+.invoicify li {
   font-size: 14px;
   font-size: 1.4rem;
+}
+.invoicify ul {
+  padding: 0;
+}
+.invoicify li {
+  list-style: none;
 }
 .invoicify dl {
   line-height: 1.8;
@@ -1095,14 +1102,14 @@ input[type="text"] {
 .invoicify input[type="submit"] {
   padding: 5px;
 }
-.invoicify-leftform {
+.invoicify .leftform {
   float: left;
-  width: 25%;
+  width: 40%;
   margin-bottom: 50px;
 }
-.invoicify-rightform {
+.invoicify .rightform {
   float: right;
-  width: 25%;
+  width: 40%;
   margin-bottom: 50px;
 }
 .invoicify-post-holder {

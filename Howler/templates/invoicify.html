@@ -15,9 +15,10 @@
 				<article>
 					<h2>Invoice no: 1</h2>
 
-					<ul style="width:50%" class="invoicify-leftform">
+					<ul class="leftform">
 						<li ng-repeat="post in leftFormPosts">
-							<div ng-hide="post.active">
+							<div ng-hide="post.active"
+								ng-click="editRow($index, leftFormPosts, leftFormSettings)">
 								<span>{{ post.description }}</span>
 								<button ng-click="editRow($index, leftFormPosts, leftFormSettings)">Edit</button>
 								<button ng-click="deleteRow($index, leftFormPosts)">Delete</button>
@@ -37,6 +38,35 @@
 							<form 
 								ng-show="leftFormSettings.isAddingRow"
 								ng-submit="saveRow($index, leftFormPosts, leftFormSettings)">
+								<input type="text" ng-model="newPost.description" placeholder="add row">
+								<input type="submit" class="btn" value="Save">
+							</form>
+						</li>
+					</ul>
+
+					<ul class="rightform">
+						<li ng-repeat="post in rightFormPosts">
+							<div ng-hide="post.active"
+								ng-click="editRow($index, rightFormPosts, rightFormSettings)">
+								<span>{{ post.description }}</span>
+								<button ng-click="editRow($index, rightFormPosts, rightFormSettings)">Edit</button>
+								<button ng-click="deleteRow($index, rightFormPosts)">Delete</button>
+							</div>
+
+							<form ng-show="post.active" ng-submit="updateRow($index, rightFormPosts, rightFormSettings)">
+								<input type="text" ng-model="newPost.description" />
+								<input type="submit" class="btn" value="Update">
+							</form>
+						</li>
+						<li>
+							<button 
+								ng-click="addRow(rightFormPosts, rightFormSettings)"
+								ng-hide="rightFormSettings.isAddingRow">
+								Add row
+							</button>
+							<form 
+								ng-show="rightFormSettings.isAddingRow"
+								ng-submit="saveRow($index, rightFormPosts, rightFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
 								<input type="submit" class="btn" value="Save">
 							</form>
@@ -120,8 +150,38 @@
 
 							</form>
 						</div>
-
 					</div>
+
+
+					<ul class="belowform">
+						<li ng-repeat="post in belowFormPosts">
+							<div ng-hide="post.active" 
+								ng-click="editRow($index, belowFormPosts, belowFormSettings)">
+
+								<span>{{ post.description }}</span>
+								<button ng-click="editRow($index, belowFormPosts, belowFormSettings)">Edit</button>
+								<button ng-click="deleteRow($index, belowFormPosts)">Delete</button>
+							</div>
+
+							<form ng-show="post.active" ng-submit="updateRow($index, belowFormPosts, belowFormSettings)">
+								<input type="text" ng-model="newPost.description" />
+								<input type="submit" class="btn" value="Update">
+							</form>
+						</li>
+						<li>
+							<button 
+								ng-click="addRow(belowFormPosts, belowFormSettings)"
+								ng-hide="belowFormSettings.isAddingRow">
+								Add row
+							</button>
+							<form 
+								ng-show="belowFormSettings.isAddingRow"
+								ng-submit="saveRow($index, belowFormPosts, belowFormSettings)">
+								<input type="text" ng-model="newPost.description" placeholder="add row">
+								<input type="submit" class="btn" value="Save">
+							</form>
+						</li>
+					</ul>
 				</article>
 			</section>
 		</main>
