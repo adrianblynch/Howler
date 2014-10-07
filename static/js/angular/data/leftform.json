@@ -1,0 +1,22 @@
+{
+    "settings" : {
+        "form" : "leftform",
+        "isAdding" : false,
+        "newPost" : {}
+    },
+
+    "posts" : [
+        {
+            "description" :  "En rad 1",
+            "active" : false
+        },
+        {
+            "description" :  "En rad 2",
+            "active" : false
+        },
+        {
+            "description" :  "En rad 3",
+            "active" : false
+        }
+    ]
+}

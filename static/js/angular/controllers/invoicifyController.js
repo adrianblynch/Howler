@@ -3,6 +3,8 @@ angular.module('invoicify')
 
     $scope.mainPosts = [];
     $scope.mainSettings = [];
+    $scope.leftFormPosts = [];
+    $scope.leftFormSettings = [];
     $scope.newPost = {};
 
     $http.get('/static/js/angular/data/mainform.json').success(function (data) {
@@ -10,12 +12,12 @@ angular.module('invoicify')
 		$scope.mainSettings = data.settings;
 		$scope.setTotals($scope.mainPosts);
 	});
-
-    /*
-	$http.get('/static/js/angular/data/leftrows.json').success(function (data) {
-		$scope.leftrows = data;
+    
+	$http.get('/static/js/angular/data/leftform.json').success(function (data) {
+		$scope.leftFormPosts = data.posts;
+		$scope.leftFormSettings = data.settings;
 	});
-*/
+
 
 	$scope.setTotals = function (posts) {
 		for (var i = 0; i < posts.length; i++ ) {
@@ -27,16 +29,15 @@ angular.module('invoicify')
 		settings.isAdding = false;
 		$scope.interuptEditing(posts, settings);
 		posts[i].active = true;
-		settings.activePostId = i;
 		$scope.newPost = posts[i];
 		settings.newPost = $scope.newPost;
 		
 	}
 
-	$scope.updateRow = function (i, posts, settings, newPost) {
-		posts[i] = newPost;
+	$scope.updateRow = function (i, posts, settings) {
+		posts[i] = $scope.newPost;
+		$scope.newPost = {};
 		posts[i].active = false;
-		newPost = {};
 
 		if (settings.form === "main") {
 			$scope.setTotals(posts);
@@ -47,16 +48,14 @@ angular.module('invoicify')
 		posts.splice(i, 1);
 	}
 
-	$scope.isRowActive = function (i, posts) {
-		if (posts[i].active === true) {
-			return true;
-		}
-	}
-
 	$scope.interuptEditing = function (posts, settings) {
 		for (var i = 0; i < posts.length; i++ ) {
 			if (posts[i].active === true) {
-				$scope.updateRow(i, posts, settings, settings.newPost);
+				posts[i].active = false;
+				$scope.newPost = {};
+				if (settings.form === "main") {
+					$scope.setTotals(posts);
+				}
 			}
 		}
 	}
@@ -67,14 +66,8 @@ angular.module('invoicify')
 		$scope.interuptEditing(posts, settings);
 	}
 
-	$scope.isAddRowActive = function (settings) {
-		if (settings.isAdding === true) {
-			return true;
-		}
-	}
-
-	$scope.saveRow = function (i, posts, settings, newPost) {
-		posts.push(newPost);
+	$scope.saveRow = function (i, posts, settings) {
+		posts.push($scope.newPost);
 		$scope.newPost = {};
 		if (settings.form === "main") {
 			$scope.setTotals(posts);

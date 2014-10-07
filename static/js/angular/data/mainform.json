@@ -2,7 +2,6 @@
     "settings" : {
         "form" : "main",
         "isAdding" : false,
-        "activePostId" : 0,
         "newPost" : {}
     },
 

@@ -15,46 +15,34 @@
 				<article>
 					<h2>Invoice no: 1</h2>
 
-					<!--<form class="invoicify-leftform" ng-submit="updateRow($index, leftrows, 'lefttop-form')">
-						<ul>
-							<li ng-repeat="row in leftrows" ng-click="editRow($index, leftrows, 'lefttop-form')">
-								<span ng-hide="isRowActive($index, leftrows)">
-									<span>{{ row.description }}</span>
-									<button ng-click="editRow($index, leftrows)">Edit</button>
-									<button ng-click="deleteRow($index, leftrows)">Delete</button>
-								</span>
-								<span ng-show="isRowActive($index, leftrows)">
-									<input type="text"  />
-									<input class="btn" type="submit" value="Update">
-								</span>
-							</li>
-						</ul>
-					</form>
+					<ul style="width:50%" class="invoicify-leftform">
+						<li ng-repeat="post in leftFormPosts">
+							<div ng-hide="post.active">
+								<span>{{ post.description }}</span>
+								<button ng-click="editRow($index, leftFormPosts, leftFormSettings)">Edit</button>
+								<button ng-click="deleteRow($index, leftFormPosts)">Delete</button>
+							</div>
 
-					<form>
-						<button ng-click="addRow(leftrows)">Add row</button>
-						<input type="text" >
-					</form>
-
-					<form class="invoicify-rightform">
-						<dl>
-							<span>
-								<dt>Client:</dt>
-								<dd>Aftonbladet Resa</dd>
-							</span>
-							<span>
-								<dt></dt>
-								<dd>Bondegatan 45</dd>
-							</span>
-							<span>
-								<dt></dt>
-								<dd>11163, Stockholm</dd>
-							</span>
-						</dl>
-					</form>
-
--->
-
+							<form ng-show="post.active" ng-submit="updateRow($index, leftFormPosts, leftFormSettings)">
+								<input type="text" ng-model="newPost.description" />
+								<input type="submit" class="btn" value="Update">
+							</form>
+						</li>
+						<li>
+							<button 
+								ng-click="addRow(leftFormPosts, leftFormSettings)"
+								ng-hide="leftFormSettings.isAdding">
+								Add row
+							</button>
+							<form 
+								ng-show="leftFormSettings.isAdding"
+								ng-submit="saveRow($index, leftFormPosts, leftFormSettings)">
+								<input type="text" ng-model="newPost.description" placeholder="add row">
+								<input type="submit" class="btn" value="Save">
+							</form>
+						</li>
+					</ul>
+					
 					<div class="invoice-table">
 						<header class="invoicify-header">
 							<h3 class="description">Description</h3>
@@ -65,7 +53,7 @@
 
 						<div class="invoicify-post-holder" ng-repeat="post in mainPosts">
 							<div class="invoicify-post" 
-								ng-hide="isRowActive($index, mainPosts)" 
+								ng-hide="post.active" 
 								ng-click="editRow($index, mainPosts, mainSettings)">
 
 								<div class="description"><p>{{ post.description }}</p></div>
@@ -80,7 +68,7 @@
 
 							<form class="invoicify-edit" 
 								ng-submit="updateRow($index, mainPosts, mainSettings, newPost)" 
-								ng-show="isRowActive($index, mainPosts)">
+								ng-show="post.active">
 
 								<div class="description">
 									<input type="text" ng-model="newPost.description" />
@@ -106,13 +94,13 @@
 
 							<button 
 								ng-click="addRow(mainPosts, mainSettings)" 
-								ng-hide="isAddRowActive(mainSettings)">
+								ng-hide="mainSettings.isAdding">
 								Add task
 							</button>
 
 							<form 
 								ng-submit="saveRow($index, mainPosts, mainSettings, newPost)" 
-								ng-show="isAddRowActive(mainSettings)">
+								ng-show="mainSettings.isAdding">
 
 								<div class="description">
 									<input type="text" ng-model="newPost.description" />
