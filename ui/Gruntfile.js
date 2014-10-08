@@ -55,6 +55,12 @@ module.exports = function(grunt) {
               dest: '<%= distPath %>img/icons/'
           }],
           options: {
+            colors: {
+                darkGray: "#aaaaaa",
+                lightGray: "#cccccc",
+                white: "#ffffff",
+                black: "#000000"
+            }
           }
       }
     }

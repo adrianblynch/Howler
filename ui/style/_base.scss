@@ -105,9 +105,9 @@ button,
 	-moz-border-radius: 18px;
 	-webkit-border-radius: 18px;
 	border-radius: 18px;
-	height: 30px;
-	width: 30px;
-	background-color: #ddd;
+	height: 26px;
+	width: 26px;
+	background-color: #eee;
 	border: none;
 	padding: 0 !important;
 	background-position: center center;
@@ -120,6 +120,10 @@ button,
 		
 	}
 }
+.icon-btn.icon-check-white {
+	background-color:#a7d692;
+}
+
 
 input[type="text"] {
 	display: block;

@@ -332,12 +332,16 @@ button:focus, button:active,
   -moz-border-radius: 18px;
   -webkit-border-radius: 18px;
   border-radius: 18px;
-  height: 30px;
-  width: 30px;
-  background-color: #ddd;
+  height: 26px;
+  width: 26px;
+  background-color: #eee;
   border: none;
   padding: 0 !important;
   background-position: center center;
+}
+
+.icon-btn.icon-check-white {
+  background-color: #a7d692;
 }
 
 input[type="text"] {
@@ -1118,13 +1122,45 @@ input[type="text"] {
 }
 .invoicify .leftform {
   float: left;
-  width: 40%;
+  width: 260px;
   margin-bottom: 50px;
 }
 .invoicify .rightform {
   float: right;
-  width: 40%;
+  width: 260px;
   margin-bottom: 50px;
+}
+.invoicify .belowform li,
+.invoicify .leftform li,
+.invoicify .rightform li {
+  position: relative;
+  line-height: 2;
+  margin-bottom: 5px;
+}
+.invoicify .belowform .icon-edit-darkGray,
+.invoicify .leftform .icon-edit-darkGray,
+.invoicify .rightform .icon-edit-darkGray {
+  position: absolute;
+  right: 36px;
+  top: 4px;
+}
+.invoicify .belowform .icon-check-white,
+.invoicify .belowform .icon-delete-darkGray,
+.invoicify .leftform .icon-check-white,
+.invoicify .leftform .icon-delete-darkGray,
+.invoicify .rightform .icon-check-white,
+.invoicify .rightform .icon-delete-darkGray {
+  position: absolute;
+  right: 7px;
+  z-index: 10;
+  top: 4px;
+}
+.invoicify .invoice-table {
+  margin-bottom: 50px;
+}
+.invoicify .icon-edit-darkGray,
+.invoicify .icon-plus-darkGray {
+  display: none;
 }
 .invoicify-post-holder {
   overflow: hidden;
@@ -1143,6 +1179,17 @@ input[type="text"] {
   box-sizing: border-box;
   margin-right: 2%;
   float: left;
+}
+.invoicify .buttons {
+  position: relative;
+}
+.invoicify .buttons .icon-edit-darkGray {
+  position: absolute;
+  right: 32px;
+}
+.invoicify .buttons .icon-delete-darkGray {
+  position: absolute;
+  right: 0;
 }
 .invoicify-addpost {
   margin-top: 10px;

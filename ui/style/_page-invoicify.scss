@@ -50,16 +50,52 @@
 	}
 
 	.leftform {
+
 		float:left;
-		width:40%;
+		width:260px;
 		margin-bottom:50px;
+
+
 	}
 
 	.rightform {
 		float:right;
-		width:40%;
+		width:260px;
 		margin-bottom:50px;
 	}
+
+	.belowform,
+	.leftform,
+	.rightform {
+		li {
+			position: relative;
+			line-height:2;
+			margin-bottom:5px;
+		}
+		.icon-edit-darkGray {
+			position: absolute;
+			right: 36px;
+			top:4px;
+		}
+
+		.icon-check-white,
+		.icon-delete-darkGray {
+			position: absolute;
+			right: 7px;
+			z-index: 10;
+			top: 4px;
+		}
+	}
+
+	.invoice-table {
+		margin-bottom:50px;
+	}
+
+	.icon-edit-darkGray,
+	.icon-plus-darkGray {
+		display: none;
+	}
+
 
 	&-post-holder {
 		overflow:hidden;
@@ -77,6 +113,19 @@
 			box-sizing:border-box;
 			margin-right:2%;
 			float:left;
+		}
+	}
+
+	.buttons {
+		position: relative;
+
+		.icon-edit-darkGray {
+			position: absolute;
+			right:32px;
+		}
+		.icon-delete-darkGray {
+			position: absolute;
+			right:0;
 		}
 	}
 
