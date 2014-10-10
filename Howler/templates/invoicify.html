@@ -21,12 +21,12 @@
 								ng-click="editRow($index, leftFormPosts, leftFormSettings)">
 								<span>{{ post.description }}</span>
 								<button 
-									class="icon-edit icon-btn" 
+									class="icon-edit-darkGray icon-btn" 
 									ng-click="editRow($index, leftFormPosts, leftFormSettings)">
 									Edit
 								</button>
 								<button 
-									class="icon-delete icon-btn" 
+									class="icon-delete-darkGray icon-btn" 
 									ng-click="deleteRow($index, leftFormPosts)">
 									Delete
 								</button>
@@ -34,13 +34,13 @@
 
 							<form ng-show="post.active" ng-submit="updateRow($index, leftFormPosts, leftFormSettings)">
 								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="icon-btn icon-check" value="Update">
+								<input type="submit" class="icon-btn icon-check-white" value="Update">
 							</form>
 						</li>
 						<li>
 							<button 
-								class="icon-plus icon-btn"
-								ng-click="addRow(leftFormPosts, leftFormSettings)"
+								class="icon-plus-darkGray icon-btn"
+								ng-click="addRow(leftFormSettings)"
 								ng-hide="leftFormSettings.isAddingRow">
 								Add row
 							</button>
@@ -48,7 +48,7 @@
 								ng-show="leftFormSettings.isAddingRow"
 								ng-submit="saveRow($index, leftFormPosts, leftFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="icon-btn icon-check" value="Save">
+								<input type="submit" class="icon-btn icon-check-white" value="Save">
 							</form>
 						</li>
 					</ul>
@@ -59,12 +59,12 @@
 								ng-click="editRow($index, rightFormPosts, rightFormSettings)">
 								<span>{{ post.description }}</span>
 								<button 
-									class="icon-edit icon-btn" 
+									class="icon-edit-darkGray icon-btn" 
 									ng-click="editRow($index, rightFormPosts, rightFormSettings)">
 									Edit
 								</button>
 								<button 
-									class="icon-delete icon-btn" 
+									class="icon-delete-darkGray icon-btn" 
 									ng-click="deleteRow($index, rightFormPosts)">
 									Delete
 								</button>
@@ -72,13 +72,13 @@
 
 							<form ng-show="post.active" ng-submit="updateRow($index, rightFormPosts, rightFormSettings)">
 								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="icon-btn icon-check" value="Update">
+								<input type="submit" class="icon-btn icon-check-white" value="Update">
 							</form>
 						</li>
 						<li>
 							<button 
-								class="icon-plus icon-btn"
-								ng-click="addRow(rightFormPosts, rightFormSettings)"
+								class="icon-plus-darkGray icon-btn"
+								ng-click="addRow(rightFormSettings)"
 								ng-hide="rightFormSettings.isAddingRow">
 								Add row
 							</button>
@@ -86,7 +86,7 @@
 								ng-show="rightFormSettings.isAddingRow"
 								ng-submit="saveRow($index, rightFormPosts, rightFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="icon-btn icon-check" value="Save">
+								<input type="submit" class="icon-btn icon-check-white" value="Save">
 							</form>
 						</li>
 					</ul>
@@ -110,12 +110,12 @@
 								<div class="total"><p>{{ post.total }}</p></div>
 								<div class="buttons">
 									<button 
-										class="icon-edit icon-btn" 
+										class="icon-edit-darkGray icon-btn" 
 										ng-click="editRow($index, mainPosts, mainSettings)">
 										Edit
 									</button>
 									<button 
-										class="icon-delete icon-btn" 
+										class="icon-delete-darkGray icon-btn" 
 										ng-click="deleteRow($index, mainPosts)">
 										Delete
 									</button>
@@ -139,7 +139,7 @@
 									<p>{{ post.total }}</p>
 								</div>							
 								<div class="buttons">
-									<input class="icon-btn icon-check" type="submit" value="Update" />
+									<input class="icon-btn icon-check-white" type="submit" value="Update" />
 								</div>
 
 							</form>
@@ -149,8 +149,8 @@
 						<div class="invoicify-addpost">
 
 							<button 
-								class="icon-plus icon-btn"
-								ng-click="addRow(mainPosts, mainSettings)" 
+								class="icon-plus-darkGray icon-btn"
+								ng-click="addRow(mainSettings)" 
 								ng-hide="mainSettings.isAddingRow">
 								Add task
 							</button>
@@ -172,7 +172,7 @@
 									
 								</div>						
 								<div class="buttons">
-									<input class="icon-btn icon-check" type="submit" value="Save" />
+									<input class="icon-btn icon-check-white" type="submit" value="Save" />
 								</div>
 
 							</form>
@@ -187,12 +187,12 @@
 
 								<span>{{ post.description }}</span>
 								<button 
-									class="icon-edit icon-btn" 
+									class="icon-edit-darkGray icon-btn" 
 									ng-click="editRow($index, belowFormPosts, belowFormSettings)">
 									Edit
 								</button>
 								<button 
-									class="icon-delete icon-btn" 
+									class="icon-delete-darkGray icon-btn" 
 									ng-click="deleteRow($index, belowFormPosts)">
 									Delete
 								</button>
@@ -200,13 +200,13 @@
 
 							<form ng-show="post.active" ng-submit="updateRow($index, belowFormPosts, belowFormSettings)">
 								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="icon-btn icon-check" value="Update">
+								<input type="submit" class="icon-btn icon-check-white" value="Update">
 							</form>
 						</li>
 						<li>
 							<button 
-								class="icon-plus icon-btn"
-								ng-click="addRow(belowFormPosts, belowFormSettings)"
+								class="icon-plus-darkGray icon-btn"
+								ng-click="addRow(belowFormSettings)"
 								ng-hide="belowFormSettings.isAddingRow">
 								Add row
 							</button>
@@ -214,7 +214,7 @@
 								ng-show="belowFormSettings.isAddingRow"
 								ng-submit="saveRow($index, belowFormPosts, belowFormSettings)">
 								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="icon-btn icon-check" value="Save">
+								<input type="submit" class="icon-btn icon-check-white" value="Save">
 							</form>
 						</li>
 					</ul>

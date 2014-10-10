@@ -7,15 +7,19 @@
 
     "posts" : [
         {
-            "description" :  "En rad i höger 1",
+            "description" :  "Client: Aftonbladet Hierta AB",
             "active" : false
         },
         {
-            "description" :  "En rad i höger  2",
+            "description" :  "c/o BGC",
             "active" : false
         },
         {
-            "description" :  "En rad i höger  3",
+            "description" :  "BGC-Id AFT 1020",
+            "active" : false
+        },
+        {
+            "description" :  "106 42 Stockholm",
             "active" : false
         }
     ]

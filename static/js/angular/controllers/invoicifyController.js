@@ -36,42 +36,46 @@ angular.module('invoicify')
 	/* ALL FORM FUNCTIONALITY */
 
 	$scope.editRow = function (i, posts, settings) {
-		$scope.interuptEditing(posts, settings);
-		$scope.interuptAdding();
+		$scope.hideRows();
+		$scope.resetValues();
 		posts[i].active = true;
 		$scope.newPost = posts[i];		
+	}
+	$scope.addRow = function (settings) {
+		$scope.hideRows();
+		$scope.resetValues();
+		settings.isAddingRow = true;
 	}
 
 	$scope.updateRow = function (i, posts, settings) {
 		posts[i] = $scope.newPost;
-		$scope.newPost = {};
 		posts[i].active = false;
 
-		if (settings.form === "main") {
-			$scope.setTotals(posts);
-		}
-	}
-
-	$scope.addRow = function (posts, settings) {
-		$scope.interuptEditing(posts, settings);
-		$scope.interuptAdding();
-		settings.isAddingRow = true;
-		$scope.newPost = {};
+		$scope.resetValues();
 	}
 
 	$scope.saveRow = function (i, posts, settings) {
 		posts.push($scope.newPost);
-		$scope.newPost = {};
-		if (settings.form === "main") {
-			$scope.setTotals(posts);
-		}
+		settings.isAddingRow = false;
+
+		$scope.resetValues();
 	}
 
 	$scope.deleteRow = function (i, posts) {
 		posts.splice(i, 1);
 	}
 
-	$scope.interuptEditing = function (posts, settings) {
+	$scope.hideRows = function (){
+		$scope.interuptEditing();
+		$scope.interuptAdding();
+	}
+
+	$scope.resetValues = function () {
+		$scope.setTotals($scope.mainPosts);
+		$scope.newPost = {};
+	}
+
+	$scope.interuptEditing = function () {
 		for (var i = 0; i < $scope.mainPosts.length; i++ ) {
 			$scope.mainPosts[i].active = false;
 		}
@@ -83,11 +87,6 @@ angular.module('invoicify')
 		}
 		for (var i = 0; i < $scope.belowFormPosts.length; i++ ) {
 			$scope.belowFormPosts[i].active = false;
-		}
-
-		$scope.newPost = {};
-		if (settings.form === "main") {
-			$scope.setTotals(posts);
 		}
 	}
 

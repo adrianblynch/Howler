@@ -7,15 +7,15 @@
 
     "posts" : [
         {
-            "description" :  "En rad 1",
+            "description" :  "Date: 2014-09-10",
             "active" : false
         },
         {
-            "description" :  "En rad 2",
+            "description" :  "Expiry date: 2014-09-10",
             "active" : false
         },
         {
-            "description" :  "En rad 3",
+            "description" :  "Reference: Sture Bjarnelind",
             "active" : false
         }
     ]

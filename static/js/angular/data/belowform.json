@@ -7,15 +7,19 @@
 
     "posts" : [
         {
-            "description" :  "En rad under 1",
+            "description" :  "Charlotte Holmen",
             "active" : false
         },
         {
-            "description" :  "En rad under 2",
+            "description" :  "Org-nr: 8506098-907",
             "active" : false
         },
         {
-            "description" :  "En rad under 3",
+            "description" :  "Innehavare av FA-skattebevis",
+            "active" : false
+        },
+        {
+            "description" :  "Betalas till konto: SEB 5231 00 819 49",
             "active" : false
         }
     ]
