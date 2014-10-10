@@ -7,6 +7,10 @@
 
     "posts" : [
         {
+            "description" :  "<b>Invoice no:</b> 1",
+            "active" : false
+        },
+        {
             "description" :  "Date: 2014-09-10",
             "active" : false
         },

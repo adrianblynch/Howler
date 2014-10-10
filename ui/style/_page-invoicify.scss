@@ -17,8 +17,8 @@
 	dt,
 	dd,
 	li {
-		font-size: 14px;
-		font-size: 1.4rem;
+		font-size: 16px;
+		font-size: 1.6rem;
 	}
 	ul {
 		padding: 0;
@@ -52,7 +52,7 @@
 	.leftform {
 
 		float:left;
-		width:260px;
+		width:290px;
 		margin-bottom:50px;
 
 
@@ -60,7 +60,7 @@
 
 	.rightform {
 		float:right;
-		width:260px;
+		width:290px;
 		margin-bottom:50px;
 	}
 
@@ -69,17 +69,17 @@
 	.rightform {
 		li {
 			position: relative;
-			line-height:2;
 			margin-bottom:5px;
 		}
-		.icon-edit-darkGray {
+		.icon-check-white {
 			position: absolute;
-			right: 36px;
+			right: 39px;
 			top:4px;
+			display: none;
 		}
 
-		.icon-check-white,
-		.icon-delete-darkGray {
+		.icon-edit-white,
+		.icon-delete-white {
 			position: absolute;
 			right: 7px;
 			z-index: 10;
@@ -91,7 +91,6 @@
 		margin-bottom:50px;
 	}
 
-	.icon-edit-darkGray,
 	.icon-plus-darkGray {
 		display: none;
 	}
@@ -119,11 +118,11 @@
 	.buttons {
 		position: relative;
 
-		.icon-edit-darkGray {
+		.icon-edit-white {
 			position: absolute;
 			right:32px;
 		}
-		.icon-delete-darkGray {
+		.icon-delete-white {
 			position: absolute;
 			right:0;
 		}

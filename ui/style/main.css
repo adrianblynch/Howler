@@ -344,6 +344,14 @@ button:focus, button:active,
   background-color: #a7d692;
 }
 
+.icon-btn.icon-delete-white {
+  background-color: #df7070;
+}
+
+.icon-btn.icon-edit-white {
+  background-color: #7ca5c1;
+}
+
 input[type="text"] {
   display: block;
   width: 100%;
@@ -1090,8 +1098,8 @@ input[type="text"] {
 .invoicify dt,
 .invoicify dd,
 .invoicify li {
-  font-size: 14px;
-  font-size: 1.4rem;
+  font-size: 16px;
+  font-size: 1.6rem;
 }
 .invoicify ul {
   padding: 0;
@@ -1122,34 +1130,34 @@ input[type="text"] {
 }
 .invoicify .leftform {
   float: left;
-  width: 260px;
+  width: 290px;
   margin-bottom: 50px;
 }
 .invoicify .rightform {
   float: right;
-  width: 260px;
+  width: 290px;
   margin-bottom: 50px;
 }
 .invoicify .belowform li,
 .invoicify .leftform li,
 .invoicify .rightform li {
   position: relative;
-  line-height: 2;
   margin-bottom: 5px;
 }
-.invoicify .belowform .icon-edit-darkGray,
-.invoicify .leftform .icon-edit-darkGray,
-.invoicify .rightform .icon-edit-darkGray {
-  position: absolute;
-  right: 36px;
-  top: 4px;
-}
 .invoicify .belowform .icon-check-white,
-.invoicify .belowform .icon-delete-darkGray,
 .invoicify .leftform .icon-check-white,
-.invoicify .leftform .icon-delete-darkGray,
-.invoicify .rightform .icon-check-white,
-.invoicify .rightform .icon-delete-darkGray {
+.invoicify .rightform .icon-check-white {
+  position: absolute;
+  right: 39px;
+  top: 4px;
+  display: none;
+}
+.invoicify .belowform .icon-edit-white,
+.invoicify .belowform .icon-delete-white,
+.invoicify .leftform .icon-edit-white,
+.invoicify .leftform .icon-delete-white,
+.invoicify .rightform .icon-edit-white,
+.invoicify .rightform .icon-delete-white {
   position: absolute;
   right: 7px;
   z-index: 10;
@@ -1158,7 +1166,6 @@ input[type="text"] {
 .invoicify .invoice-table {
   margin-bottom: 50px;
 }
-.invoicify .icon-edit-darkGray,
 .invoicify .icon-plus-darkGray {
   display: none;
 }
@@ -1183,11 +1190,11 @@ input[type="text"] {
 .invoicify .buttons {
   position: relative;
 }
-.invoicify .buttons .icon-edit-darkGray {
+.invoicify .buttons .icon-edit-white {
   position: absolute;
   right: 32px;
 }
-.invoicify .buttons .icon-delete-darkGray {
+.invoicify .buttons .icon-delete-white {
   position: absolute;
   right: 0;
 }

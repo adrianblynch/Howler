@@ -19,22 +19,22 @@
 						<li ng-repeat="post in leftFormPosts">
 							<div ng-hide="post.active"
 								ng-click="editRow($index, leftFormPosts, leftFormSettings)">
-								<span>{{ post.description }}</span>
+								<span ng-bind-html="{{ post.description }}"> </span>
 								<button 
-									class="icon-edit-darkGray icon-btn" 
+									class="icon-edit-white icon-btn" 
 									ng-click="editRow($index, leftFormPosts, leftFormSettings)">
 									Edit
-								</button>
-								<button 
-									class="icon-delete-darkGray icon-btn" 
-									ng-click="deleteRow($index, leftFormPosts)">
-									Delete
 								</button>
 							</div>
 
 							<form ng-show="post.active" ng-submit="updateRow($index, leftFormPosts, leftFormSettings)">
 								<input type="text" ng-model="newPost.description" />
 								<input type="submit" class="icon-btn icon-check-white" value="Update">
+								<button 
+									class="icon-delete-white icon-btn" 
+									ng-click="deleteRow($index, leftFormPosts)">
+									Delete
+								</button>
 							</form>
 						</li>
 						<li>
@@ -59,20 +59,20 @@
 								ng-click="editRow($index, rightFormPosts, rightFormSettings)">
 								<span>{{ post.description }}</span>
 								<button 
-									class="icon-edit-darkGray icon-btn" 
+									class="icon-edit-white icon-btn" 
 									ng-click="editRow($index, rightFormPosts, rightFormSettings)">
 									Edit
-								</button>
-								<button 
-									class="icon-delete-darkGray icon-btn" 
-									ng-click="deleteRow($index, rightFormPosts)">
-									Delete
 								</button>
 							</div>
 
 							<form ng-show="post.active" ng-submit="updateRow($index, rightFormPosts, rightFormSettings)">
 								<input type="text" ng-model="newPost.description" />
 								<input type="submit" class="icon-btn icon-check-white" value="Update">
+								<button 
+									class="icon-delete-white icon-btn" 
+									ng-click="deleteRow($index, rightFormPosts)">
+									Delete
+								</button>
 							</form>
 						</li>
 						<li>
@@ -110,12 +110,12 @@
 								<div class="total"><p>{{ post.total }}</p></div>
 								<div class="buttons">
 									<button 
-										class="icon-edit-darkGray icon-btn" 
+										class="icon-edit-white icon-btn" 
 										ng-click="editRow($index, mainPosts, mainSettings)">
 										Edit
 									</button>
 									<button 
-										class="icon-delete-darkGray icon-btn" 
+										class="icon-delete-white icon-btn" 
 										ng-click="deleteRow($index, mainPosts)">
 										Delete
 									</button>
@@ -187,12 +187,12 @@
 
 								<span>{{ post.description }}</span>
 								<button 
-									class="icon-edit-darkGray icon-btn" 
+									class="icon-edit-white icon-btn" 
 									ng-click="editRow($index, belowFormPosts, belowFormSettings)">
 									Edit
 								</button>
 								<button 
-									class="icon-delete-darkGray icon-btn" 
+									class="icon-delete-white icon-btn" 
 									ng-click="deleteRow($index, belowFormPosts)">
 									Delete
 								</button>

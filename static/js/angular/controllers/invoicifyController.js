@@ -20,6 +20,8 @@ angular.module('invoicify')
 	$http.get('/static/js/angular/data/leftform.json').success(function (data) {
 		$scope.leftFormPosts = data.posts;
 		$scope.leftFormSettings = data.settings;
+
+		
 	});
 
 	$http.get('/static/js/angular/data/rightform.json').success(function (data) {
@@ -57,7 +59,6 @@ angular.module('invoicify')
 	$scope.saveRow = function (i, posts, settings) {
 		posts.push($scope.newPost);
 		settings.isAddingRow = false;
-
 		$scope.resetValues();
 	}
 
