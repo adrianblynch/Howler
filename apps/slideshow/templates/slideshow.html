@@ -1,3 +1,8 @@
 {% for image in slideshow.picture_set.all %}
+
     <img src="{{ image.image.url }}" alt="{{ image.description }}" />
+    <div class="slideshow-description">
+    	<span>{{ image.description }}</span>
+    </div>
+
 {% endfor %}

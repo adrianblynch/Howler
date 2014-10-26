@@ -1,7 +1,8 @@
 .slideshow-wrapper {
-	height:205px;
+	height:245px;
 	overflow: hidden;
 	position: relative;
+	
 
 	.arrow-back,
 	.arrow-forward {
@@ -89,7 +90,9 @@
 	width:100%;
 	overflow-y: hidden;
 	overflow-x: scroll;
+	position: relative;
 
+	
 	img {
 		width:25%;
 		float: left;
@@ -98,7 +101,25 @@
 			margin-left:0;
 		}
 	}
+	&-description {
+		display: table;
+		width: 80%;
+		height: 100%;
+		top: 0;
+		position: absolute;
+		z-index: 1000;
+		margin: 0;
+		margin-left:10%;
+		span {
+			text-align: center;
+			color: white;
+			width: 100%;
+			font-weight: bold;
+			display: table-cell;
+			vertical-align: middle;
+		}
 
+	}
 	
 }
 .slideshow-holder {
@@ -119,10 +140,10 @@
 /*  Phone Landscape */
 @media (min-width: 480px) {
 	.slideshow-wrapper {
-		height:245px;
+		height:345px;
 	}
 	.slideshow {
-		height:260px;
+		height:360px;
 	}
 
 }
@@ -131,12 +152,12 @@
 @media (min-width: 569px) {
 
 	.slideshow-wrapper {
-		height:315px;
+		height:395px;
 
 		
 	}
 	.slideshow {
-		height:330px;
+		height:410px;
 	}
 }
 
@@ -144,11 +165,11 @@
 @media (min-width: 769px) {
 
 	.slideshow-wrapper {
-		height:345px;
+		height:545px;
 
 	}
 	.slideshow {
-		height:360px;
+		height:560px;
 	}
 }
 
@@ -156,7 +177,7 @@
 @media (min-width: 1025px) {
 
 	.slideshow-wrapper {
-		height:465px;
+		height:665px;
 		.arrow-back {
 			left:10%;
 			&:focus,
@@ -190,7 +211,7 @@
 		}
 	}
 	.slideshow {
-		height:480px;
+		height:680px;
 	}
 
 }

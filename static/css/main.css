@@ -243,11 +243,15 @@ body {
 h1, h2 {
   font-size: 30px;
   font-size: 3rem;
-  line-height: 1.7;
+  line-height: 1.4;
   margin: 10px 0;
   font-weight: 300;
   letter-spacing: -1px;
-  font-size: 40px;
+}
+
+.slideshow-description {
+  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 h2 a {
@@ -517,7 +521,6 @@ input[type="text"] {
   display: block;
 }
 .logo span {
-  margin-top: 3px;
   display: inline-block;
 }
 .logo span a {
@@ -632,10 +635,12 @@ input[type="text"] {
 }
 /*  Small tablets Portrait */
 @media (min-width: 569px) {
-  h1, h2 {
+  h1, h2,
+  .slideshow-description {
     margin-top: 20px;
     font-size: 40px;
     font-size: 4rem;
+    line-height: 1.7;
   }
 
   h2 a {
@@ -808,7 +813,7 @@ input[type="text"] {
 }
 /*  XL Desktop  */
 .slideshow-wrapper {
-  height: 205px;
+  height: 245px;
   overflow: hidden;
   position: relative;
 }
@@ -889,6 +894,7 @@ input[type="text"] {
   width: 100%;
   overflow-y: hidden;
   overflow-x: scroll;
+  position: relative;
 }
 .slideshow img {
   width: 25%;
@@ -896,6 +902,24 @@ input[type="text"] {
 }
 .slideshow img:first-child {
   margin-left: 0;
+}
+.slideshow-description {
+  display: table;
+  width: 80%;
+  height: 100%;
+  top: 0;
+  position: absolute;
+  z-index: 1000;
+  margin: 0;
+  margin-left: 10%;
+}
+.slideshow-description span {
+  text-align: center;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .slideshow-holder {
@@ -909,26 +933,6 @@ input[type="text"] {
 /*  Phone Landscape */
 @media (min-width: 480px) {
   .slideshow-wrapper {
-    height: 245px;
-  }
-
-  .slideshow {
-    height: 260px;
-  }
-}
-/*  Small tablets Portrait */
-@media (min-width: 569px) {
-  .slideshow-wrapper {
-    height: 315px;
-  }
-
-  .slideshow {
-    height: 330px;
-  }
-}
-/*  Small Desktop / tablets Landscape  */
-@media (min-width: 769px) {
-  .slideshow-wrapper {
     height: 345px;
   }
 
@@ -936,10 +940,30 @@ input[type="text"] {
     height: 360px;
   }
 }
+/*  Small tablets Portrait */
+@media (min-width: 569px) {
+  .slideshow-wrapper {
+    height: 395px;
+  }
+
+  .slideshow {
+    height: 410px;
+  }
+}
+/*  Small Desktop / tablets Landscape  */
+@media (min-width: 769px) {
+  .slideshow-wrapper {
+    height: 545px;
+  }
+
+  .slideshow {
+    height: 560px;
+  }
+}
 /*  Large Desktop */
 @media (min-width: 1025px) {
   .slideshow-wrapper {
-    height: 465px;
+    height: 665px;
   }
   .slideshow-wrapper .arrow-back {
     left: 10%;
@@ -969,7 +993,7 @@ input[type="text"] {
   }
 
   .slideshow {
-    height: 480px;
+    height: 680px;
   }
 }
 /*  XL Desktop  */
