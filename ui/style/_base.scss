@@ -88,16 +88,76 @@ button,
 	color: #555;
 	-webkit-transition: background .2s; /* For Safari 3.1 to 6.0 */
     transition: background .2s;
-    background: white;
+    background-color: white;
 
 	&:hover {
 		background-color:#eee;
 	}
-	&:focus,
 	&:active {
 		background-color:#ddd;
 	}
 }
+
+.btn-save,
+.btn-edit,
+.btn-add,
+.btn-print {
+	padding: 5px 40px 5px 15px;
+	color:white;
+	background-position: right 10px center;
+	font-size: 16px;
+	font-size: 1.6rem;
+}
+
+input.btn,
+input.btn-edit,
+input.btn-add,
+input.btn-print  {
+	padding: 7px 40px 8px 15px;
+}
+
+.btn-large {
+	padding: 8px 47px 8px 20px;
+	font-size: 22px;
+	font-size: 2.2rem;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+
+}
+
+.btn-save {
+	background-color:#449d44;
+	border: 1px solid #298829;
+	&:hover {
+		background-color: #298829;
+	}
+}
+
+.btn-edit {
+	background-color: #428bca;
+	border: 1px solid #3278b4;
+	&:hover{
+		background-color: #3278b4;
+	}
+}
+.btn-add {
+	background-color: #e0ab0b;
+	border: 1px solid #c39508;
+	&:hover {
+		background-color: #c39508;
+	}
+}
+.btn-print {
+	background-color: #d9534f;
+	border: 1px solid #c03a36;
+	&:hover {
+		background-color: #c03a36;
+	}
+}
+
+
+
 
 .icon-btn {
 	text-indent: -999px;
@@ -122,6 +182,9 @@ button,
 }
 .icon-btn.icon-check-white {
 	background-color:#a7d692;
+	&:hover {
+
+	}
 }
 .icon-btn.icon-delete-white {
 	background-color: #df7070;

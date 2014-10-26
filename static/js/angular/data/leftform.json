@@ -1,26 +1,25 @@
 {
     "settings" : {
         "form" : "leftform",
-        "isAddingRow" : false,
-        "newPost" : {}
+        "inEditMode" : false
     },
 
     "posts" : [
         {
-            "description" :  "<b>Invoice no:</b> 1",
-            "active" : false
+            "id" : 0,
+            "description" :  "Invoice no: 1"
         },
         {
-            "description" :  "Date: 2014-09-10",
-            "active" : false
+            "id" : 0,
+            "description" :  "Date of issue: 2014-09-10"
         },
         {
-            "description" :  "Expiry date: 2014-09-10",
-            "active" : false
+            "id" : 1,
+            "description" :  "Expiry date: 2014-10-10"        
         },
         {
-            "description" :  "Reference: Sture Bjarnelind",
-            "active" : false
+            "id" : 2,
+            "description" :  "Reference: Harry Pottersson"        
         }
     ]
 }

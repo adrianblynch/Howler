@@ -314,16 +314,74 @@ button,
   -webkit-transition: background .2s;
   /* For Safari 3.1 to 6.0 */
   transition: background .2s;
-  background: white;
+  background-color: white;
 }
 button:hover,
 .btn:hover {
   background-color: #eee;
 }
-button:focus, button:active,
-.btn:focus,
+button:active,
 .btn:active {
   background-color: #ddd;
+}
+
+.btn-save,
+.btn-edit,
+.btn-add,
+.btn-print {
+  padding: 5px 40px 5px 15px;
+  color: white;
+  background-position: right 10px center;
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+input.btn,
+input.btn-edit,
+input.btn-add,
+input.btn-print {
+  padding: 7px 40px 8px 15px;
+}
+
+.btn-large {
+  padding: 8px 47px 8px 20px;
+  font-size: 22px;
+  font-size: 2.2rem;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+}
+
+.btn-save {
+  background-color: #449d44;
+  border: 1px solid #298829;
+}
+.btn-save:hover {
+  background-color: #298829;
+}
+
+.btn-edit {
+  background-color: #428bca;
+  border: 1px solid #3278b4;
+}
+.btn-edit:hover {
+  background-color: #3278b4;
+}
+
+.btn-add {
+  background-color: #e0ab0b;
+  border: 1px solid #c39508;
+}
+.btn-add:hover {
+  background-color: #c39508;
+}
+
+.btn-print {
+  background-color: #d9534f;
+  border: 1px solid #c03a36;
+}
+.btn-print:hover {
+  background-color: #c03a36;
 }
 
 .icon-btn {
@@ -1085,14 +1143,9 @@ input[type="text"] {
   min-height: 1200px;
   overflow: hidden;
 }
-.invoicify h2 {
-  margin-bottom: 40px;
-}
 .invoicify p,
 .invoicify h3,
 .invoicify input[type="text"],
-.invoicify button,
-.invoicify input[type="submit"],
 .invoicify label,
 .invoicify span,
 .invoicify dt,
@@ -1101,18 +1154,24 @@ input[type="text"] {
   font-size: 16px;
   font-size: 1.6rem;
 }
+.invoicify input[type="text"] {
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.invoicify input[type="text"].ng-invalid {
+  border: 1px solid #d9534f;
+  background: #fadfdf;
+}
 .invoicify ul {
   padding: 0;
+  margin: 0 0 15px 0;
 }
 .invoicify li {
   list-style: none;
 }
 .invoicify dl {
   line-height: 1.8;
-}
-.invoicify dt {
-  margin-right: 5px;
-  float: left;
+  margin: 0;
 }
 .invoicify dd {
   -webkit-margin-start: 0;
@@ -1124,93 +1183,88 @@ input[type="text"] {
 .invoicify p {
   margin-bottom: 0;
 }
-.invoicify button,
-.invoicify input[type="submit"] {
-  padding: 5px;
+.invoicify .company-name {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+.invoicify .company-name h2 {
+  margin: 0;
+}
+.invoicify .company-name input {
+  margin-top: 40px;
+  width: 50%;
+}
+.invoicify .btn-large {
+  float: right;
+  margin-left: 10px;
+  background-image: none;
+  padding-right: 20px;
 }
 .invoicify .leftform {
   float: left;
-  width: 290px;
+  width: 28%;
   margin-bottom: 50px;
 }
 .invoicify .rightform {
   float: right;
-  width: 290px;
+  width: 28%;
   margin-bottom: 50px;
 }
-.invoicify .belowform li,
-.invoicify .leftform li,
-.invoicify .rightform li {
-  position: relative;
-  margin-bottom: 5px;
-}
-.invoicify .belowform .icon-check-white,
-.invoicify .leftform .icon-check-white,
-.invoicify .rightform .icon-check-white {
-  position: absolute;
-  right: 39px;
-  top: 4px;
-  display: none;
-}
-.invoicify .belowform .icon-edit-white,
-.invoicify .belowform .icon-delete-white,
-.invoicify .leftform .icon-edit-white,
-.invoicify .leftform .icon-delete-white,
-.invoicify .rightform .icon-edit-white,
-.invoicify .rightform .icon-delete-white {
-  position: absolute;
-  right: 7px;
-  z-index: 10;
-  top: 4px;
+.invoicify .belowform {
+  width: 50%;
+  border: 1px solid #cfcfcf;
+  padding: 15px;
+  background: #eeeeee;
+  margin-bottom: 50px;
 }
 .invoicify .invoice-table {
+  background: #eeeeee;
+  border: 1px solid #cfcfcf;
+  clear: both;
   margin-bottom: 50px;
 }
-.invoicify .icon-plus-darkGray {
-  display: none;
+.invoicify .invoice-table input[type="text"] {
+  margin-top: 10px;
 }
-.invoicify-post-holder {
+.invoicify-post {
   overflow: hidden;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #cfcfcf;
 }
-.invoicify-post-holder .description,
-.invoicify-post-holder .amount,
-.invoicify-post-holder .price,
-.invoicify-post-holder .buttons,
-.invoicify-post-holder .total, .invoicify-addpost .description,
-.invoicify-addpost .amount,
-.invoicify-addpost .price,
-.invoicify-addpost .buttons,
-.invoicify-addpost .total {
-  padding: 15px 0;
+.invoicify-post:nth-of-type(odd) {
+  background: white;
+}
+.invoicify-header .description,
+.invoicify-header .amount,
+.invoicify-header .price,
+.invoicify-header .buttons,
+.invoicify-header .total, .invoicify-post .description,
+.invoicify-post .amount,
+.invoicify-post .price,
+.invoicify-post .buttons,
+.invoicify-post .total, .invoicify-edit-fields .description,
+.invoicify-edit-fields .amount,
+.invoicify-edit-fields .price,
+.invoicify-edit-fields .buttons,
+.invoicify-edit-fields .total {
+  padding: 2%;
   box-sizing: border-box;
-  margin-right: 2%;
   float: left;
-}
-.invoicify .buttons {
-  position: relative;
-}
-.invoicify .buttons .icon-edit-white {
-  position: absolute;
-  right: 32px;
-}
-.invoicify .buttons .icon-delete-white {
-  position: absolute;
-  right: 0;
 }
 .invoicify-addpost {
   margin-top: 10px;
 }
-.invoicify input[type="text"] {
-  box-sizing: border-box;
-}
 .invoicify .description {
-  width: 52%;
+  width: 62%;
+  margin-left: 2%;
+  padding-left: 0;
+}
+.invoicify input.description {
+  text-indent: 10px;
 }
 .invoicify .amount,
 .invoicify .price,
 .invoicify .total {
-  width: 8%;
+  width: 12%;
   text-align: center;
 }
 .invoicify .amount input,
@@ -1218,21 +1272,93 @@ input[type="text"] {
 .invoicify .total input {
   text-align: center;
 }
-.invoicify .buttons {
-  width: 100px;
-  margin-right: 0;
-  float: right;
-}
 .invoicify-header {
   width: 100%;
   overflow: hidden;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #cfcfcf;
 }
 .invoicify-header h3 {
   font-weight: bold;
   letter-spacing: 0;
-  margin-right: 2%;
   float: left;
+  margin-bottom: 0;
+}
+.invoicify-total-holder {
+  padding: 2%;
+  box-sizing: border-box;
+  overflow: hidden;
+  clear: both;
+  position: relative;
+}
+.invoicify-total-list {
+  text-align: right;
+  width: 28%;
+  float: right;
+}
+.invoicify-total-list dt {
+  float: left;
+  width: 50%;
+}
+.invoicify-total-list dd {
+  float: right;
+  width: 40%;
+}
+.invoicify .taxrate input[type="text"] {
+  float: right;
+  margin: 0 !important;
+  width: 57px;
+  text-align: right;
+}
+.invoicify .topay {
+  font-size: 22px;
+  font-size: 2.2rem;
+}
+.invoicify .buttons {
+  float: left;
+  position: absolute;
+  bottom: 15px;
+}
+
+@media print {
+  .main--nav,
+  .main--header {
+    display: none;
+  }
+
+  .main {
+    padding: 0 4%;
+  }
+
+  .invoicify li, .invoicify a, .invoicify p, .invoicify h3, .invoicify dt, .invoicify dd, .invoicify span {
+    font-size: 14px !important;
+  }
+  .invoicify .btn {
+    display: none;
+  }
+  .invoicify-header .description,
+  .invoicify-header .amount,
+  .invoicify-header .price,
+  .invoicify-header .buttons,
+  .invoicify-header .total, .invoicify-post .description,
+  .invoicify-post .amount,
+  .invoicify-post .price,
+  .invoicify-post .buttons,
+  .invoicify-post .total, .invoicify-edit-fields .description,
+  .invoicify-edit-fields .amount,
+  .invoicify-edit-fields .price,
+  .invoicify-edit-fields .buttons,
+  .invoicify-edit-fields .total {
+    padding: 1% 2%;
+  }
+  .invoicify .belowform {
+    margin-bottom: 0;
+  }
+
+  .invoicify-post:nth-of-type(odd),
+  .invoicify-post:nth-of-type(even) {
+    background: inherit;
+    overflow: auto;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

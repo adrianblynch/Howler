@@ -1,26 +1,26 @@
 {
     "settings" : {
         "form" : "belowform",
-        "isAddingRow" : false,
+        "inEditMode" : false,
         "newPost" : {}
     },
 
     "posts" : [
         {
-            "description" :  "Charlotte Holmen",
-            "active" : false
+            "id": 0,
+            "description" :  "Payment details:"
         },
         {
-            "description" :  "Org-nr: 8506098-907",
-            "active" : false
+            "id": 1,
+            "description" :  "Charlotte Holmen, Bondegatan 45, 116 33 Stockholm, Sweden"
         },
         {
-            "description" :  "Innehavare av FA-skattebevis",
-            "active" : false
+            "id": 6,
+            "description" :  "Account: SEB 5231 00 819 49"
         },
         {
-            "description" :  "Betalas till konto: SEB 5231 00 819 49",
-            "active" : false
+            "id": 5,
+            "description" :  "Organisation number: 8506098-8907"
         }
     ]
 }

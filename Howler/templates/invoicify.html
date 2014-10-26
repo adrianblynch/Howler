@@ -6,6 +6,21 @@
 
 {% block base_content %}
 
+	
+
+	<div class="slideshow-wrapper">
+		<div class="main--header-slideshow slideshow">
+			<a href="#" class="arrow-back">Scroll images left</a>
+			<a href="#" class="arrow-forward">Scroll images right</a>
+			<div class="slideshow-holder">
+
+			{% placeholder slideshow %}
+			</div>
+		</div>
+	</div>
+
+	</header>
+
 	{% load verbatim %}
 	{% verbatim %}
 
@@ -13,83 +28,93 @@
 		<main class="main" role="main">
 			<section class="invoicify">
 				<article>
-					<h2>Invoice no: 1</h2>
+					<form class="company-name" ng-submit="mainSettings.editingName = false">
+						<h2 ng-hide="mainSettings.editingName"
+							ng-click="mainSettings.editingName = true">
+							{{ mainSettings.companyName }}
+						</h2>
+						<input type="text"
 
-					<ul class="leftform">
-						<li ng-repeat="post in leftFormPosts">
-							<div ng-hide="post.active"
-								ng-click="editRow($index, leftFormPosts, leftFormSettings)">
-								<span ng-bind-html="{{ post.description }}"> </span>
-								<button 
-									class="icon-edit-white icon-btn" 
-									ng-click="editRow($index, leftFormPosts, leftFormSettings)">
-									Edit
-								</button>
-							</div>
+							ng-show="mainSettings.editingName"
+							ng-model="mainSettings.companyName"
+							value="{{ mainSettings.companyName }}" />
+					</form>
+					
 
-							<form ng-show="post.active" ng-submit="updateRow($index, leftFormPosts, leftFormSettings)">
-								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="icon-btn icon-check-white" value="Update">
-								<button 
-									class="icon-delete-white icon-btn" 
-									ng-click="deleteRow($index, leftFormPosts)">
-									Delete
-								</button>
-							</form>
-						</li>
-						<li>
+					<div class="leftform" >
+						<div class="leftform-output"
+							ng-hide="leftFormSettings.inEditMode">
+							<ul ng-click="leftFormSettings.inEditMode = true">
+								<li ng-repeat="post in leftFormPosts">
+									{{ post.description }}
+								</li>
+							</ul>
 							<button 
-								class="icon-plus-darkGray icon-btn"
-								ng-click="addRow(leftFormSettings)"
-								ng-hide="leftFormSettings.isAddingRow">
-								Add row
+								type="button" 
+								ng-click="leftFormSettings.inEditMode = true" 
+								class="btn btn-edit">
+								Edit
 							</button>
-							<form 
-								ng-show="leftFormSettings.isAddingRow"
-								ng-submit="saveRow($index, leftFormPosts, leftFormSettings)">
-								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="icon-btn icon-check-white" value="Save">
-							</form>
-						</li>
-					</ul>
+						</div>
 
-					<ul class="rightform">
-						<li ng-repeat="post in rightFormPosts">
-							<div ng-hide="post.active"
-								ng-click="editRow($index, rightFormPosts, rightFormSettings)">
-								<span>{{ post.description }}</span>
-								<button 
-									class="icon-edit-white icon-btn" 
-									ng-click="editRow($index, rightFormPosts, rightFormSettings)">
-									Edit
-								</button>
-							</div>
 
-							<form ng-show="post.active" ng-submit="updateRow($index, rightFormPosts, rightFormSettings)">
-								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="icon-btn icon-check-white" value="Update">
+						<div class="leftform-edit-fields"
+							ng-show="leftFormSettings.inEditMode">
+							<form ng-submit="saveForm(leftFormPosts, leftFormSettings)">
+								<input 
+									type="text" 
+									ng-repeat="post in leftFormPosts"
+									value="{{ post.description }}"
+									ng-model="post.description" />
 								<button 
-									class="icon-delete-white icon-btn" 
-									ng-click="deleteRow($index, rightFormPosts)">
-									Delete
+									type="button"
+									ng-click="addRow(leftFormPosts, leftFormSettings)" 
+									class="btn btn-add">
+									Add
 								</button>
+								<input type="submit" value="Save" class="btn btn-save" />
 							</form>
-						</li>
-						<li>
+							
+						</div>
+
+					</div>
+
+					<div class="rightform">
+						<div class="rightform-output"
+							ng-hide="rightFormSettings.inEditMode">
+							<ul ng-click="rightFormSettings.inEditMode = true">
+								<li ng-repeat="post in rightFormPosts">
+									{{ post.description }}
+								</li>
+							</ul>
 							<button 
-								class="icon-plus-darkGray icon-btn"
-								ng-click="addRow(rightFormSettings)"
-								ng-hide="rightFormSettings.isAddingRow">
-								Add row
+								type="button"
+								ng-click="rightFormSettings.inEditMode = true" 
+								class="btn btn-edit">
+								Edit
 							</button>
-							<form 
-								ng-show="rightFormSettings.isAddingRow"
-								ng-submit="saveRow($index, rightFormPosts, rightFormSettings)">
-								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="icon-btn icon-check-white" value="Save">
+						</div>
+
+						<div class="rightform-edit-fields" 
+							ng-show="rightFormSettings.inEditMode">
+							<form ng-submit="saveForm(rightFormPosts, rightFormSettings)">
+								<input 
+									type="text" 
+									ng-repeat="post in rightFormPosts"
+									value="{{ post.description }}"
+									ng-model="post.description" />
+
+								<button 
+									type="button"
+									ng-click="addRow(rightFormPosts, rightFormSettings)" 
+									class="btn btn-add">
+									Add
+								</button>
+								<input type="submit" value="Save" class="btn btn-save" />
 							</form>
-						</li>
-					</ul>
+							
+						</div>
+					</div>
 					
 					<div class="invoice-table">
 						<header class="invoicify-header">
@@ -99,125 +124,125 @@
 							<h3 class="total">Total</h3>
 						</header>
 
-						<div class="invoicify-post-holder" ng-repeat="post in mainPosts">
-							<div class="invoicify-post" 
-								ng-hide="post.active" 
-								ng-click="editRow($index, mainPosts, mainSettings)">
+						<form name="mainform" novalidate ng-submit="mainform.$valid && saveForm(mainPosts, mainSettings)">
+							<div class="invoicify-posts">
+								<div class="invoicify-post" 
+									ng-repeat="post in mainPosts"
+									ng-hide="mainSettings.inEditMode"
+									ng-click="mainSettings.inEditMode = true">
+										<div class="description"><p>{{ post.description }}</p></div>
+										<div class="amount"><p>{{ post.amount }}</p></div>
+										<div class="price"><p>{{ post.price }}</p></div>
+										<div class="total"><p>{{ post.total }}</p></div>
+								</div>
+							</div>
+						
+							<div class="invoicify-edit-fields" 
+								ng-show="mainSettings.inEditMode">
+								<div class="product"
+									ng-repeat="post in mainPosts">
+									<input 
+										class="description" 
+										type="text" 
+										ng-model="post.description" 
+										value="{{ post.description }}" />
+									<input 
+										class="amount" 
+										type="text" 
+										ng-model="post.amount" 
+										ng-pattern="onlyNumbers"
+										value="{{ post.amount }}" />
+									<input 
+										class="price" 
+										type="text"
+										ng-pattern="onlyNumbers"
+										value="{{ post.price }}"
+										ng-model="post.price"  />
 
-								<div class="description"><p>{{ post.description }}</p></div>
-								<div class="amount"><p>{{ post.amount }}</p></div>
-								<div class="price"><p>{{ post.price }}</p></div>
-								<div class="total"><p>{{ post.total }}</p></div>
-								<div class="buttons">
-									<button 
-										class="icon-edit-white icon-btn" 
-										ng-click="editRow($index, mainPosts, mainSettings)">
-										Edit
-									</button>
-									<button 
-										class="icon-delete-white icon-btn" 
-										ng-click="deleteRow($index, mainPosts)">
-										Delete
-									</button>
+									<div class="total"><p>{{ post.total }}</p></div>
 								</div>
 							</div>
 
-							<form class="invoicify-edit" 
-								ng-submit="updateRow($index, mainPosts, mainSettings, newPost)" 
-								ng-show="post.active">
-
-								<div class="description">
-									<input type="text" ng-model="newPost.description" />
-								</div>
-								<div class="amount">
-									<input type="text" ng-model="newPost.amount" />
-								</div>
-								<div class="price">
-									<input type="text" ng-model="newPost.price" />
-								</div>	
-								<div class="total">
-									<p>{{ post.total }}</p>
-								</div>							
+							<div class="invoicify-total-holder">
+								<dl class="invoicify-total-list">
+									<dt>Summa:</dt>
+									<dd>{{ mainSettings.total }}:-</dd>
+									<dt>Tax rate %:</dt>
+									<dd class="taxrate">
+										<span ng-hide="mainSettings.inEditMode">{{ mainSettings.taxrate }}%</span>
+										<span ng-show="mainSettings.inEditMode"><input type="text" ng-model="mainSettings.taxrate" ng-pattern="onlyNumbers" value="{{ mainSettings.taxrate }}"/></span>
+									</dd>
+									<dt>Tax:</dt>
+									<dd>{{ mainSettings.tax }}:-</dd>
+									<dt class="topay">To pay:</dt>
+									<dd class="topay">{{ mainSettings.topay }}:-</dd>
+								</dl>
 								<div class="buttons">
-									<input class="icon-btn icon-check-white" type="submit" value="Update" />
-								</div>
-
-							</form>
-
-						</div>
-
-						<div class="invoicify-addpost">
-
-							<button 
-								class="icon-plus-darkGray icon-btn"
-								ng-click="addRow(mainSettings)" 
-								ng-hide="mainSettings.isAddingRow">
-								Add task
-							</button>
-
-							<form 
-								ng-submit="saveRow($index, mainPosts, mainSettings, newPost)" 
-								ng-show="mainSettings.isAddingRow">
-
-								<div class="description">
-									<input type="text" ng-model="newPost.description" />
-								</div>
-								<div class="amount">
-									<input type="text" ng-model="newPost.amount" />
-								</div>
-								<div class="price">
-									<input type="text" ng-model="newPost.price" />
-								</div>		
-								<div class="total">
+									<button 
+										type="button"
+										class="btn btn-edit"
+										ng-click="mainSettings.inEditMode = true"
+										ng-hide="mainSettings.inEditMode">
+										Edit
+									</button>
 									
-								</div>						
-								<div class="buttons">
-									<input class="icon-btn icon-check-white" type="submit" value="Save" />
-								</div>
+									<button 
+										type="button"
+										class="btn btn-add"
+										ng-click="addRow(mainPosts, mainSettings)"
+										ng-show="mainSettings.inEditMode">
+										Add
+									</button>
 
-							</form>
-						</div>
+									 <input 
+										type="submit" 
+										value="Save"
+										ng-show="mainSettings.inEditMode"
+										class="btn btn-save"
+										 />
+								</div>
+							</div>
+
+
+
+						</form>
+						
 					</div>
 
 
-					<ul class="belowform">
-						<li ng-repeat="post in belowFormPosts">
-							<div ng-hide="post.active" 
-								ng-click="editRow($index, belowFormPosts, belowFormSettings)">
+					<div class="belowform">
+						<div class="belowform-output" ng-hide="belowFormSettings.inEditMode">
+							<ul ng-click="belowFormSettings.inEditMode = true">
+								<li ng-repeat="post in belowFormPosts">
+									{{ post.description }}
+								</li>
 
-								<span>{{ post.description }}</span>
-								<button 
-									class="icon-edit-white icon-btn" 
-									ng-click="editRow($index, belowFormPosts, belowFormSettings)">
-									Edit
-								</button>
-								<button 
-									class="icon-delete-white icon-btn" 
-									ng-click="deleteRow($index, belowFormPosts)">
-									Delete
-								</button>
-							</div>
+							</ul>
+							<button ng-click="belowFormSettings.inEditMode = true" class="btn btn-edit">Edit</button>
+						</div>
 
-							<form ng-show="post.active" ng-submit="updateRow($index, belowFormPosts, belowFormSettings)">
-								<input type="text" ng-model="newPost.description" />
-								<input type="submit" class="icon-btn icon-check-white" value="Update">
+						<div class="belowform-edit-fields" ng-show="belowFormSettings.inEditMode">
+							<form ng-submit="saveForm(belowFormPosts, belowFormSettings)">
+								<input 
+									type="text" 
+									ng-repeat="post in belowFormPosts"
+									value="{{ post.description }}"
+									ng-model="post.description"  />
+
+								<button
+									type="button"
+									ng-click="addRow(belowFormPosts, belowFormSettings)" 
+									class="btn btn-add">
+									Add
+								</button>
+								<input type="submit" value="Save" class="btn btn-save" />
 							</form>
-						</li>
-						<li>
-							<button 
-								class="icon-plus-darkGray icon-btn"
-								ng-click="addRow(belowFormSettings)"
-								ng-hide="belowFormSettings.isAddingRow">
-								Add row
-							</button>
-							<form 
-								ng-show="belowFormSettings.isAddingRow"
-								ng-submit="saveRow($index, belowFormPosts, belowFormSettings)">
-								<input type="text" ng-model="newPost.description" placeholder="add row">
-								<input type="submit" class="icon-btn icon-check-white" value="Save">
-							</form>
-						</li>
-					</ul>
+							
+						</div>
+					</div>
+
+					<!--<button type="button" class="btn btn-save btn-large">Save PDF</button>-->
+					<button type="button" class="btn btn-print btn-large" onClick="window.print();">Print</button>
 				</article>
 			</section>
 		</main>

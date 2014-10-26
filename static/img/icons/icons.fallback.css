@@ -4,6 +4,7 @@
 
 .icon-check-lightGray { background-image: url('png/check-lightGray.png'); background-repeat: no-repeat; }
 
+.btn-save,
 .icon-check-white { background-image: url('png/check-white.png'); background-repeat: no-repeat; }
 
 .icon-check { background-image: url('png/check.png'); background-repeat: no-repeat; }
@@ -24,6 +25,7 @@
 
 .icon-edit-lightGray { background-image: url('png/edit-lightGray.png'); background-repeat: no-repeat; }
 
+.btn-edit,
 .icon-edit-white { background-image: url('png/edit-white.png'); background-repeat: no-repeat; }
 
 .icon-edit { background-image: url('png/edit.png'); background-repeat: no-repeat; }
@@ -34,6 +36,7 @@
 
 .icon-plus-lightGray { background-image: url('png/plus-lightGray.png'); background-repeat: no-repeat; }
 
+.btn-add,
 .icon-plus-white { background-image: url('png/plus-white.png'); background-repeat: no-repeat; }
 
 .icon-plus { background-image: url('png/plus.png'); background-repeat: no-repeat; }

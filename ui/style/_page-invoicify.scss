@@ -3,15 +3,10 @@
 	min-height:1200px;
 	overflow: hidden;
 
-	h2 {
-		margin-bottom:40px;
-	}
 
 	p,
 	h3,
 	input[type="text"],
-	button,
-	input[type="submit"],
 	label,
 	span,
 	dt,
@@ -20,18 +15,28 @@
 		font-size: 16px;
 		font-size: 1.6rem;
 	}
+	input[type="text"]{
+		margin-bottom: 10px;
+		box-sizing: border-box;
+	}
+	input[type="text"].ng-invalid {
+		border: 1px solid #d9534f;
+		background: #fadfdf;
+	}
+	
+
 	ul {
 		padding: 0;
+		margin:0 0 15px 0;
 	}
 	li {
 		list-style: none;
 	}
 	dl {
 		line-height: 1.8;
+		margin:0;
 	}
 	dt {
-		margin-right:5px;
-		float:left;
 	}
 	dd {
 		-webkit-margin-start: 0;
@@ -44,106 +49,102 @@
 		margin-bottom:0;
 	}
 
-	button,
-	input[type="submit"] {
-		padding: 5px;
+	.company-name {
+		margin-bottom:40px;
+		margin-top:20px;
+		h2 {
+			margin:0;
+		}
+		input {
+			margin-top:40px;
+			width: 50%;
+		}
+	}
+
+	.btn-large {
+		float:right;
+		margin-left:10px;
+		background-image: none;
+		padding-right:20px;
 	}
 
 	.leftform {
-
 		float:left;
-		width:290px;
+		width:28%;
 		margin-bottom:50px;
-
 
 	}
 
 	.rightform {
 		float:right;
-		width:290px;
+		width:28%;
 		margin-bottom:50px;
 	}
 
-	.belowform,
-	.leftform,
-	.rightform {
-		li {
-			position: relative;
-			margin-bottom:5px;
-		}
-		.icon-check-white {
-			position: absolute;
-			right: 39px;
-			top:4px;
-			display: none;
-		}
-
-		.icon-edit-white,
-		.icon-delete-white {
-			position: absolute;
-			right: 7px;
-			z-index: 10;
-			top: 4px;
-		}
+	.belowform {
+		width: 50%;
+		border: 1px solid #cfcfcf;
+		padding:15px;
+		background: #eeeeee;
+		margin-bottom:50px;
 	}
+
+	
 
 	.invoice-table {
+		background: #eeeeee;
+		border: 1px solid #cfcfcf;
+		clear: both;
 		margin-bottom:50px;
+
+		input[type="text"] {
+			margin-top: 10px;
+		}
 	}
 
-	.icon-plus-darkGray {
-		display: none;
-	}
-
-
-	&-post-holder {
+	&-post {
 		overflow:hidden;
-		border-bottom: 1px solid #eee;
+		border-bottom: 1px solid #cfcfcf;
+		&:nth-of-type(odd) {
+			background: white;
+		}
 	}
 
-	&-post-holder,
-	&-addpost {
+	&-header,
+	&-post,
+	&-edit-fields {
 		.description,
 		.amount,
 		.price,
 		.buttons,
 		.total {
-			padding:15px 0;	
+			padding:2%;	
 			box-sizing:border-box;
-			margin-right:2%;
 			float:left;
 		}
 	}
 
-	.buttons {
-		position: relative;
-
-		.icon-edit-white {
-			position: absolute;
-			right:32px;
-		}
-		.icon-delete-white {
-			position: absolute;
-			right:0;
-		}
-	}
 
 	&-addpost {
 		margin-top:10px;
 	}
 
-	input[type="text"] {
-		box-sizing: border-box;
-	}	
 
 	.description {
-		width: 52%;		
+		width: 62%;
+		margin-left: 2%;
+		padding-left:0;	
+
+
+	}
+	input.description {
+		text-indent: 10px;
 	}
 
 	.amount,
 	.price,
 	.total {
-		width: 8%;
+		width: 12%;
 		text-align: center;
 
 		input {
@@ -151,22 +152,57 @@
 		}
 	}
 
-	.buttons {
-		width: 100px;
-		margin-right: 0;
-		float: right;
-	}
-
 	&-header {
 		width:100%;
 		overflow:hidden;
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #cfcfcf;
 
 		h3 {
 			font-weight: bold;
 			letter-spacing: 0;
-			margin-right:2%;
 			float:left;
+			margin-bottom:0;
 		}
+	}
+
+	&-total-holder {
+		padding: 2%;
+		box-sizing: border-box;
+		overflow: hidden;
+		clear: both;
+		position: relative;
+	}
+
+	&-total-list {
+		text-align: right;
+		width: 28%;
+		float: right;
+
+		dt {
+			float:left;
+			width: 50%;
+		}
+
+		dd {
+			float: right;
+			width: 40%;
+		}
+	}
+	.taxrate {
+		input[type="text"] {
+			float: right;
+			margin: 0 !important;
+			width: 57px;
+			text-align: right;
+		}
+	}
+	.topay {
+		font-size: 22px;
+		font-size: 2.2rem;
+	}
+	.buttons {
+		float: left;
+		position: absolute;
+		bottom: 15px;
 	}
 }

@@ -48,20 +48,26 @@ module.exports = function(grunt) {
     },
     grunticon: {
       myIcons: {
-          files: [{
-              expand: true,
-              cwd: 'img/icons',
-              src: ['*.svg', '*.png'],
-              dest: '<%= distPath %>img/icons/'
-          }],
-          options: {
-            colors: {
-                darkGray: "#aaaaaa",
-                lightGray: "#cccccc",
-                white: "#ffffff",
-                black: "#000000"
-            }
+        files: [{
+            expand: true,
+            cwd: 'img/icons',
+            src: ['*.svg', '*.png'],
+            dest: '<%= distPath %>img/icons/'
+        }],
+        options: {
+          
+          colors: {
+              darkGray: "#aaaaaa",
+              lightGray: "#cccccc",
+              white: "#ffffff",
+              black: "#000000"
+          },
+          customselectors: {
+              "check-white": [".btn-save"],
+              "plus-white": [".btn-add"],
+              "edit-white": [".btn-edit"]
           }
+        }
       }
     }
   });

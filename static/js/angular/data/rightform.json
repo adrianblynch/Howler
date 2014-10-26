@@ -1,26 +1,25 @@
 {
     "settings" : {
         "form" : "rightform",
-        "isAddingRow" : false,
-        "newPost" : {}
+        "inEditMode" : false
     },
 
     "posts" : [
         {
-            "description" :  "Client: Aftonbladet Hierta AB",
-            "active" : false
+            "id": 0,
+            "description" :  "Client: Aftonbladet Hierta AB"
         },
         {
-            "description" :  "c/o BGC",
-            "active" : false
+            "id": 1,
+            "description" :  "c/o BGC"
         },
         {
-            "description" :  "BGC-Id AFT 1020",
-            "active" : false
+            "id": 2,
+            "description" :  "BGC-Id AFT 1020"
         },
         {
-            "description" :  "106 42 Stockholm",
-            "active" : false
+            "id": 3,
+            "description" :  "106 42 Stockholm"
         }
     ]
 }

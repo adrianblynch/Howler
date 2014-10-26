@@ -1,0 +1,42 @@
+@media print { 
+
+	.main--nav ,
+	.main--header{
+		display: none;
+	}
+
+	.main {
+		padding:0 4%;
+	}
+
+	.invoicify {
+		li,a,p,h3,dt,dd, span{
+			font-size: 14px !important;
+		}
+		.btn {
+			display: none;
+		}
+		&-header,
+		&-post,
+		&-edit-fields {
+			.description,
+			.amount,
+			.price,
+			.buttons,
+			.total {
+				padding: 1% 2%;
+			}
+		}
+		.belowform {
+			margin-bottom:0;
+		}
+	}
+
+	.invoicify-post:nth-of-type(odd),
+	.invoicify-post:nth-of-type(even) {
+		background: inherit;
+		overflow: auto;
+	}
+	
+
+}
