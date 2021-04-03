@@ -38,7 +38,7 @@ djangocms-table==1.0.2
 djangocms-teaser==0.0.1
 djangocms-text-ckeditor==2.1.6
 easy-thumbnails==2.1
-gunicorn==18.0
+gunicorn==19.4.0
 html5lib==1.0b1
 lxml==3.3.5
 micawber==0.3.0
