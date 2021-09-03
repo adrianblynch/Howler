@@ -6,7 +6,7 @@
 # export CPPFLAGS=-Qunused-arguments
 
 Django==1.6.5
-Pillow==2.5.1
+Pillow==8.3.2
 South==0.8.4
 boto==2.32.1
 cmsplugin-filer==0.9.5
