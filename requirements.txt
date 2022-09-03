@@ -8,7 +8,7 @@
 Django==1.6.5
 Pillow==2.5.1
 South==0.8.4
-boto==2.32.1
+boto==2.39.0
 cmsplugin-filer==0.9.5
 cssselect==0.9.1
 dj-database-url==0.2.2
