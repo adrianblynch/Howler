@@ -5,17 +5,17 @@
 # export CFLAGS=-Qunused-arguments
 # export CPPFLAGS=-Qunused-arguments
 
-Django==1.6.5
+Django==3.2.15
 Pillow==2.5.1
 South==0.8.4
 boto==2.32.1
-cmsplugin-filer==0.9.5
+cmsplugin-filer==0.10.2
 cssselect==0.9.1
 dj-database-url==0.2.2
 dj-static==0.0.5
 django-appconf==0.6
 django-classy-tags==0.5
-django-cms==3.0.3
+django-cms==3.3.4
 django-filer==0.9.5
 django-mptt==0.6.0
 django-polymorphic==0.5.6
@@ -38,8 +38,8 @@ djangocms-table==1.0.2
 djangocms-teaser==0.0.1
 djangocms-text-ckeditor==2.1.6
 easy-thumbnails==2.1
-gunicorn==18.0
-html5lib==1.0b1
+gunicorn==19.10.0
+html5lib==1.0b9
 lxml==3.3.5
 micawber==0.3.0
 psycopg2==2.5.3
