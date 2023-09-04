@@ -5,7 +5,7 @@
 # export CFLAGS=-Qunused-arguments
 # export CPPFLAGS=-Qunused-arguments
 
-Django==1.6.5
+Django==3.2.21
 Pillow==2.5.1
 South==0.8.4
 boto==2.32.1
